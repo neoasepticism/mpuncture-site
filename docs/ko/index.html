@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M-puncture — 만성통증을 신경회로로 보는 관점</title>
+<meta name="description" content="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture 치료의 기록. 환자와 의사를 위한 공공정보 아카이브.">
+<meta name="author" content="June-sang Yang">
+<link rel="canonical" href="https://mpuncture.org/ko/">
+<link rel="alternate" hreflang="ko" href="https://mpuncture.org/ko/">
+<link rel="alternate" hreflang="en" href="https://mpuncture.org/">
+<link rel="alternate" hreflang="x-default" href="https://mpuncture.org/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="M-puncture — 만성통증을 신경회로로 보는 관점">
+<meta property="og:description" content="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture 치료의 기록. 환자와 의사를 위한 공공정보 아카이브.">
+<meta property="og:url" content="https://mpuncture.org/ko/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<style>
+  html{ -webkit-text-size-adjust:100%; }
+  img,svg{ max-width:100%; }
+</style>
+</head>
+<body>
+<title>M-puncture — 만성통증을 신경회로로 보는 관점</title>
+
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+
+    --serif: "AppleMyungjo","Nanum Myeongjo","NanumMyeongjo","Batang","바탕",
+             "Songti SC", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Pretendard","Apple SD Gothic Neo",
+            "Noto Sans KR","Malgun Gothic","맑은 고딕", system-ui, sans-serif;
+    --mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+
+    --wrap: 1180px;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.8;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:var(--wrap); margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+  .layout{ display:grid; grid-template-columns:1fr; }
+  @media (min-width:1040px){
+    .layout{ grid-template-columns:200px minmax(0,1fr); gap:clamp(2.5rem,5vw,4.5rem); align-items:start; }
+  }
+
+  /* nav */
+  .rail{ position:sticky; top:0; z-index:20; background:var(--paper); }
+  @media (min-width:1040px){ .rail{ top:2.5rem; padding-top:.5rem; } }
+  .rail-inner{
+    display:flex; gap:.15rem; overflow-x:auto; padding:.7rem 0;
+    border-bottom:1px solid var(--line); scrollbar-width:none;
+  }
+  .rail-inner::-webkit-scrollbar{ display:none; }
+  @media (min-width:1040px){
+    .rail-inner{ flex-direction:column; overflow:visible; border-bottom:0;
+                 border-left:1px solid var(--line); padding:.2rem 0; }
+  }
+  .rail a{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.05em;
+    color:var(--ink-3); text-decoration:none; white-space:nowrap;
+    padding:.42rem .7rem; border-radius:3px; transition:color .15s, background .15s;
+  }
+  @media (min-width:1040px){
+    .rail a{ border-left:2px solid transparent; margin-left:-1px; border-radius:0; padding:.34rem .8rem; }
+  }
+  .rail a:hover{ color:var(--ink); background:var(--surface-2); }
+  .rail a .num{ color:var(--line-2); margin-right:.55em; }
+  .railfoot{ display:flex; flex-direction:row; gap:.5rem; align-items:center; margin-top:.4rem; }
+  @media (min-width:1040px){ .railfoot{ flex-direction:column; align-items:flex-start; margin-left:.8rem; } }
+  .lang{ font-family:var(--mono); font-size:.68rem; letter-spacing:.05em;
+         color:var(--ink-3); text-decoration:none; border-bottom:1px solid var(--line-2); }
+  .lang:hover{ color:var(--ink); }
+  .theme-btn{
+    margin-top:0; background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em; padding:.4rem .7rem;
+    border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  /* hero */
+  header.hero{ padding:clamp(3.2rem,9vw,6.5rem) 0 clamp(2rem,4vw,3rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.6rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(2.05rem,5.6vw,3.5rem); line-height:1.28; letter-spacing:-.015em;
+    text-wrap:balance; margin:0 0 1.5rem; max-width:19ch;
+  }
+  .lede{ font-size:clamp(1.02rem,1.9vw,1.16rem); color:var(--ink-2); max-width:54ch; margin:0; }
+
+  .trace{ display:block; width:100%; height:52px; margin:clamp(2.2rem,5vw,3.4rem) 0 0; overflow:visible; }
+  .trace path{ fill:none; stroke:var(--line-2); stroke-width:1.2; }
+  .trace .live{ stroke:var(--accent); stroke-width:1.6; stroke-dasharray:120 1500; }
+  @media (prefers-reduced-motion: no-preference){
+    .trace .live{ animation:run 7s cubic-bezier(.4,0,.5,1) infinite; }
+  }
+  @keyframes run{ from{ stroke-dashoffset:1620; } to{ stroke-dashoffset:0; } }
+
+  /* sections */
+  section{ padding:clamp(2.6rem,6vw,4.4rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.05rem);
+    line-height:1.36; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.6rem; max-width:24ch;
+  }
+  h3{
+    font-family:var(--sans); font-weight:650; font-size:1.04rem; line-height:1.5;
+    margin:2.4rem 0 .7rem; letter-spacing:-.005em;
+  }
+  p{ margin:0 0 1.15rem; max-width:64ch; }
+  .body-col{ max-width:64ch; }
+  strong{ font-weight:650; }
+
+  /* quote */
+  .quote{
+    font-family:var(--serif); font-size:clamp(1.08rem,2.3vw,1.3rem); line-height:1.68;
+    color:var(--ink); border-left:2px solid var(--accent); padding:.2rem 0 .2rem 1.5rem;
+    margin:2rem 0; max-width:52ch;
+  }
+  .quote cite{
+    display:block; font-family:var(--mono); font-style:normal; font-size:.72rem;
+    letter-spacing:.06em; color:var(--ink-3); margin-top:1rem;
+  }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2); max-width:64ch;
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  /* misconception cards */
+  .myths{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+          border-radius:4px; overflow:hidden; margin:2rem 0; max-width:64ch; }
+  .myth{ background:var(--surface); padding:1.4rem 1.4rem; }
+  .myth .m{
+    font-family:var(--serif); font-size:1.12rem; line-height:1.5; color:var(--ink-3);
+    margin:0 0 .75rem; position:relative; padding-left:1.6rem;
+  }
+  .myth .m::before{
+    content:"“"; position:absolute; left:0; top:-.1em;
+    font-family:var(--serif); font-size:1.9rem; color:var(--line-2); line-height:1;
+  }
+  .myth .a{ margin:0; font-size:.97rem; }
+  .myth .a b{ color:var(--accent-ink); font-weight:650; }
+
+  /* checklist */
+  .check{ list-style:none; padding:0; margin:1.6rem 0; max-width:64ch;
+          display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .check li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.96rem; }
+  .check li::before{
+    content:""; position:absolute; left:1.2rem; top:1.42rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  /* habits */
+  .habits{ display:grid; gap:1.1rem; margin:2rem 0; max-width:64ch; }
+  @media (min-width:720px){ .habits{ grid-template-columns:1fr 1fr; } }
+  .habit{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.3rem 1.4rem; }
+  .habit h4{ font-family:var(--sans); font-size:.98rem; font-weight:650; margin:0 0 .5rem; }
+  .habit p{ margin:0; font-size:.92rem; color:var(--ink-2); }
+
+  /* steps */
+  ol.steps{ list-style:none; counter-reset:s; padding:0; margin:1.8rem 0; max-width:64ch; }
+  ol.steps li{
+    counter-increment:s; display:grid; grid-template-columns:2rem 1fr; gap:1rem;
+    padding:.85rem 0; border-bottom:1px solid var(--line); align-items:baseline;
+  }
+  ol.steps li::before{
+    content:counter(s,decimal-leading-zero);
+    font-family:var(--mono); font-size:.75rem; color:var(--accent);
+  }
+  ol.steps .txt{ font-size:.97rem; }
+
+  /* red flags */
+  .flags{ background:var(--warm-soft); border-radius:4px; padding:1.4rem 1.5rem; margin:2rem 0; max-width:64ch; }
+  .flags h4{ font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+             color:var(--warm); margin:0 0 .8rem; font-weight:400; }
+  .flags ul{ margin:0; padding-left:1.1rem; }
+  .flags li{ margin-bottom:.4rem; font-size:.95rem; }
+  .flags li:last-child{ margin-bottom:0; }
+
+  /* lineage */
+  .lineage{ margin:2rem 0; max-width:64ch; }
+  .lin{ display:grid; grid-template-columns:92px 1fr; gap:1.3rem; padding:1.05rem 0;
+        border-bottom:1px solid var(--line); align-items:baseline; }
+  .lin time{ font-family:var(--mono); font-size:.75rem; color:var(--ink-3); letter-spacing:.03em; }
+  .lin .who{ font-weight:650; }
+  .lin .what{ color:var(--ink-2); font-size:.94rem; display:block; margin-top:.2rem; }
+
+  /* practice */
+  .tabs{ display:flex; gap:.3rem; flex-wrap:wrap; margin:1.6rem 0 1.3rem; }
+  .tab{
+    font-family:var(--mono); font-size:.75rem; letter-spacing:.05em; cursor:pointer;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
+    padding:.44rem .95rem; border-radius:3px;
+  }
+  .tab[aria-selected="true"]{ background:var(--accent); border-color:var(--accent); color:var(--paper); }
+  .panel[hidden]{ display:none; }
+  .slot{ border:1px dashed var(--line-2); border-radius:4px; padding:1.05rem 1.25rem;
+         margin:0 0 .8rem; background:var(--surface); }
+  .slot h4{ font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+            color:var(--accent); margin:0 0 .5rem; font-weight:400; }
+  .slot p{ margin:0; font-size:.93rem; color:var(--ink-3); }
+  .slot p.filled{ color:var(--ink-2); }
+  .slot-grid{ display:grid; gap:.8rem; margin:1.2rem 0 0; }
+  @media (min-width:760px){ .slot-grid{ grid-template-columns:1fr 1fr; } }
+
+  /* archive */
+  ul.arch{ list-style:none; padding:0; margin:1.6rem 0; max-width:64ch; }
+  ul.arch li{ padding:.8rem 0; border-bottom:1px solid var(--line); display:grid;
+              grid-template-columns:1fr auto; gap:1rem; align-items:baseline; font-size:.95rem; }
+  ul.arch .meta{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); white-space:nowrap; }
+
+  /* editor */
+  .editor{ background:var(--surface); border:1px solid var(--line); border-radius:4px;
+           padding:clamp(1.4rem,3vw,2rem); max-width:64ch; margin:1.8rem 0; }
+  .editor .name{ font-family:var(--serif); font-size:1.25rem; margin:0 0 .1rem; }
+  .editor .role{ font-family:var(--mono); font-size:.72rem; letter-spacing:.08em;
+                 color:var(--ink-3); margin:0 0 1.1rem; }
+  .editor p{ font-size:.95rem; }
+  .editor p:last-child{ margin-bottom:0; }
+
+  footer{ border-top:1px solid var(--line); padding:2.6rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  footer p{ max-width:64ch; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.8rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+</style>
+
+<div class="shell">
+<div class="layout">
+
+  <nav class="rail" aria-label="목차">
+    <div class="rail-inner">
+      <a href="#why"><span class="num">01</span>왜 안 낫는가</a>
+      <a href="#myths"><span class="num">02</span>흔한 오해</a>
+      <a href="#check"><span class="num">03</span>자가 점검</a>
+      <a href="#what"><span class="num">04</span>M-puncture란</a>
+      <a href="#bacteria"><span class="num">05</span>세균과 통증</a>
+      <a href="#living"><span class="num">06</span>일상에서</a>
+      <a href="#lineage"><span class="num">07</span>계보</a>
+      <a href="#practice"><span class="num">08</span>시술 노트</a>
+      <a href="#about"><span class="num">09</span>이 기록에 대하여</a>
+      <div class="railfoot">
+        <a class="lang" href="/">English</a>
+        <button class="theme-btn" id="tt" type="button">테마 전환</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="hero">
+      <p class="eyebrow">Molecular Targeting by Needle-puncture</p>
+      <h1>검사에는 아무 이상이 없다는데, 왜 아픈가</h1>
+      <p class="lede">
+        오래된 통증을 조직의 손상이 아니라 <strong>신경회로의 문제</strong>로 보는 관점이 있습니다.
+        이 관점과, 그 위에 세워진 M-puncture 치료를 환자와 의사 모두가 읽을 수 있도록 정리한 기록입니다.
+      </p>
+
+      <svg class="trace" viewBox="0 0 1000 52" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
+        <path class="live" d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
+      </svg>
+    </header>
+
+    <!-- 01 -->
+    <section id="why">
+      <p class="sec-label"><span class="n">01</span> 먼저 알아야 할 것</p>
+      <h2>오래된 통증은 급한 통증과 다른 병이다</h2>
+
+      <div class="body-col">
+        <h3>처음의 통증은 알람이다</h3>
+        <p>
+          발목을 삐어서 아픈 것은 <strong>신호</strong>입니다.
+          다친 데가 있으니 조심하라고 몸이 보내는 알람이지요.
+          이럴 때는 다친 곳이 아물면 통증도 같이 사라집니다. 알람이 할 일을 다 했으니까요.
+        </p>
+
+        <h3>그런데 알람이 고장 나기도 한다</h3>
+        <p>
+          통증이 몇 달을 넘어가면 사정이 달라집니다.
+          통증을 전달하던 신경 자체가 예민하게 변해서,
+          처음에 다쳤던 곳과 상관없이 <strong>계속 아픔을 만들어내는 상태</strong>가 됩니다.
+        </p>
+        <p>
+          화재경보기에 비유하면 이렇습니다. 처음엔 불이 나야 울리던 경보기가,
+          너무 오래 시달리다 보니 이제는 누가 옆을 지나가기만 해도 울립니다.
+          이때 문제는 불이 아니라 <strong>경보기</strong>입니다.
+          불을 아무리 찾아도 없고, 찾을 필요도 없습니다. 고쳐야 할 것은 경보기입니다.
+        </p>
+
+        <h3>개가 늑대가 된다</h3>
+        <p>이영진 교수가 환자들에게 자주 쓰던 비유가 있습니다.</p>
+
+        <blockquote class="quote">
+          집을 지키는 개가 있는데, 주인이 이 개를 잘 돌보지도 않고 밥도 잘 안 주고,
+          도둑이 와서 짖어도 아무런 방책도 안 세우고, 이런 과정이 오래되면
+          개가 스트레스를 받아서 결국에는 사나워져서 늑대처럼 변하게 됩니다.
+          개가 늑대처럼 됐는데 왜 우리 개가 늑대처럼 되었을까, 원인을 찾는 것은 의미가 없죠?
+          일단 늑대로 변한 상태니까 늑대를 때려잡아야 합니다.
+          바로 그 늑대가 ‘만성통증’인 것입니다.
+          <cite>이영진 — 「원인 몰라 더 답답한 ‘무릎통증’」, 2013</cite>
+        </blockquote>
+
+        <p>
+          몸을 지키라고 있던 신경이, 오래 시달리면 몸을 괴롭히는 쪽으로 성질이 바뀝니다.
+          이렇게 되면 “처음에 왜 그랬을까”를 캐는 것보다,
+          <strong>지금 변해버린 그 상태를 되돌리는 것</strong>이 먼저입니다.
+        </p>
+
+        <h3>그래서 CT·MRI에는 잘 안 나온다</h3>
+        <p>
+          CT와 MRI는 <strong>생김새</strong>를 보는 장비입니다.
+          뼈가 어긋났는지, 디스크가 튀어나왔는지, 연골이 닳았는지를 봅니다.
+        </p>
+        <p>
+          그런데 신경이 예민해진 것은 생김새의 변화가 아니라 <strong>작동 방식의 변화</strong>입니다.
+          사진에 찍히지 않습니다.
+          컴퓨터가 느려졌는데 겉을 아무리 뜯어봐도 멀쩡해 보이는 것과 비슷합니다.
+        </p>
+        <p>
+          그러니 <strong>“검사상 이상 없습니다”와 “아프지 않다”는 전혀 다른 말</strong>입니다.
+          검사에 안 나왔다고 해서 통증이 없는 것도, 기분 탓인 것도 아닙니다.
+        </p>
+
+        <h3>수술이 잘 되었는데도 아플 수 있다</h3>
+        <p>
+          통증의 원인이 조직이 아니라 신경에 있었다면, 조직을 고치는 수술로는 그 원인이 그대로 남습니다.
+          수술 자체는 성공했는데 통증은 여전한 상황이 이렇게 생깁니다.
+          이건 수술이 잘못됐다는 뜻이 아니라, <strong>겨냥한 곳이 달랐다</strong>는 뜻에 가깝습니다.
+        </p>
+
+        <div class="note">
+          <p>
+            오래된 통증을 신경계의 문제로 보는 이 관점은 오늘날 통증의학에서 널리 쓰입니다.
+            의학 용어로는 <strong>중추감작</strong> 또는 <strong>통각가소성 통증</strong>이라고 부릅니다.
+            병원에서 이런 말을 들으셨다면, 지금 읽고 계신 내용과 같은 이야기입니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="myths">
+      <p class="sec-label"><span class="n">02</span> 오해 바로잡기</p>
+      <h2>오래된 통증에 대해 흔히 하는 오해</h2>
+
+      <div class="myths">
+        <div class="myth">
+          <p class="m">검사에 아무것도 안 나왔으니 꾀병 아니냐</p>
+          <p class="a"><b>아닙니다.</b> 통증은 신경이 만들어내는 것이고, 신경의 예민함은 영상 장비로 찍히지 않습니다.
+             검사가 정상이라는 말은 “뼈와 연골에는 큰 문제가 없다”는 뜻이지, “아프지 않다”는 뜻이 아닙니다.</p>
+        </div>
+        <div class="myth">
+          <p class="m">아프면 최대한 움직이지 말아야 한다</p>
+          <p class="a"><b>오히려 반대인 경우가 많습니다.</b> 급성기가 지난 뒤에도 계속 안 쓰면
+             근육이 줄고 관절이 굳어 통증에 더 취약해집니다.
+             아픔이 심해지지 않는 선에서 조금씩 꾸준히 움직이는 편이 대개 낫습니다.</p>
+        </div>
+        <div class="myth">
+          <p class="m">MRI에 디스크가 보이니 그게 원인이다</p>
+          <p class="a"><b>꼭 그렇지는 않습니다.</b> 나이가 들면 아프지 않은 사람에게서도
+             디스크 퇴행이나 관절 변화가 흔히 발견됩니다.
+             사진에 보이는 것과 지금 아픈 것이 반드시 같이 가지는 않습니다.</p>
+        </div>
+        <div class="myth">
+          <p class="m">나이 때문이니 어쩔 수 없다</p>
+          <p class="a"><b>퇴행과 통증은 다른 문제입니다.</b> 같은 정도로 관절이 닳았어도
+             아픈 사람이 있고 안 아픈 사람이 있습니다.
+             “나이 탓”으로 접어두면 손댈 수 있는 부분까지 놓치게 됩니다.</p>
+        </div>
+        <div class="myth">
+          <p class="m">진통제를 계속 먹으면 언젠가 낫는다</p>
+          <p class="a"><b>급한 통증과 오래된 통증은 약의 역할이 다릅니다.</b>
+             진통제는 지금의 아픔을 덜어주지만, 예민해진 신경을 되돌리지는 못합니다.
+             약으로 버티는 기간이 길어진다면 접근 방식을 한번 점검해 볼 때입니다.</p>
+        </div>
+        <div class="myth">
+          <p class="m">통증은 참을수록 강해진다던데, 참으면 손해인가</p>
+          <p class="a"><b>참는 것 자체가 목표는 아닙니다.</b> 통증을 계속 겪을수록
+             신경이 그 신호에 익숙해져 더 쉽게 아파집니다.
+             오래 참기보다, 왜 계속 아픈지 방향을 잡는 편이 낫습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="check">
+      <p class="sec-label"><span class="n">03</span> 자가 점검</p>
+      <h2>내 통증이 이런 유형에 가까울까</h2>
+
+      <div class="body-col">
+        <p>
+          아래 항목에 여러 개 해당한다면, 조직보다 신경 쪽의 문제일 가능성을 한 번쯤
+          짚어볼 만합니다. 진단이 아니라 <strong>이야기를 시작하기 위한 목록</strong>입니다.
+        </p>
+      </div>
+
+      <ul class="check">
+        <li>통증이 <strong>3개월 이상</strong> 이어지고 있다</li>
+        <li>여러 검사를 받았지만 통증을 설명할 만한 뚜렷한 소견이 없었다</li>
+        <li>검사 소견은 있는데, 아픈 정도가 그 소견에 비해 유난히 심하다</li>
+        <li>주사·물리치료·시술을 여러 번 받았지만 그때뿐이거나 변화가 없었다</li>
+        <li>수술을 받았는데 통증이 그대로거나 다시 돌아왔다</li>
+        <li>아픈 자리가 옮겨 다니거나, 처음보다 범위가 넓어졌다</li>
+        <li>살짝 스치거나 눌러도 유난히 아프다</li>
+        <li>피곤하거나 잠을 못 잔 날, 스트레스가 심한 날 통증이 확 심해진다</li>
+        <li>아플까 봐 미리 움직임을 피하게 된다</li>
+      </ul>
+
+      <div class="flags">
+        <h4>이런 경우에는 먼저 진료를 받으십시오</h4>
+        <ul>
+          <li>다리나 팔에 힘이 빠지거나, 감각이 점점 무뎌진다</li>
+          <li>대소변을 조절하기 어렵다</li>
+          <li>이유 없이 체중이 줄거나 열이 난다</li>
+          <li>밤에 가만히 있어도 심하게 아파 잠을 못 잔다</li>
+          <li>넘어지거나 부딪힌 뒤 갑자기 시작된 통증이다</li>
+          <li>암·감염·골다공증으로 치료받은 적이 있다</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="what">
+      <p class="sec-label"><span class="n">04</span> 치료</p>
+      <h2>M-puncture는 무엇을 하는 치료인가</h2>
+
+      <div class="body-col">
+        <p>
+          <strong>M-puncture</strong>는 <em lang="en">Molecular Targeting by Needle-puncture</em>의 줄임말입니다.
+          “분자 수준의 문제를 바늘로 겨냥한다”는 뜻으로,
+          앞에서 말한 예민해진 신경회로를 되돌리는 것을 목표로 합니다.
+        </p>
+        <p>
+          아주 가는 바늘 — 침보다도 가는 주사바늘 — 로 문제가 생긴 신경 부위를 직접 자극하고,
+          필요에 따라 주사를 함께 씁니다. 절개나 전신마취는 없고,
+          시술 뒤에 바로 일상생활을 할 수 있습니다.
+        </p>
+
+        <h3>시술은 이런 요소로 이루어집니다</h3>
+        <ol class="steps">
+          <li><span class="txt">가는 바늘로 신경회로에 이상이 생긴 자리를 찾아 자극합니다</span></li>
+          <li><span class="txt">신경 회복을 돕는 물질을 주사합니다</span></li>
+          <li><span class="txt">신경 주위에 오래 남아 있던 염증을 가라앉힙니다</span></li>
+          <li><span class="txt">신경 주위 조직이 굳어 신경을 조이거나 당기는 부분을 풀어줍니다</span></li>
+          <li><span class="txt">신경회로 전반에 자기(磁氣) 자극을 더합니다</span></li>
+          <li><span class="txt">필요한 경우 통증·면역 관련 주사를 추가합니다</span></li>
+        </ol>
+
+        <h3>치료 반응이 방향을 알려준다</h3>
+        <p>
+          이 방법의 실용적인 쓸모 하나는, <strong>수술이 정말 필요한지 가늠하는 데 도움이 된다</strong>는 점입니다.
+          이 치료로 좋아진다면 문제가 신경 쪽이었다는 뜻이고,
+          충분히 해봐도 달라지지 않는다면 조직 쪽 문제일 가능성이 커집니다.
+          수술 여부를 놓고 병원마다 말이 갈릴 때, 한 번 확인해 보고 판단할 수 있습니다.
+        </p>
+
+        <div class="note">
+          <p>
+            모든 통증에 맞는 방법은 아닙니다. 뼈가 부러졌거나 신경이 눌려 힘이 빠지고 있는 경우처럼
+            구조 자체를 바로잡아야 하는 상황에서는 다른 치료가 먼저입니다.
+            어떤 치료든 사람마다 반응이 다르고, 판단은 진료를 통해 이루어져야 합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="bacteria">
+      <p class="sec-label"><span class="n">05</span> 또 하나의 축</p>
+      <h2>통증이 계속되게 만드는 원인이 세균일 때</h2>
+
+      <div class="body-col">
+        <p>
+          예민해진 신경을 되돌려도, 그 신경을 계속 자극하던 원인이 몸 안에 남아 있으면 통증은 다시 올라옵니다.
+          경보기를 고쳐도 연기가 계속 나고 있으면 또 울리는 것과 같습니다.
+        </p>
+        <p>
+          그 연기의 정체가 <strong>세균</strong>인 경우가 있습니다.
+          그리고 세균이 통증을 만드는 길은 하나가 아닙니다.
+        </p>
+
+        <h3>첫 번째 길 — 장에서 올라오는 자극</h3>
+        <p>
+          장 속에는 원래 많은 미생물이 삽니다. 그런데 균형이 무너져 세균이나 곰팡이가
+          과하게 자라면, 이들이 만들어내는 <strong>가스와 염증 물질</strong>이 장을 넘어 온몸을 돌게 됩니다.
+        </p>
+        <p>
+          이 물질들은 신경을 더 예민하게 만드는 쪽으로 작용합니다.
+          특히 <strong>황화수소</strong> 같은 가스는 통증 신호가 지나가는 통로를 직접 여는 것으로 알려져 있고,
+          장에서 멀리 떨어진 부위의 통증 과민까지 일으킵니다.
+          몸 전체의 통증 문턱이 낮아지는 셈입니다.
+        </p>
+
+        <h3>두 번째 길 — 조직에 자리잡은 세균</h3>
+        <p>
+          장에만 있는 것이 아닙니다. 세균이 <strong>관절이나 뼈, 연부조직에 오래 머물면서</strong>
+          낮은 수준의 염증을 계속 유지하는 경우가 있습니다.
+        </p>
+        <p>
+          이런 상태는 잘 발견되지 않습니다. <strong>피검사도 정상이고 영상도 정상인데
+          통증만 계속되는 일</strong>이 실제로 일어나기 때문입니다.
+          그래서 다른 병으로 오해받은 채 수년이 흐르는 경우가 드물지 않습니다.
+          이것은 가설이 아니라 이미 알려진 질환들의 이야기입니다.
+        </p>
+
+        <h3>제가 진료에서 본 것</h3>
+        <p>
+          장 문제로 오신 분들 중에 오래된 통증을 함께 갖고 계신 경우가 많고,
+          <strong>제균 치료를 하고 나면 손대지도 않은 그 통증이 함께 가라앉습니다.</strong>
+          통증 때문에 오신 것이 아니었는데도 그렇습니다.
+        </p>
+        <p>
+          처음에는 부수적인 변화로 여겼는데, 같은 일이 계속 반복되면서
+          이것을 우연으로 보기 어렵다고 생각하게 되었습니다.
+          그리고 <strong>약을 끊어도 그 상태가 유지됩니다.</strong>
+        </p>
+        <p>
+          그것이 장에서 온 것인지, 조직에 있던 것인지는 아직 제가 가려내지 못했습니다.
+          <strong>두 경로가 같은 환자 안에 함께 있을 수도 있습니다.</strong>
+          어느 쪽이든 겨냥하는 것은 같습니다 — 통증을 계속 만들어내던 원인을 몸에서 줄이는 것입니다.
+        </p>
+
+        <h3>이런 신호가 함께 있다면</h3>
+        <p>통증과 더불어 아래가 같이 있다면, 세균 쪽을 한 번 살펴볼 만합니다.</p>
+      </div>
+
+      <ul class="check">
+        <li>배가 자주 더부룩하거나 가스가 심하다</li>
+        <li>변비나 설사가 오래됐다</li>
+        <li>먹고 나면 통증이나 피로가 더 심해진다</li>
+        <li>아픈 곳이 한 군데가 아니라 온몸에 퍼져 있다</li>
+        <li>늘 피곤하고 머리가 맑지 않다</li>
+        <li>입 냄새가 신경 쓰인다</li>
+        <li>검사는 계속 정상인데 통증만 오래간다</li>
+        <li>여러 통증 치료를 받아도 자꾸 원래대로 돌아온다</li>
+      </ul>
+
+      <div class="body-col">
+        <h3>두 가지가 맞물리는 방식</h3>
+        <p>
+          바늘로 하는 치료와 세균을 줄이는 치료는 겨누는 지점이 다릅니다.
+          <strong>앞의 것은 이미 예민해진 회로를 되돌리고, 뒤의 것은 그 회로를 계속 자극하던 입력을 줄입니다.</strong>
+          서로 겹치지 않고 각자 다른 일을 합니다.
+        </p>
+        <p>
+          제가 두 가지를 함께 쓰게 된 것은 이 때문입니다.
+          바늘로 회로를 되돌려 놓아도 자극원이 그대로면 통증이 다시 올라오고,
+          자극원을 걷어내도 이미 예민해질 대로 예민해진 회로는 스스로 잘 돌아오지 않습니다.
+          <strong>두 축을 같이 다룰 때 결과가 다릅니다.</strong>
+        </p>
+        <p>
+          모든 통증 환자에게 필요한 것은 아닙니다.
+          위와 같은 신호가 함께 있을 때, 통증만 따로 보지 않고 같이 살펴보는 접근입니다.
+        </p>
+
+        <h3>이영진 교수의 ‘해독’에서 한 걸음 더</h3>
+        <p>
+          M-puncture 시술 구성의 마지막 항목은 “필요시 통증·면역 관련 주사를 추가한다”였습니다.
+          이영진 교수는 <em>해독</em>이라는 말로 이 부분을 설명하셨고,
+          별도의 저서를 낼 만큼 오래 붙들고 계셨던 주제이기도 합니다.
+          <strong>몸에 쌓인 것을 덜어내야 통증도 내려간다</strong>는 생각은 처음부터 이 치료 안에 있었습니다.
+        </p>
+        <p>
+          저는 그 자리를 <strong>세균</strong>이라는 구체적인 대상으로 바꿔서 다룹니다.
+          덜어내야 할 것이 막연한 ‘독소’가 아니라,
+          과하게 자란 세균과 진균, 그것들이 만들어내는 가스와 대사산물,
+          그리고 조직에 오래 머물러 있는 균이라고 보는 것입니다.
+          대상이 분명해지면 확인할 방법도, 줄일 방법도 생깁니다.
+        </p>
+        <p>
+          그리고 이것은 주사 한 대로 끝나는 일이 아닙니다.
+          아래 네 가지가 함께 움직여야 합니다.
+        </p>
+      </div>
+
+      <div class="habits">
+        <div class="habit">
+          <h4>먹는 것</h4>
+          <p>어떤 균이 자라느냐는 무엇을 먹느냐로 상당 부분 결정됩니다.
+             과증식을 먹여 살리는 것을 줄이는 일이 먼저입니다.
+             일반적인 ‘건강식’과 방향이 다를 수 있고, 사람마다 조정이 필요합니다.</p>
+        </div>
+        <div class="habit">
+          <h4>생활 전반</h4>
+          <p>수면, 식사 간격, 스트레스, 배변 습관까지 함께 봅니다.
+             장이 움직이지 않으면 무엇을 해도 다시 쌓입니다.
+             통증 치료에서 이야기하는 생활 항목들과 상당 부분 겹칩니다.</p>
+        </div>
+        <div class="habit">
+          <h4>적극적인 제균</h4>
+          <p>필요하다고 판단되면 <strong>항생제와 항진균제를 적극적으로 사용</strong>합니다.
+             식이와 생활 조정만으로는 이미 자리를 잡은 과증식이 잘 물러나지 않는 경우가 많습니다.
+             한 가지 약만 쓰면 그 약이 닿지 않는 균이 그 자리를 채우기 때문에,
+             <strong>여러 계열을 함께 써서 넓게 덮습니다.</strong></p>
+        </div>
+        <div class="habit">
+          <h4>그다음</h4>
+          <p>줄이는 것으로 끝나지 않고, 다시 자라지 않을 조건을 만드는 과정이 이어집니다.
+             여기서 다시 먹는 것과 생활로 돌아옵니다.</p>
+        </div>
+      </div>
+
+      <div class="body-col">
+        <div class="note">
+          <p>
+            항생제·항진균제 사용은 검사 소견과 경과를 보며 <strong>진료를 통해 판단할 일</strong>입니다.
+            스스로 판단해 복용하거나 중단할 수 있는 종류의 치료가 아닙니다.
+            여기서는 어떤 약을 어떻게 쓰는지는 다루지 않습니다.
+          </p>
+        </div>
+
+        <div class="note" style="border-color:var(--accent)">
+          <p style="margin:0">
+            <strong>더 깊이 →</strong>
+            세균이 근골격 조직에 자리잡아 만성통증을 만드는 것으로 확립된 질환들,
+            황화수소가 통증 통로를 여는 기전, 어떤 검사가 의미를 가질 수 있는지,
+            그리고 아직 확인되지 않은 부분까지 문헌과 함께 정리했습니다.
+            <a href="/ko/bacteria/"><strong>세균과 만성통증 — 장에서, 그리고 조직에서</strong></a>
+            <span style="color:var(--ink-3)"> ·
+            <a href="/bacteria/">English</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="living">
+      <p class="sec-label"><span class="n">06</span> 일상에서</p>
+      <h2>치료와 함께 도움이 되는 것들</h2>
+
+      <div class="body-col">
+        <p>
+          신경이 예민해진 상태는 치료만으로 되돌아가지 않습니다.
+          예민함을 키우는 조건들이 일상에 남아 있으면 다시 올라옵니다.
+          아래는 통증 진료에서 늘 같이 이야기하는 것들입니다.
+        </p>
+      </div>
+
+      <div class="habits">
+        <div class="habit">
+          <h4>잠</h4>
+          <p>잠이 부족하면 다음 날 통증이 심해집니다. 통증 때문에 못 자고, 못 자서 더 아픈 순환이 흔합니다.
+             치료 중에 가장 먼저 챙길 것 하나를 고르라면 수면입니다.</p>
+        </div>
+        <div class="habit">
+          <h4>조금씩, 꾸준히 움직이기</h4>
+          <p>한 번에 무리하고 며칠 앓아눕는 것보다, 아프지 않은 범위에서 매일 조금씩이 낫습니다.
+             몸이 “이 정도 움직임은 안전하다”를 다시 배우게 하는 과정입니다.</p>
+        </div>
+        <div class="habit">
+          <h4>두려움 줄이기</h4>
+          <p>아플까 봐 피하다 보면 활동 범위가 점점 좁아지고, 좁아질수록 더 아파집니다.
+             무엇이 안전한지 정확히 아는 것만으로도 통증이 줄어드는 경우가 많습니다.</p>
+        </div>
+        <div class="habit">
+          <h4>통증 일기</h4>
+          <p>언제 심해지고 언제 덜한지 2주만 적어보면 패턴이 보입니다.
+             진료 때도 “그냥 계속 아파요”보다 훨씬 많은 것을 알려줍니다.</p>
+        </div>
+        <div class="habit">
+          <h4>스트레스와 긴장</h4>
+          <p>마음의 문제라는 뜻이 아닙니다. 긴장 상태가 이어지면 신경이 실제로 더 예민해집니다.
+             통증이 심해진 날 무슨 일이 있었는지 함께 살펴볼 가치가 있습니다.</p>
+        </div>
+        <div class="habit">
+          <h4>진료 전에 정리해 가기</h4>
+          <p>언제부터, 어디가, 무엇을 할 때 아픈지. 지금까지 받은 치료와 그 결과.
+             이 세 가지만 정리해 가도 진료의 질이 달라집니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="lineage">
+      <p class="sec-label"><span class="n">07</span> 계보</p>
+      <h2>이 치료는 어디에서 왔는가</h2>
+
+      <div class="lineage">
+        <div class="lin">
+          <time>1970s–</time>
+          <div><span class="who">Chan Gunn</span>
+            <span class="what">캐나다 밴쿠버. 근육 속 깊이 바늘을 넣어 신경 기능을 회복시키는 IMS를 정립. M-puncture의 직접적인 뿌리.</span></div>
+        </div>
+        <div class="lin">
+          <time>1983</time>
+          <div><span class="who">Clifford Woolf</span>
+            <span class="what">신경계가 통증에 예민해지는 현상(중추감작)을 보고. 오늘날 만성통증 이해의 토대가 됨.</span></div>
+        </div>
+        <div class="lin">
+          <time>2009</time>
+          <div><span class="who">전동휘 <span style="font-family:var(--mono);font-size:.72rem;color:var(--ink-3)">Dong Whee Jun</span></span>
+            <span class="what">『Jun’s M-Puncture and pain model』 저술. 통증 모델의 원저자.</span></div>
+        </div>
+        <div class="lin">
+          <time>2013</time>
+          <div><span class="who">전동휘 · 이영진</span>
+            <span class="what">『Jun &amp; Lee’s M-puncture and pain model』 개정 2판. 이영진 교수가 이론을 갱신하고 임상에서 쓸 수 있는 체계로 정리.</span></div>
+        </div>
+        <div class="lin">
+          <time>2013–2017</time>
+          <div><span class="who">M-puncture 전문가과정</span>
+            <span class="what">의사를 대상으로 한 실습 교육. 부위별 진찰과 시술을 이틀 과정으로 전수. 2018년을 끝으로 열리지 않음.</span></div>
+        </div>
+        <div class="lin">
+          <time>지금</time>
+          <div><span class="who">이영진</span>
+            <span class="what">여전히 현역으로 진료 중. 다만 활동의 중심이 옮겨가면서 M-puncture 교육은 멈춰 있는 상태.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="practice">
+      <p class="sec-label"><span class="n">08</span> 시술 노트</p>
+      <h2>배우려는 의사를 위한 실전 기록</h2>
+
+      <div class="body-col">
+        <p>
+          여기서부터는 의사를 위한 부분입니다.
+          이론은 교과서에 남아 있지만, <strong>실제로 손을 어떻게 쓰는지</strong>는 어디에도 적혀 있지 않습니다.
+          교육 과정에서 직접 배운 것과 진료에서 쌓인 것을 부위별로 같은 틀에 맞춰 기록해 나갑니다.
+        </p>
+        <div class="note warm">
+          <span class="t">작성 중</span>
+          <p>
+            아래는 아직 <strong>틀만 잡아둔 상태</strong>입니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="부위 선택">
+        <button class="tab" role="tab" aria-selected="true"  aria-controls="p-l" id="t-l">요추 Lumbar</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-c" id="t-c">경추 Cervical</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-s" id="t-s">어깨 Shoulder</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-k" id="t-k">무릎 Knee</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-d" id="t-d">장 제균 Decontamination</button>
+      </div>
+
+      <div class="panel" id="p-l" role="tabpanel" aria-labelledby="t-l">
+        <div class="slot">
+          <h4>대상 병태</h4>
+          <p class="filled">디스크 탈출증 및 신경근병증 · 척추관협착증 · 퇴행성 전방전위증 · 천장관절 이상 · 후관절 증후군 · 수술후 통증증후군</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>먼저 배제할 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>진찰에서 확인하는 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>어떻게 찾는가</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>손끝의 감각</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>흔한 실수</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>반응이 좋은 패턴 / 아닌 패턴</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>회수와 간격</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>안전 · 금기</h4><p>작성 예정</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-c" role="tabpanel" aria-labelledby="t-c" hidden>
+        <div class="slot">
+          <h4>대상 병태</h4>
+          <p class="filled">경추 디스크 및 방사통 · 경추성 두통 · 턱관절 장애 · 흉곽출구 증후군 · 견갑 내측 상부등 통증</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>먼저 배제할 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>진찰에서 확인하는 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>어떻게 찾는가</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>손끝의 감각</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>흔한 실수</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>반응이 좋은 패턴 / 아닌 패턴</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>회수와 간격</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>안전 · 금기</h4><p>경부는 위험 구조물이 밀집 — 별도 상세 기술 예정</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-s" role="tabpanel" aria-labelledby="t-s" hidden>
+        <div class="slot">
+          <h4>대상 병태</h4>
+          <p class="filled">유착성 관절낭염(오십견) · 회전근개 건병증 · 어깨충돌증후군 · 견봉쇄골 관절 이상 · 경추 기원 어깨 통증</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>먼저 배제할 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>감별의 핵심</h4><p class="filled">어깨 자체의 문제인가, 목에서 온 통증인가 — 상세 작성 예정</p></div>
+          <div class="slot"><h4>어떻게 찾는가</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>손끝의 감각</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>흔한 실수</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>반응이 좋은 패턴 / 아닌 패턴</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>회수와 간격</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>안전 · 금기</h4><p>작성 예정</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-k" role="tabpanel" aria-labelledby="t-k" hidden>
+        <div class="slot">
+          <h4>대상 병태</h4>
+          <p class="filled">퇴행성 슬관절염 · 반월연골 손상 후 잔존 통증 · 슬개대퇴 통증 · 내외측 곁인대 증후군 · 요추 기원 무릎 통증</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>먼저 배제할 것</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>감별의 핵심</h4><p class="filled">영상의 퇴행 정도와 통증이 맞지 않는 환자를 골라내는 것 — 상세 작성 예정</p></div>
+          <div class="slot"><h4>어떻게 찾는가</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>손끝의 감각</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>흔한 실수</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>반응이 좋은 패턴 / 아닌 패턴</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>회수와 간격</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>안전 · 금기</h4><p>작성 예정</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-d" role="tabpanel" aria-labelledby="t-d" hidden>
+        <div class="slot">
+          <h4>겨냥하는 것</h4>
+          <p class="filled">장내 세균·진균 과증식이 만들어내는 가스와 염증 물질을 줄여, 통각 신호를 계속 끌어올리던 전신 입력을 낮춘다. 시술이 회로를 되돌린다면, 이쪽은 회로를 다시 예민하게 만드는 원인을 줄이는 축.</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>어떤 통증 환자에서 의심하는가</h4><p class="filled">광범위 통증 · 섬유근육통 양상 · 치료 후 반복 재발 · 복부 증상 동반 · 식후 악화 — 상세 작성 예정</p></div>
+          <div class="slot"><h4>확인하는 검사</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>제균 순서와 판단 기준</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>M-puncture와의 시행 순서</h4><p>어느 쪽을 먼저 할 것인가, 병행할 것인가 — 작성 예정</p></div>
+          <div class="slot"><h4>통증이 함께 좋아진 패턴</h4><p>어떤 환자에서 통증까지 반응했는가 — 작성 예정</p></div>
+          <div class="slot"><h4>반응하지 않는 경우</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>주의점</h4><p>작성 예정</p></div>
+          <div class="slot"><h4>연결 읽을거리</h4><p>황화수소와 통증 신호 전달에 대한 정리 — 작성 예정</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section id="about">
+      <p class="sec-label"><span class="n">09</span> 이 기록에 대하여</p>
+      <h2>사라지는 것은 이론이 아니라 손이다</h2>
+
+      <div class="body-col">
+        <p>
+          M-puncture는 2000년대 후반 국내에서 정리된 만성통증 치료 체계입니다.
+          한때 1,000명 넘는 의사가 교육을 받았지만, 공식 사이트는 문을 닫았고
+          교육 과정은 2018년을 마지막으로 열리지 않았습니다.
+        </p>
+        <h3>왜 사라져 가는가</h3>
+        <p>
+          이론이 틀려서가 아닙니다. 이론은 교과서에 활자로 남아 있고,
+          만성통증을 신경의 문제로 보는 관점은 오히려 지금 더 널리 받아들여지고 있습니다.
+        </p>
+        <p>
+          제가 보기에 이유는 다른 데 있습니다.
+          <strong>이 시술이 시술자의 감각에 크게 기대기 때문입니다.</strong>
+        </p>
+        <p>
+          환자가 말하는 통증이 어떤 것인지 이해하고 공감하는 일,
+          여러 곳이 아프다고 할 때 실제로 손을 대야 할 자리를 짚어내는 일,
+          그 자리에 충분히 바늘을 넣어 끝까지 풀어내는 일 —
+          이것들이 한꺼번에 되어야 결과가 납니다.
+          하나라도 어긋나면 같은 프로토콜을 그대로 따라 해도 효과가 나지 않습니다.
+        </p>
+        <p>
+          그런데 이 부분은 <strong>이틀짜리 강좌로는 잘 전달되지 않습니다.</strong>
+          이론과 순서는 배워 갈 수 있지만, 손은 그렇게 옮겨가지 않습니다.
+          1,000명이 넘게 배웠는데도 이 치료가 널리 남지 못한 이유가 여기 있다고 봅니다.
+          배운 사람 대부분에게 남은 것은 프로토콜이었고, 감각은 남지 않았습니다.
+        </p>
+        <p>
+          그래서 이 기록은 순서를 적는 데 목적을 두지 않습니다.
+          <strong>말로 옮기기 어려운 쪽을 굳이 말로 옮겨 보려는 시도</strong>입니다.
+          손끝에 무엇이 걸리는지, 어디서 자주 틀리는지,
+          어떤 환자가 반응하고 어떤 환자가 반응하지 않는지.
+          이런 것들은 어느 책에도 적혀 있지 않고, 하는 사람이 그만두면 함께 사라집니다.
+        </p>
+
+        <h3>덧붙여 두어야 할 것</h3>
+        <p>
+          제가 하고 있는 것은 이영진 교수에게 배운 그대로는 아닐 것입니다.
+          손으로 익히는 것은 배운 사람마다 조금씩 갈라지고,
+          거기에 저는 <a href="#bacteria">세균을 정리하는 접근</a>을 함께 쓰고 있습니다.
+        </p>
+        <p>
+          그러니 여기 적힌 것은 M-puncture의 정본이 아니라
+          <strong>제가 배워서 쓰고 있는 버전의 기록</strong>입니다.
+          그 편이 정직하고, 어차피 손으로 전해지는 것은 원래 그렇게 이어져 왔습니다.
+        </p>
+
+        <div class="editor">
+          <p class="name">양준상</p>
+          <p class="role">의사 · 편저</p>
+          <p>
+            이영진 교수에게 M-puncture를 직접 배웠고, 지금도 진료에서 이 치료를 이어가고 있습니다.
+            통증이 제 진료의 큰 비중을 차지하지는 않지만,
+            이 방법이 분명히 도움이 되는 환자들이 있다는 것을 임상에서 확인해 왔습니다.
+          </p>
+          <p>
+            이 기록은 환자를 모으기 위한 것이 아닙니다.
+            그래서 의료기관 정보나 상담 창구를 두지 않았습니다.
+            이 관점이 필요한 환자와, 이 술기를 이어갈 의사에게 닿는 것으로 충분하다고 생각합니다.
+          </p>
+        </div>
+
+        <h3>남아 있는 자료</h3>
+        <ul class="arch">
+          <li><span>『Jun &amp; Lee’s M-puncture and pain model』 개정 2판</span><span class="meta">2013</span></li>
+          <li><span>『Jun’s M-Puncture』 초판</span><span class="meta">2009</span></li>
+          <li><span>mpun.co.kr 이론 페이지</span><span class="meta">복원</span></li>
+          <li><span>만성통증질환정보 90항목 목차</span><span class="meta">복원</span></li>
+          <li><span>M-puncture 전문가과정 커리큘럼</span><span class="meta">2014 · 2017</span></li>
+          <li><span>언론 보도</span><span class="meta">2009–2013</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="disclaim">
+        <p style="margin:0">
+          본 사이트는 특정 의료기관의 광고가 아니며, 만성통증에 대한 일반적인 정보 제공과
+          치료 술기의 기록을 목적으로 합니다.
+          개별적인 진단과 치료는 반드시 의료기관에서 상담하십시오.
+          여기에 실린 내용은 진료를 대신할 수 없습니다.
+        </p>
+      </div>
+      <p class="colophon">
+        편저 양준상 · 기록 시점 2026년 8월 · 이론 원저 전동휘, 이영진
+      </p>
+    </footer>
+
+  </main>
+</div>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.tab'));
+    function select(t){
+      tabs.forEach(function(x){
+        var on = x===t;
+        x.setAttribute('aria-selected', on?'true':'false');
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){ select(t); });
+      t.addEventListener('keydown',function(e){
+        var d = e.key==='ArrowRight'?1 : e.key==='ArrowLeft'?-1 : 0;
+        if(!d) return;
+        e.preventDefault();
+        var n=tabs[(i+d+tabs.length)%tabs.length];
+        n.focus(); select(n);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bacteria and Chronic Pain — In the Gut, and in the Tissue</title>
+<meta name="description" content="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal pain — the established entities, the mechanisms, and what remains unresolved.">
+<meta name="author" content="June-sang Yang">
+<link rel="canonical" href="https://mpuncture.org/bacteria/">
+<link rel="alternate" hreflang="en" href="https://mpuncture.org/bacteria/">
+<link rel="alternate" hreflang="ko" href="https://mpuncture.org/ko/bacteria/">
+<link rel="alternate" hreflang="x-default" href="https://mpuncture.org/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bacteria and Chronic Pain — In the Gut, and in the Tissue">
+<meta property="og:description" content="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal pain — the established entities, the mechanisms, and what remains unresolved.">
+<meta property="og:url" content="https://mpuncture.org/bacteria/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<style>
+  html{ -webkit-text-size-adjust:100%; }
+  img,svg{ max-width:100%; }
+</style>
+</head>
+<body>
+<title>Bacteria and Chronic Pain — In the Gut, and in the Tissue</title>
+
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Charter,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:740px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+
+  .topbar{
+    position:sticky; top:0; z-index:20; background:var(--paper);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.75rem 0;
+  }
+  .navset{ display:flex; align-items:center; gap:1.1rem; }
+  .back, .lang{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.05em;
+    text-decoration:none; color:var(--ink-3);
+  }
+  .back:hover, .lang:hover{ color:var(--ink); }
+  .lang{ border-bottom:1px solid var(--line-2); padding-bottom:1px; }
+  .theme-btn{
+    background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em;
+    padding:.35rem .7rem; border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  header.hero{ padding:clamp(2.8rem,8vw,5rem) 0 clamp(1.6rem,4vw,2.4rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(2rem,5vw,3.05rem); line-height:1.22; letter-spacing:-.012em;
+    text-wrap:balance; margin:0 0 1.4rem;
+  }
+  .lede{ font-size:clamp(1.02rem,1.9vw,1.14rem); color:var(--ink-2); margin:0; max-width:60ch; }
+
+  section{ padding:clamp(2.4rem,5.5vw,3.8rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3vw,2rem);
+    line-height:1.3; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
+  }
+  h3{ font-family:var(--sans); font-weight:640; font-size:1.02rem; line-height:1.45;
+      margin:2.3rem 0 .7rem; letter-spacing:-.003em; }
+  p{ margin:0 0 1.15rem; max-width:68ch; }
+  strong{ font-weight:640; }
+  em.sci{ font-style:italic; }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2); max-width:68ch;
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.69rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  .dz{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+       border-radius:4px; overflow:hidden; margin:2rem 0; }
+  .dz > div{ background:var(--surface); padding:1.35rem 1.4rem; }
+  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:640; margin:0 0 .15rem; }
+  .dz .org{ font-family:var(--serif); font-style:italic; font-size:.92rem;
+             color:var(--ink-3); margin:0 0 .8rem; }
+  .dz p{ font-size:.94rem; margin:0 0 .6rem; }
+  .dz p:last-child{ margin-bottom:0; }
+  .dz .key{ color:var(--accent-ink); font-weight:640; }
+
+  .tblwrap{ overflow-x:auto; margin:1.8rem 0; }
+  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:480px; }
+  th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-family:var(--mono); font-size:.67rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink-3); font-weight:400; }
+  tbody tr:last-child td{ border-bottom:0; }
+
+  .sig{ list-style:none; padding:0; margin:1.6rem 0; max-width:68ch;
+        display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .sig li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
+  .sig li::before{
+    content:""; position:absolute; left:1.2rem; top:1.35rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  .path{ margin:2rem 0; display:grid; gap:1.1rem; max-width:68ch; }
+  @media (min-width:700px){ .path{ grid-template-columns:1fr 1fr; } }
+  .lane{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.4rem; }
+  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:640; margin:0 0 .55rem; }
+  .lane p{ font-size:.93rem; color:var(--ink-2); margin:0; }
+
+  .refs{ font-size:.86rem; color:var(--ink-3); }
+  .refs ol{ padding-left:1.3rem; margin:1rem 0 0; }
+  .refs li{ margin-bottom:.55rem; }
+  .refs code{ font-family:var(--mono); font-size:.9em; }
+
+  footer{ border-top:1px solid var(--line); padding:2.4rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.6rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+</style>
+
+<div class="shell">
+
+  <div class="topbar">
+    <div class="navset">
+      <a class="back" href="/">← M-puncture</a>
+      <a class="lang" href="/ko/bacteria/">한국어</a>
+    </div>
+    <button class="theme-btn" id="tt" type="button">Theme</button>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Extended note · for clinicians and interested readers</p>
+    <h1>Bacteria and Chronic Pain — In the Gut, and in the Tissue</h1>
+    <p class="lede">
+      Long-standing musculoskeletal pain has repeatedly resolved in my patients during
+      prolonged antibiotic therapy given for gastrointestinal indications.
+      This note sets out the mechanisms that could account for it, and what is
+      established and what is not.
+    </p>
+  </header>
+
+  <!-- 01 -->
+  <section>
+    <p class="sec-label"><span class="n">01</span> Starting point</p>
+    <h2>Pain resolved when pain was not the target</h2>
+
+    <p>
+      In treating patients for gastrointestinal microbial overgrowth, I kept encountering the same thing:
+      <strong>after the gut was cleared, long-standing pain that had never been treated settled as well.</strong>
+      Low back, knee, shoulder, often several sites at once — in patients who had not consulted me about pain at all.
+    </p>
+    <p>
+      I first took this to be incidental. As it recurred, that became difficult to sustain.
+      Several features have been consistent.
+    </p>
+
+    <ul class="sig">
+      <li>Benefit sometimes begins at around two weeks, but full resolution takes considerably longer</li>
+      <li><strong>The required duration varies widely between patients.</strong>
+          Some are finished in two months; others must continue for <strong>a year or more</strong></li>
+      <li>Improvement <strong>continues after the drug is stopped</strong>, in slow cases over a further year</li>
+      <li>The result is durable: <strong>patients do not need to stay on treatment to maintain it</strong></li>
+    </ul>
+
+    <p>
+      The variance in duration is striking, and it does not apply to pain alone.
+      <strong>Gastrointestinal symptoms follow the same slow course — patients constipated their whole lives,
+      patients chronically distended, improve gradually over the same period.</strong>
+      One does not resolve first with the other trailing behind; the two move together.
+    </p>
+    <p>
+      Yet at some point treatment can be stopped without relapse.
+      This is not a state that a short course resolves, but once resolved it holds.
+      Taken together with the parallel course of gut and pain, this points toward
+      <strong>something common to both that diminishes only slowly.</strong>
+    </p>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <p class="sec-label"><span class="n">02</span> Two paths</p>
+    <h2>If antibiotics reduced the pain, what did they reduce?</h2>
+
+    <p>Two broad routes are possible.</p>
+
+    <div class="path">
+      <div class="lane">
+        <h4>Input arising from the gut</h4>
+        <p>Gas and inflammatory products of overgrown bacteria and fungi circulate systemically and
+           lower the threshold at which nerves signal pain. Reduce the source and the threshold rises again.</p>
+      </div>
+      <div class="lane">
+        <h4>Bacteria resident in tissue</h4>
+        <p>Organisms persist in joints, bone or soft tissue, sustaining low-grade inflammation.
+           Investigations are unremarkable while pain continues. Clear the organism and the pain recedes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <p class="sec-label"><span class="n">03</span> Established entities</p>
+    <h2>Bacteria resident in musculoskeletal tissue do cause chronic pain</h2>
+
+    <p>
+      This is not a hypothesis. Several such conditions are long established and appear in standard texts.
+      They are uncommon and difficult to diagnose, and are therefore
+      <strong>typically mistaken for something else for years</strong> before being identified.
+    </p>
+
+    <div class="dz">
+      <div>
+        <h4>Whipple's disease arthropathy</h4>
+        <p class="org">Tropheryma whipplei</p>
+        <p>The classic example of an infection presenting for years as
+           <strong>seronegative, non-erosive polyarthritis</strong> before diagnosis.
+           In a French–Italian multicentre series the
+           <span class="key">median interval from first symptom to diagnosis was five years</span>,
+           and 24 of 29 patients had received immunosuppressive therapy without benefit in the interim.<sup>1</sup></p>
+        <p>In a French registry, the median duration of treated rheumatic disease before diagnosis was 79 months,
+           and <strong>93% went into remission on antibiotic therapy</strong>, most of them able to stop their
+           existing drugs.<sup>2</sup></p>
+      </div>
+      <div>
+        <h4>Osteoarticular brucellosis</h4>
+        <p class="org">Brucella species</p>
+        <p>A meta-analysis of 56 studies found osteoarticular involvement in
+           <span class="key">27–36%</span> of patients with brucellosis.<sup>3</sup></p>
+        <p>Of particular relevance here: unlike spondylitis,
+           <strong>sacroiliitis and peripheral arthritis are non-destructive and heal without sequelae.</strong>
+           Imaging can therefore be entirely normal while pain persists.</p>
+      </div>
+      <div>
+        <h4>Chronic Q fever, osteoarticular</h4>
+        <p class="org">Coxiella burnetii</p>
+        <p>Rare, but the reason the literature gives for delayed diagnosis is precisely the point at issue:
+           <strong>joint involvement progresses slowly over a long period and inflammatory markers
+           remain low, so the diagnosis is easily missed.</strong></p>
+        <p>Presentation as bilateral extensor tenosynovitis has been reported. Treatment runs 18 months or more.</p>
+      </div>
+      <div>
+        <h4>Low-grade periprosthetic joint infection</h4>
+        <p class="org">chiefly low-virulence organisms</p>
+        <p>Among 73 culture-confirmed prosthetic joint infections,
+           <span class="key">32% had a normal CRP</span>, and
+           <span class="key">23% had normal serology, normal examination and normal radiographs,
+           with pain as the sole finding.</span><sup>4</sup></p>
+        <p>The authors noted that had the standard diagnostic criteria been applied,
+           <strong>that 23% would never have been diagnosed at all.</strong></p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>
+        What these four have in common is the substantive point.
+        <strong>Bacteria resident in musculoskeletal tissue can produce chronic pain; blood tests and imaging
+        may be normal while they do; and diagnosis is delayed by years.</strong>
+        None of this is contested.
+      </p>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <p class="sec-label"><span class="n">04</span> Treatment</p>
+    <h2>These infections are treated over months to years</h2>
+
+    <p>The standard regimens are as follows.</p>
+
+    <div class="tblwrap">
+      <table>
+        <thead>
+          <tr><th>Condition</th><th>Standard therapy</th><th>Duration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Whipple's disease arthropathy</td><td>Doxycycline + hydroxychloroquine</td><td>Prolonged</td></tr>
+          <tr><td>Osteoarticular brucellosis</td><td>Doxycycline-based combination (including quinolone regimens)</td><td>6 weeks or more</td></tr>
+          <tr><td>Chronic Q fever, osteoarticular</td><td>Doxycycline + hydroxychloroquine</td><td>18 months or more</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Two features are shared.
+      <strong>Each regimen is built around a tetracycline, and each runs for months to years</strong>,
+      because organisms residing within cells are cleared only slowly.
+    </p>
+    <p>
+      And <strong>none of them is managed with a single agent</strong>, since monotherapy invites
+      relapse and resistance. Neither brief nor single-drug treatment is characteristic of these infections.
+    </p>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <p class="sec-label"><span class="n">05</span> The other route</p>
+    <h2>Input from the gut also generates pain</h2>
+
+    <p>
+      Tissue residence accounts for only half the picture.
+      A second route — <strong>products generated in the gut lowering the pain threshold systemically</strong> —
+      is experimentally established.
+    </p>
+
+    <h3>Hydrogen sulfide opens nociceptive channels directly</h3>
+    <p>
+      Hydrogen sulfide, among the gases produced by gut bacteria, directly activates two channels that
+      carry pain signalling in sensory neurons: the
+      <strong>T-type calcium channel Ca<sub>v</sub>3.2 and TRPA1</strong>.<sup>5</sup>
+    </p>
+    <p>
+      More pertinently, hydrogen sulfide instilled into the colon produces not only visceral pain but
+      <strong>referred hyperalgesia at sites remote from the gut</strong> —
+      that is, input arising in the bowel can raise pain sensitivity systemically.
+    </p>
+
+    <h3>Observation in humans</h3>
+    <p>
+      In a study of fibromyalgia, all 42 patients had an abnormal breath test against 20% of controls,
+      and <strong>the severity of somatic pain correlated significantly with breath hydrogen</strong>.
+      No such correlation was present in the irritable bowel group.<sup>6</sup>
+    </p>
+    <p>
+      The study is old and small, but as a direct human observation that
+      <strong>gut gas production and systemic pain move together</strong>, it remains among the very few.
+    </p>
+
+    <div class="note">
+      <p>
+        The two routes are not mutually exclusive and may coexist in the same patient.
+        The agents used here act on both — they are absorbed systemically and reach tissue,
+        while also substantially altering the gut flora.
+        Clinical response alone therefore cannot distinguish which route was operating.
+      </p>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <p class="sec-label"><span class="n">06</span> What remains unknown</p>
+    <h2>The limits of what can be claimed</h2>
+
+    <h3>There is no means of localising the lesion</h3>
+    <p>
+      What is observed clinically is the resolution of pain.
+      Whether it originated in tendon, ligament, joint, or not in tissue at all but in the gut,
+      cannot presently be determined.
+      In particular, <strong>no human study has tested the proposition that bacterial colonisation of
+      tendon or ligament causes pain.</strong>
+      Not even controlled investigation of bacteria in common chronic tendon disorders —
+      Achilles tendinopathy, lateral epicondylalgia — has been reported.
+      An explanation of the form "there were bacteria in the tendon" therefore does not stand.
+    </p>
+
+    <h3>Trials in the spine have given conflicting results</h3>
+    <p>
+      Antibiotic therapy has been tested in three randomised trials in patients with lumbar disc
+      pathology and adjacent endplate change. A Danish single-centre trial in 2013 reported a marked effect;
+      subsequent multicentre trials in Norway (2019) and Australia (2026) did not reproduce that effect size.
+    </p>
+    <p>
+      All three, however, tested <strong>an aminopenicillin, confined to the lumbar spine,
+      in patients selected by a specific imaging finding</strong>.
+      The agent and the target differ from what is described here.
+      It has also long been argued that the intervertebral disc, being avascular, does not achieve
+      adequate oral antibiotic concentrations — and a small trial delivering antibiotic directly
+      into the disc has since reported a positive signal.
+      <strong>That constraint does not apply to vascularised periarticular soft tissue or synovium.</strong>
+    </p>
+
+    <h3>Detection is not causation</h3>
+    <p>
+      Reports of bacteria detected in tissue from people without pain have accumulated —
+      in normal intervertebral discs, and in the deep shoulder tissue of asymptomatic individuals,
+      at comparable frequency.
+      <strong>The detection of organisms at a site therefore cannot by itself identify them as the cause of pain.</strong>
+      This remains unresolved across the field.
+    </p>
+  </section>
+
+  <!-- 07 -->
+  <section>
+    <p class="sec-label"><span class="n">07</span> Investigation and use</p>
+    <h2>Investigations the literature would support</h2>
+
+    <p>
+      Each of the conditions in section 03 has an identifiable organism.
+      Where chronic musculoskeletal pain persists and has not responded to conventional treatment,
+      the following may be worth considering.
+    </p>
+
+    <ul class="sig">
+      <li><strong><em class="sci">Tropheryma whipplei</em></strong> — saliva and stool PCR, synovial fluid where available.
+          Seronegative, non-erosive polyarthritis, particularly with poor DMARD response</li>
+      <li><strong><em class="sci">Brucella</em></strong> — serology.
+          Non-destructive sacroiliitis and peripheral arthritis may show normal imaging</li>
+      <li><strong><em class="sci">Coxiella burnetii</em></strong> — phase I / II IgG.
+          Chronic osteoarticular symptoms with persistently low inflammatory markers</li>
+      <li><strong><em class="sci">Chlamydia trachomatis</em></strong> — PCR or serology.
+          Joint symptoms following genitourinary infection</li>
+    </ul>
+
+    <p>
+      Interpretation requires care. <em class="sci">T. whipplei</em> in particular is carried
+      asymptomatically in the gastrointestinal tract by
+      <strong>2–11% of the general population</strong>, so a positive PCR does not establish disease.
+      It must be read against the clinical picture.
+    </p>
+
+    <h3>Observations that may separate the two routes</h3>
+    <p>
+      Gut-derived input and tissue-resident organisms are difficult to distinguish clinically.
+      A few observations may indicate direction.
+    </p>
+    <p>
+      If the timing of breath-test normalisation and the timing of pain improvement <strong>diverge</strong>,
+      gut gas is less likely to be what was sustaining the pain.
+      Conversely, if pain shifts with dietary or non-antibiotic measures alone, that favours the gut.
+      Whether the same result can be reproduced with a non-absorbed agent bears on the same question.
+    </p>
+
+    <div class="note warm">
+      <span class="t">Note</span>
+      <p>
+        Over prolonged courses it matters not to rely on a single class.
+        Repeated use of one class allows <strong>organisms outside its spectrum to survive and occupy
+        the space vacated, producing a further overgrowth.</strong>
+        Coverage gaps differ by class — quinolones, for instance, cover anaerobes poorly —
+        so several classes should be combined to give broad and balanced coverage.
+      </p>
+      <p>
+        Fluoroquinolones carry a recognised risk of tendinopathy, tendon rupture and peripheral neuropathy,
+        and the neurological effects are described in the literature as potentially persistent.
+      </p>
+      <p>
+        The timing of these events, however, is fairly consistent.
+        Tendon-related events occur <strong>largely within the first one to two months</strong>;
+        patients who pass that window frequently continue for long periods without difficulty.
+        <strong>Regular review, with prompt discontinuation or a change of class at the first sign of a problem,
+        is the substance of managing this.</strong>
+      </p>
+      <p>
+        Managed in this way, I have not encountered a patient left with lasting sequelae.
+        Where neuropathic symptoms did appear, they resolved in every case with adjustment of therapy
+        and repletion of vitamin B<sub>12</sub> and B<sub>1</sub>.
+        With clinical attention, the adverse effects have been controllable.
+        Whether and for how long to treat remains a judgement made on investigation and clinical course.
+      </p>
+    </div>
+  </section>
+
+  <section class="refs">
+    <p class="sec-label">References</p>
+    <ol>
+      <li>Meunier M, Puéchal X, et al. Rheumatologic manifestations of Whipple disease. <em>J Rheumatol</em> 2013;40(12):2061–6. <code>PMID 24187107</code></li>
+      <li>Caillet Portillo D, et al. <em>J Infect</em> 2024;88(2):132–8. <code>PMID 38141787</code></li>
+      <li>Adetunji SA, et al. A systematic review and meta-analysis of the prevalence of osteoarticular brucellosis. <em>PLoS Negl Trop Dis</em> 2019. <code>PMID 30657765</code></li>
+      <li>Pérez-Prieto D, et al. C-reactive protein may misdiagnose prosthetic joint infections, particularly chronic and low-grade infections. <em>Int Orthop</em> 2017;41(7):1315–9. <code>PMID 28321490</code></li>
+      <li>Matsunami M, et al. Colonic hydrogen sulfide-induced visceral pain and referred hyperalgesia involve activation of both Ca<sub>v</sub>3.2 and TRPA1 channels in mice. <em>J Pharmacol Sci</em> 2012;119(3):293–6. <code>PMID 22785020</code></li>
+      <li>Pimentel M, et al. A link between irritable bowel syndrome and fibromyalgia may be related to findings on lactulose breath testing. <em>Ann Rheum Dis</em> 2004;63(4):450–2. <code>PMID 15020342</code></li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="disclaim">
+      <p style="margin:0">
+        This site is not an advertisement for any medical institution. It exists to provide general
+        information on chronic pain and to record clinical technique.
+        The antibiotic therapy described here is a matter for clinical judgement based on investigation
+        and course, and is not something to be started or stopped independently.
+        Diagnosis and treatment of an individual case must be undertaken with a physician.
+      </p>
+    </div>
+    <p class="colophon">Compiled by June-sang Yang · August 2026</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+</script>
+
+</body>
+</html>
