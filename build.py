@@ -56,6 +56,7 @@ SKELETON = """<!doctype html>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="author" content="June-sang Yang">
+<meta name="msvalidate.01" content="5C3321B5366EE5A7E53AE1374649D57D">
 <link rel="canonical" href="{domain}{path}">
 <link rel="alternate" hreflang="{lang}" href="{domain}{path}">
 <link rel="alternate" hreflang="{altlang}" href="{domain}{alt}">
