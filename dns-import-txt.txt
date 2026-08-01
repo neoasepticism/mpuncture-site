@@ -1,0 +1,1 @@
+mpuncture.org.	1	IN	TXT	"google-site-verification=kFsIoMQTn5li6G39Z14wLv5k9uyNwf8g3qdshUBoAs0"
