@@ -2,13 +2,13 @@
 """
 mpuncture.org 배포본 빌드
 
-소스(Artifact 형식, head 없음) → site/ (완전한 HTML 문서)
+소스(Artifact 형식, head 없음) → docs/ (완전한 HTML 문서)
 
 구조:
-  /                    영문 랜딩      ← index-en.html
-  /bacteria/           영문 심화      ← decontamination-en.html
-  /ko/                 한국어 랜딩    ← index.html
-  /ko/bacteria/        한국어 심화    ← decontamination.html
+  /                    한국어 랜딩 (기본)  ← index.html
+  /bacteria/           한국어 심화        ← decontamination.html
+  /en/                 영문 랜딩          ← index-en.html
+  /en/bacteria/        영문 심화          ← decontamination-en.html
 """
 import re, shutil
 from pathlib import Path
@@ -19,33 +19,33 @@ DOMAIN = "https://mpuncture.org"
 
 # 아티팩트 URL → 실제 경로
 ARTIFACT_MAP = {
-    "https://claude.ai/code/artifact/67bfbe57-5a3d-4945-b3a9-e2e29a20df6b": "/",              # EN landing
-    "https://claude.ai/code/artifact/2e4438eb-c097-4489-8cbf-d0d5aec8f75e": "/bacteria/",     # EN deep
-    "https://claude.ai/code/artifact/af31d28f-8c55-4a8c-bdff-beafca8d4cc6": "/ko/",           # KO landing
-    "https://claude.ai/code/artifact/836a590c-62fc-4591-9129-ff6dad3d77bf": "/ko/bacteria/",  # KO deep
+    "https://claude.ai/code/artifact/af31d28f-8c55-4a8c-bdff-beafca8d4cc6": "/",              # KO landing (기본)
+    "https://claude.ai/code/artifact/836a590c-62fc-4591-9129-ff6dad3d77bf": "/bacteria/",     # KO deep
+    "https://claude.ai/code/artifact/67bfbe57-5a3d-4945-b3a9-e2e29a20df6b": "/en/",           # EN landing
+    "https://claude.ai/code/artifact/2e4438eb-c097-4489-8cbf-d0d5aec8f75e": "/en/bacteria/",  # EN deep
 }
 
 PAGES = [
-    dict(src="index-en.html",           out="index.html",             lang="en", path="/",
+    dict(src="index.html",              out="index.html",                lang="ko", path="/",
+         title="M-puncture 엠펑쳐 — 만성통증을 신경회로로 보는 관점",
+         desc="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture(엠펑쳐) "
+              "치료의 기록. 환자와 의사를 위한 공공정보 아카이브.",
+         alt="/en/"),
+    dict(src="decontamination.html",    out="bacteria/index.html",       lang="ko", path="/bacteria/",
+         title="세균과 만성통증 — 장에서, 그리고 조직에서 | 엠펑쳐",
+         desc="장에서 오는 자극과 조직에 정착한 세균이 만성 근골격 통증을 유지시키는 경로 — "
+              "확립된 질환, 기전, 그리고 아직 확인되지 않은 것.",
+         alt="/en/bacteria/"),
+    dict(src="index-en.html",           out="en/index.html",             lang="en", path="/en/",
          title="M-puncture — Chronic Pain as a Problem of the Nerve Circuit",
          desc="Chronic pain understood as a problem of the nerve circuit: the M-puncture approach, "
               "a bacterial second axis, and a practical record for physicians.",
-         alt="/ko/"),
-    dict(src="decontamination-en.html", out="bacteria/index.html",    lang="en", path="/bacteria/",
+         alt="/"),
+    dict(src="decontamination-en.html", out="en/bacteria/index.html",    lang="en", path="/en/bacteria/",
          title="Bacteria and Chronic Pain — In the Gut, and in the Tissue",
          desc="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal "
               "pain — the established entities, the mechanisms, and what remains unresolved.",
-         alt="/ko/bacteria/"),
-    dict(src="index.html",              out="ko/index.html",          lang="ko", path="/ko/",
-         title="M-puncture — 만성통증을 신경회로로 보는 관점",
-         desc="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture 치료의 기록. "
-              "환자와 의사를 위한 공공정보 아카이브.",
-         alt="/"),
-    dict(src="decontamination.html",    out="ko/bacteria/index.html", lang="ko", path="/ko/bacteria/",
-         title="세균과 만성통증 — 장에서, 그리고 조직에서",
-         desc="장에서 오는 자극과 조직에 정착한 세균이 만성 근골격 통증을 유지시키는 경로 — "
-              "확립된 질환, 기전, 그리고 아직 확인되지 않은 것.",
-         alt="/bacteria/"),
+         alt="/en/bacteria/".replace("/en/bacteria/","/bacteria/")),
 ]
 
 SKELETON = """<!doctype html>

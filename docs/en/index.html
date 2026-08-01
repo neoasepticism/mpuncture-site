@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M-puncture — Chronic Pain as a Problem of the Nerve Circuit</title>
+<meta name="description" content="Chronic pain understood as a problem of the nerve circuit: the M-puncture approach, a bacterial second axis, and a practical record for physicians.">
+<meta name="author" content="June-sang Yang">
+<link rel="canonical" href="https://mpuncture.org/en/">
+<link rel="alternate" hreflang="en" href="https://mpuncture.org/en/">
+<link rel="alternate" hreflang="ko" href="https://mpuncture.org/">
+<link rel="alternate" hreflang="x-default" href="https://mpuncture.org/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="M-puncture — Chronic Pain as a Problem of the Nerve Circuit">
+<meta property="og:description" content="Chronic pain understood as a problem of the nerve circuit: the M-puncture approach, a bacterial second axis, and a practical record for physicians.">
+<meta property="og:url" content="https://mpuncture.org/en/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<style>
+  html{ -webkit-text-size-adjust:100%; }
+  img,svg{ max-width:100%; }
+</style>
+</head>
+<body>
+<title>M-puncture — Chronic Pain as a Problem of the Nerve Circuit</title>
+
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Charter,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+    --wrap:1180px;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:var(--wrap); margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+  .layout{ display:grid; grid-template-columns:1fr; }
+  @media (min-width:1040px){
+    .layout{ grid-template-columns:210px minmax(0,1fr); gap:clamp(2.5rem,5vw,4.5rem); align-items:start; }
+  }
+
+  .rail{ position:sticky; top:0; z-index:20; background:var(--paper); }
+  @media (min-width:1040px){ .rail{ top:2.5rem; padding-top:.5rem; } }
+  .rail-inner{
+    display:flex; gap:.15rem; overflow-x:auto; padding:.7rem 0;
+    border-bottom:1px solid var(--line); scrollbar-width:none;
+  }
+  .rail-inner::-webkit-scrollbar{ display:none; }
+  @media (min-width:1040px){
+    .rail-inner{ flex-direction:column; overflow:visible; border-bottom:0;
+                 border-left:1px solid var(--line); padding:.2rem 0; }
+  }
+  .rail a{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.04em;
+    color:var(--ink-3); text-decoration:none; white-space:nowrap;
+    padding:.42rem .7rem; border-radius:3px; transition:color .15s, background .15s;
+  }
+  @media (min-width:1040px){
+    .rail a{ border-left:2px solid transparent; margin-left:-1px; border-radius:0; padding:.34rem .8rem; }
+  }
+  .rail a:hover{ color:var(--ink); background:var(--surface-2); }
+  .rail a .num{ color:var(--line-2); margin-right:.55em; }
+  .railfoot{ display:flex; flex-direction:row; gap:.5rem; align-items:center; margin-top:.4rem; }
+  @media (min-width:1040px){ .railfoot{ flex-direction:column; align-items:flex-start; margin-left:.8rem; } }
+  .lang{ font-family:var(--mono); font-size:.68rem; letter-spacing:.05em;
+         color:var(--ink-3); text-decoration:none; border-bottom:1px solid var(--line-2); }
+  .lang:hover{ color:var(--ink); }
+  .theme-btn{
+    background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.67rem; letter-spacing:.06em; padding:.38rem .7rem;
+    border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  header.hero{ padding:clamp(3.2rem,9vw,6.5rem) 0 clamp(2rem,4vw,3rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.6rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(2.05rem,5.4vw,3.4rem); line-height:1.18; letter-spacing:-.014em;
+    text-wrap:balance; margin:0 0 1.5rem; max-width:22ch;
+  }
+  .lede{ font-size:clamp(1.02rem,1.9vw,1.16rem); color:var(--ink-2); max-width:60ch; margin:0; }
+
+  .trace{ display:block; width:100%; height:52px; margin:clamp(2.2rem,5vw,3.4rem) 0 0; overflow:visible; }
+  .trace path{ fill:none; stroke:var(--line-2); stroke-width:1.2; }
+  .trace .live{ stroke:var(--accent); stroke-width:1.6; stroke-dasharray:120 1500; }
+  @media (prefers-reduced-motion: no-preference){
+    .trace .live{ animation:run 7s cubic-bezier(.4,0,.5,1) infinite; }
+  }
+  @keyframes run{ from{ stroke-dashoffset:1620; } to{ stroke-dashoffset:0; } }
+
+  section{ padding:clamp(2.6rem,6vw,4.4rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.05rem);
+    line-height:1.28; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.6rem; max-width:28ch;
+  }
+  h3{
+    font-family:var(--sans); font-weight:640; font-size:1.03rem; line-height:1.45;
+    margin:2.4rem 0 .7rem; letter-spacing:-.003em;
+  }
+  p{ margin:0 0 1.15rem; max-width:68ch; }
+  .body-col{ max-width:68ch; }
+  strong{ font-weight:640; }
+
+  .quote{
+    font-family:var(--serif); font-size:clamp(1.08rem,2.3vw,1.28rem); line-height:1.6;
+    color:var(--ink); border-left:2px solid var(--accent); padding:.2rem 0 .2rem 1.5rem;
+    margin:2rem 0; max-width:58ch;
+  }
+  .quote cite{
+    display:block; font-family:var(--mono); font-style:normal; font-size:.71rem;
+    letter-spacing:.05em; color:var(--ink-3); margin-top:1rem; line-height:1.6;
+  }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2); max-width:68ch;
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.69rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  .myths{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+          border-radius:4px; overflow:hidden; margin:2rem 0; max-width:68ch; }
+  .myth{ background:var(--surface); padding:1.4rem; }
+  .myth .m{
+    font-family:var(--serif); font-size:1.1rem; line-height:1.45; color:var(--ink-3);
+    margin:0 0 .75rem; position:relative; padding-left:1.6rem; font-style:italic;
+  }
+  .myth .m::before{
+    content:"“"; position:absolute; left:0; top:-.1em; font-style:normal;
+    font-family:var(--serif); font-size:1.9rem; color:var(--line-2); line-height:1;
+  }
+  .myth .a{ margin:0; font-size:.96rem; }
+  .myth .a b{ color:var(--accent-ink); font-weight:640; }
+
+  .check{ list-style:none; padding:0; margin:1.6rem 0; max-width:68ch;
+          display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .check li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
+  .check li::before{
+    content:""; position:absolute; left:1.2rem; top:1.35rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  .habits{ display:grid; gap:1.1rem; margin:2rem 0; max-width:68ch; }
+  @media (min-width:720px){ .habits{ grid-template-columns:1fr 1fr; } }
+  .habit{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.3rem 1.4rem; }
+  .habit h4{ font-family:var(--sans); font-size:.98rem; font-weight:640; margin:0 0 .5rem; }
+  .habit p{ margin:0; font-size:.92rem; color:var(--ink-2); }
+
+  ol.steps{ list-style:none; counter-reset:s; padding:0; margin:1.8rem 0; max-width:68ch; }
+  ol.steps li{
+    counter-increment:s; display:grid; grid-template-columns:2rem 1fr; gap:1rem;
+    padding:.85rem 0; border-bottom:1px solid var(--line); align-items:baseline;
+  }
+  ol.steps li::before{
+    content:counter(s,decimal-leading-zero);
+    font-family:var(--mono); font-size:.74rem; color:var(--accent);
+  }
+  ol.steps .txt{ font-size:.97rem; }
+
+  .flags{ background:var(--warm-soft); border-radius:4px; padding:1.4rem 1.5rem; margin:2rem 0; max-width:68ch; }
+  .flags h4{ font-family:var(--mono); font-size:.71rem; letter-spacing:.1em; text-transform:uppercase;
+             color:var(--warm); margin:0 0 .8rem; font-weight:400; }
+  .flags ul{ margin:0; padding-left:1.1rem; }
+  .flags li{ margin-bottom:.4rem; font-size:.95rem; }
+  .flags li:last-child{ margin-bottom:0; }
+
+  .lineage{ margin:2rem 0; max-width:68ch; }
+  .lin{ display:grid; grid-template-columns:104px 1fr; gap:1.3rem; padding:1.05rem 0;
+        border-bottom:1px solid var(--line); align-items:baseline; }
+  .lin time{ font-family:var(--mono); font-size:.74rem; color:var(--ink-3); letter-spacing:.02em; }
+  .lin .who{ font-weight:640; }
+  .lin .what{ color:var(--ink-2); font-size:.93rem; display:block; margin-top:.2rem; }
+
+  .tabs{ display:flex; gap:.3rem; flex-wrap:wrap; margin:1.6rem 0 1.3rem; }
+  .tab{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.04em; cursor:pointer;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
+    padding:.44rem .95rem; border-radius:3px;
+  }
+  .tab[aria-selected="true"]{ background:var(--accent); border-color:var(--accent); color:var(--paper); }
+  .panel[hidden]{ display:none; }
+  .slot{ border:1px dashed var(--line-2); border-radius:4px; padding:1.05rem 1.25rem;
+         margin:0 0 .8rem; background:var(--surface); }
+  .slot h4{ font-family:var(--mono); font-size:.69rem; letter-spacing:.09em; text-transform:uppercase;
+            color:var(--accent); margin:0 0 .5rem; font-weight:400; }
+  .slot p{ margin:0; font-size:.92rem; color:var(--ink-3); }
+  .slot p.filled{ color:var(--ink-2); }
+  .slot-grid{ display:grid; gap:.8rem; margin:1.2rem 0 0; }
+  @media (min-width:760px){ .slot-grid{ grid-template-columns:1fr 1fr; } }
+
+  ul.arch{ list-style:none; padding:0; margin:1.6rem 0; max-width:68ch; }
+  ul.arch li{ padding:.8rem 0; border-bottom:1px solid var(--line); display:grid;
+              grid-template-columns:1fr auto; gap:1rem; align-items:baseline; font-size:.95rem; }
+  ul.arch .meta{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); white-space:nowrap; }
+
+  .editor{ background:var(--surface); border:1px solid var(--line); border-radius:4px;
+           padding:clamp(1.4rem,3vw,2rem); max-width:68ch; margin:1.8rem 0; }
+  .editor .name{ font-family:var(--serif); font-size:1.24rem; margin:0 0 .1rem; }
+  .editor .role{ font-family:var(--mono); font-size:.71rem; letter-spacing:.07em;
+                 color:var(--ink-3); margin:0 0 1.1rem; }
+  .editor p{ font-size:.95rem; }
+  .editor p:last-child{ margin-bottom:0; }
+
+  footer{ border-top:1px solid var(--line); padding:2.6rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  footer p{ max-width:68ch; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.8rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.05em; }
+
+  /* ── mobile: 언어·테마를 목차 앞으로 빼서 항상 보이게 ── */
+  @media (max-width:1039px){
+    .rail-inner{ align-items:center; }
+    .railfoot{ order:-1; flex:0 0 auto; margin:0 .55rem 0 0;
+               padding-right:.55rem; border-right:1px solid var(--line); }
+  }
+
+  /* ── mobile 타이포·여백 ── */
+  p,li,td,th,h1,h2,h3,h4,blockquote{ overflow-wrap:break-word; }
+  @media (max-width:640px){
+    body{ font-size:16px; line-height:1.7; }
+    h1,h2{ max-width:none; }
+    section{ padding:2.2rem 0; }
+    h3{ margin-top:1.9rem; }
+    header.hero{ padding:2.4rem 0 1.6rem; }
+    .quote{ padding-left:1.1rem; margin:1.6rem 0; }
+    .note,.flags,.habit,.lane,.editor,.slot{ padding:1rem 1.1rem; }
+    .dz > div{ padding:1.1rem 1.15rem; }
+    .myth{ padding:1.15rem 1.1rem; }
+    .check li,.sig li{ padding:.8rem 1rem .8rem 2.4rem; font-size:.92rem; }
+    .check li::before,.sig li::before{ left:.95rem; top:1.2rem; }
+    ol.steps li{ grid-template-columns:1.6rem 1fr; gap:.7rem; }
+    .lin{ grid-template-columns:1fr; gap:.25rem; padding:.9rem 0; }
+    table{ min-width:420px; font-size:.87rem; }
+    th,td{ padding:.6rem .6rem; }
+    .tblwrap{ margin:1.4rem 0; }
+    .trace{ height:38px; }
+    .refs ol{ padding-left:1.1rem; }
+  }
+
+  /* ── 히어로 ── */
+  h1{ font-size:clamp(2.6rem,7vw,4.4rem) !important; max-width:none !important;
+      line-height:1.05 !important; margin-bottom:1.1rem !important; }
+  .hero-q{ font-family:var(--serif); font-size:clamp(1.35rem,3.4vw,2rem);
+           line-height:1.34; color:var(--ink); margin:0 0 1.4rem; max-width:24ch;
+           text-wrap:balance; }
+  @media (max-width:640px){ .hero-q{ font-size:1.3rem; max-width:none; } }
+
+  /* ── 그리드 blowout 방지: nowrap 목차가 레이아웃을 밀어내지 않도록 ── */
+  .layout{ grid-template-columns:minmax(0,1fr); }
+  .rail, .layout > main, .rail-inner{ min-width:0; }
+  html,body{ overflow-x:hidden; }
+</style>
+
+<div class="shell">
+<div class="layout">
+
+  <nav class="rail" aria-label="Contents">
+    <div class="rail-inner">
+      <a href="#why"><span class="num">01</span>Why it persists</a>
+      <a href="#myths"><span class="num">02</span>Misconceptions</a>
+      <a href="#check"><span class="num">03</span>Self-assessment</a>
+      <a href="#what"><span class="num">04</span>M-puncture</a>
+      <a href="#bacteria"><span class="num">05</span>Bacteria</a>
+      <a href="#living"><span class="num">06</span>Daily life</a>
+      <a href="#lineage"><span class="num">07</span>Lineage</a>
+      <a href="#practice"><span class="num">08</span>Practice notes</a>
+      <a href="#about"><span class="num">09</span>About</a>
+      <div class="railfoot">
+        <a class="lang" href="/">한국어</a>
+        <button class="theme-btn" id="tt" type="button">Theme</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="hero">
+      <p class="eyebrow">Molecular Targeting by Needle-puncture</p>
+      <h1>M-puncture</h1>
+      <p class="hero-q">The scans are normal. So why does it still hurt?</p>
+      <p class="lede">
+        There is a way of understanding long-standing pain that locates the problem not in damaged tissue
+        but in <strong>the functioning of the nerve circuit</strong>.
+        This is a record of that view, and of M-puncture, the treatment built on it —
+        written for patients and for physicians alike.
+      </p>
+
+      <svg class="trace" viewBox="0 0 1000 52" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
+        <path class="live" d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
+      </svg>
+    </header>
+
+    <!-- 01 -->
+    <section id="why">
+      <p class="sec-label"><span class="n">01</span> First principles</p>
+      <h2>Long-standing pain is a different illness from acute pain</h2>
+
+      <div class="body-col">
+        <h3>Pain at first is an alarm</h3>
+        <p>
+          A sprained ankle hurts because the body is signalling that something is damaged and should be
+          protected. When the injury heals, the pain goes with it. The alarm has done its work.
+        </p>
+
+        <h3>But alarms can break</h3>
+        <p>
+          Once pain has continued for months, the situation changes.
+          The nerves carrying the signal become sensitised, and they begin
+          <strong>generating pain independently of whatever started it</strong>.
+        </p>
+        <p>
+          Think of a smoke alarm. At first it sounded only when there was a fire.
+          After years of being triggered it now goes off whenever anyone walks past.
+          At that point the problem is no longer the fire — it is <strong>the alarm</strong>.
+          Searching for a fire will not help, and there may not be one to find. The alarm is what needs fixing.
+        </p>
+
+        <h3>A dog that becomes a wolf</h3>
+        <p>Professor Lee Young Jin used to explain this to patients with an analogy.</p>
+
+        <blockquote class="quote">
+          You have a dog guarding the house. The owner does not look after it, does not feed it properly,
+          does nothing when a thief comes and the dog barks. After long enough the dog is so stressed
+          that it turns savage — it becomes a wolf. Once the dog has become a wolf, is there any point
+          asking why? It is a wolf now, and the wolf has to be dealt with.
+          That wolf is chronic pain.
+          <cite>Lee Young Jin, patient column, 2013 · translated from the Korean</cite>
+        </blockquote>
+
+        <p>
+          A nerve that existed to protect the body turns, under long enough strain, into something that
+          torments it. Once that has happened, <strong>reversing the state it is now in</strong>
+          matters more than tracing how it began.
+        </p>
+
+        <h3>Why it does not show on CT or MRI</h3>
+        <p>
+          CT and MRI show <strong>structure</strong>. They show whether a bone is displaced,
+          a disc has herniated, a cartilage surface has worn.
+        </p>
+        <p>
+          But a sensitised nerve is not a change in structure. It is a change in
+          <strong>how the tissue behaves</strong>, and it does not appear on a scan —
+          much as a computer that has become slow can look perfectly intact when you open the case.
+        </p>
+        <p>
+          <strong>"Nothing abnormal on imaging" and "nothing wrong" are therefore not the same statement.</strong>
+          A normal scan does not mean the pain is absent, and it does not mean it is imagined.
+        </p>
+        <p>
+          The reverse also holds. With age, disc degeneration and joint changes are found in most people,
+          and a great many of them have no pain at all.
+          <strong>What shows on the scan and what hurts do not necessarily travel together.</strong>
+        </p>
+
+        <h3>Why surgery can succeed and the pain remain</h3>
+        <p>
+          If the pain was arising from the nerve rather than the tissue, then an operation that corrects
+          the tissue leaves the cause untouched. This is how a technically successful operation and
+          persisting pain end up in the same patient. It does not mean the surgery was done badly.
+          It means <strong>it was aimed elsewhere</strong>.
+        </p>
+
+        <div class="note">
+          <p>
+            This way of understanding persistent pain is now widely used in pain medicine.
+            The terms are <strong>central sensitisation</strong> and <strong>nociplastic pain</strong>.
+            If a clinician has used those words with you, this is the same thing described here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="myths">
+      <p class="sec-label"><span class="n">02</span> Corrections</p>
+      <h2>Common misconceptions about long-standing pain</h2>
+
+      <div class="myths">
+        <div class="myth">
+          <p class="m">Nothing showed up on the tests, so it must be in my head</p>
+          <p class="a"><b>It is not.</b> Pain is generated by nerves, and the sensitivity of a nerve
+             does not show on imaging. A normal scan means the bone and cartilage are broadly intact.
+             It does not mean there is no pain.</p>
+        </div>
+        <div class="myth">
+          <p class="m">If it hurts, I should move as little as possible</p>
+          <p class="a"><b>Usually the opposite.</b> Once the acute phase has passed, continued disuse
+             wastes muscle and stiffens joints, which leaves the area more vulnerable.
+             Steady movement within a range that does not aggravate the pain is generally better.</p>
+        </div>
+        <div class="myth">
+          <p class="m">The MRI shows a disc problem, so that must be the cause</p>
+          <p class="a"><b>Not necessarily.</b> Disc degeneration and joint change are found routinely
+             in people with no pain at all. What appears on the image and what is hurting now
+             do not always correspond.</p>
+        </div>
+        <div class="myth">
+          <p class="m">It is my age, so nothing can be done</p>
+          <p class="a"><b>Degeneration and pain are separate questions.</b> Two people with the same
+             degree of joint wear may differ entirely in whether it hurts.
+             Filing it under age means missing what can in fact be addressed.</p>
+        </div>
+        <div class="myth">
+          <p class="m">If I keep taking painkillers it will eventually settle</p>
+          <p class="a"><b>Medication plays a different role in acute and in long-standing pain.</b>
+             Analgesics reduce what is felt now; they do not reverse a sensitised nervous system.
+             If the period of getting by on medication keeps extending, the approach is worth reviewing.</p>
+        </div>
+        <div class="myth">
+          <p class="m">I have heard pain gets worse if you put up with it — am I making it worse?</p>
+          <p class="a"><b>Endurance is not the objective.</b> The longer pain continues, the more
+             readily the nervous system produces it. Rather than enduring it for longer,
+             the useful step is establishing why it persists.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="check">
+      <p class="sec-label"><span class="n">03</span> Self-assessment</p>
+      <h2>Does my pain fit this pattern?</h2>
+
+      <div class="body-col">
+        <p>
+          If several of the following apply, it is worth considering whether the problem lies more with
+          the nerve than with the tissue. This is not a diagnosis —
+          it is <strong>a list to begin a conversation from</strong>.
+        </p>
+      </div>
+
+      <ul class="check">
+        <li>The pain has continued for <strong>three months or more</strong></li>
+        <li>Investigations have not found anything that adequately explains it</li>
+        <li>Something was found, but the pain is far worse than that finding would suggest</li>
+        <li>Injections, physiotherapy or procedures have helped only briefly, or not at all</li>
+        <li>Surgery was performed and the pain remained, or returned</li>
+        <li>The painful area moves about, or has spread beyond where it started</li>
+        <li>Light touch or pressure hurts more than it should</li>
+        <li>Pain flares markedly when tired, sleep-deprived or under stress</li>
+        <li>Movement is now avoided in anticipation of pain</li>
+      </ul>
+
+      <div class="flags">
+        <h4>Seek medical assessment first if any of these apply</h4>
+        <ul>
+          <li>Weakness in an arm or leg, or numbness that is progressing</li>
+          <li>Difficulty controlling bladder or bowel</li>
+          <li>Unexplained weight loss or fever</li>
+          <li>Severe pain at rest at night that prevents sleep</li>
+          <li>Pain that began abruptly after a fall or impact</li>
+          <li>A history of cancer, infection or osteoporosis</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section id="what">
+      <p class="sec-label"><span class="n">04</span> The treatment</p>
+      <h2>What M-puncture actually does</h2>
+
+      <div class="body-col">
+        <p>
+          <strong>M-puncture</strong> stands for <em>Molecular Targeting by Needle-puncture</em> —
+          targeting a molecular-level problem with a needle.
+          Its object is to reverse the sensitised nerve circuit described above.
+        </p>
+        <p>
+          A very fine needle — finer than an acupuncture needle — is used to stimulate the affected nerve
+          directly, with injections added as required. There is no incision and no general anaesthesia,
+          and normal activity can resume immediately afterwards.
+        </p>
+
+        <h3>The procedure comprises the following elements</h3>
+        <ol class="steps">
+          <li><span class="txt">Locating and stimulating the site where the nerve circuit is disordered, with a fine needle</span></li>
+          <li><span class="txt">Injecting substances that support nerve recovery</span></li>
+          <li><span class="txt">Settling long-standing inflammation around the nerve</span></li>
+          <li><span class="txt">Releasing tissue around the nerve that has stiffened and is compressing or tethering it</span></li>
+          <li><span class="txt">Adding magnetic stimulation across the nerve circuit</span></li>
+          <li><span class="txt">Where indicated, adding pain- or immune-related injections</span></li>
+        </ol>
+
+        <h3>The response itself indicates direction</h3>
+        <p>
+          One practical use of this method is that it
+          <strong>helps establish whether surgery is genuinely required</strong>.
+          If the pain improves, the problem lay with the nerve.
+          If an adequate course produces no change, a tissue problem becomes more likely.
+          Where opinions differ between clinicians about whether to operate,
+          this offers a way of finding out before deciding.
+        </p>
+
+        <div class="note">
+          <p>
+            It is not appropriate for all pain. Where the structure itself must be corrected —
+            a fracture, or a compressed nerve producing progressive weakness — other treatment comes first.
+            Response varies between individuals in any treatment, and the decision belongs in consultation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section id="bacteria">
+      <p class="sec-label"><span class="n">05</span> A second axis</p>
+      <h2>When bacteria are what keeps the pain going</h2>
+
+      <div class="body-col">
+        <p>
+          Even when a sensitised nerve has been settled, pain returns if whatever was irritating it
+          remains in the body. Repairing the alarm achieves little while the smoke continues.
+        </p>
+        <p>
+          Sometimes that smoke is <strong>bacterial</strong>.
+          And bacteria have more than one route by which they generate pain.
+        </p>
+
+        <h3>The first route — input arising from the gut</h3>
+        <p>
+          The gut is home to a large microbial population. When that balance is lost and bacteria or fungi
+          overgrow, the <strong>gas and inflammatory products</strong> they generate pass beyond the gut
+          and circulate.
+        </p>
+        <p>
+          These substances act to make nerves more sensitive.
+          <strong>Hydrogen sulfide</strong> in particular is known to open the channels through which pain
+          signals travel, and to produce heightened pain sensitivity at sites well away from the gut.
+          The effect is to lower the pain threshold throughout the body.
+        </p>
+        <p>
+          And this route does not act on pain alone.
+          The same input surfaces as bloating, as halitosis, as a head that will not clear,
+          sometimes as a skin complaint. Pain is only one of them —
+          the account of those scattered symptoms traced back to a single source is set out separately at
+          <a href="https://neoskepticism.com/">Neo-Skepticism</a>.
+        </p>
+
+        <h3>The second route — bacteria resident in tissue</h3>
+        <p>
+          Not all of it is in the gut. Bacteria can <strong>persist in joints, bone or soft tissue</strong>,
+          sustaining low-grade inflammation.
+        </p>
+        <p>
+          Such states are readily missed, because <strong>blood tests and imaging can be entirely normal
+          while the pain continues</strong>. It is not unusual for years to pass under a different diagnosis.
+          This is not speculative; it describes conditions already well documented.
+        </p>
+
+        <h3>What I have seen in practice</h3>
+        <p>
+          Among patients presenting with gut complaints, long-standing pain is a frequent companion, and
+          <strong>after eradication treatment that pain settles too, though it was never treated.</strong>
+          These are patients who did not consult me about pain at all.
+        </p>
+        <p>
+          I took it at first for an incidental change. As it kept recurring, that became difficult to sustain.
+          And <strong>the improvement holds after the drug is stopped.</strong>
+        </p>
+        <p>
+          Whether it originated in the gut or in tissue I have not yet been able to determine.
+          <strong>Both routes may be present in the same patient.</strong>
+          Either way the object is the same — reducing what has been generating the pain.
+        </p>
+
+        <h3>If these are present alongside the pain</h3>
+        <p>Where the following accompany chronic pain, the bacterial question is worth raising.</p>
+      </div>
+
+      <ul class="check">
+        <li>Frequent bloating or excessive gas</li>
+        <li>Long-standing constipation or diarrhoea</li>
+        <li>Pain or fatigue worsening after eating</li>
+        <li>Pain in several areas rather than one, or spread widely</li>
+        <li>Persistent fatigue and poor mental clarity</li>
+        <li>Troublesome breath odour</li>
+        <li>Investigations remain normal while the pain continues</li>
+        <li>Pain treatments help temporarily and it keeps returning</li>
+      </ul>
+
+      <div class="body-col">
+        <h3>How the two axes interlock</h3>
+        <p>
+          Needle treatment and bacterial reduction are aimed at different points.
+          <strong>The first reverses a circuit that has already become sensitised;
+          the second reduces the input that was keeping it sensitised.</strong>
+          They do not overlap — each does its own work.
+        </p>
+        <p>
+          This is why I use them together. A circuit settled with the needle will flare again if the source
+          of irritation is untouched, and removing the source leaves a thoroughly sensitised circuit that
+          does not readily recover on its own.
+          <strong>Treating both axes gives a different result.</strong>
+        </p>
+        <p>
+          Not every patient with pain needs this. It applies where the signs above appear alongside the pain,
+          and the two are examined together rather than the pain in isolation.
+        </p>
+
+        <h3>A step on from Professor Lee's "detoxification"</h3>
+        <p>
+          The final element of the M-puncture procedure was "pain- or immune-related injections where indicated."
+          Professor Lee described this in terms of <em>detoxification</em>, a subject he pursued at
+          sufficient length to publish a separate book on it.
+          <strong>The idea that reducing what has accumulated in the body also reduces pain</strong>
+          was present in this treatment from the beginning.
+        </p>
+        <p>
+          I approach that same element with <strong>bacteria</strong> as the specific target.
+          What has to be reduced is not an unspecified "toxin" but overgrown bacteria and fungi,
+          the gases and metabolites they generate, and organisms persisting in tissue.
+          Once the target is defined, both the means of confirming it and the means of reducing it follow.
+        </p>
+        <p>
+          And this is not accomplished with a single injection. Four things have to move together.
+        </p>
+      </div>
+
+      <div class="habits">
+        <div class="habit">
+          <h4>Diet</h4>
+          <p>Which organisms flourish is determined substantially by what is eaten.
+             Reducing what sustains the overgrowth comes first.
+             This may run counter to general "healthy eating" advice and needs adjusting per patient.</p>
+        </div>
+        <div class="habit">
+          <h4>The wider routine</h4>
+          <p>Sleep, spacing of meals, stress and bowel habit are all considered.
+             If the gut is not moving, whatever else is done will simply accumulate again.
+             These overlap considerably with the measures discussed in pain treatment.</p>
+        </div>
+        <div class="habit">
+          <h4>Active eradication</h4>
+          <p>Where indicated, <strong>antibiotics and antifungals are used actively</strong>.
+             Diet and routine alone frequently fail to displace an established overgrowth.
+             Because a single agent leaves organisms outside its spectrum to fill the space,
+             <strong>several classes are combined for broad coverage.</strong></p>
+        </div>
+        <div class="habit">
+          <h4>And afterwards</h4>
+          <p>Reduction is not the end of it. What follows is establishing conditions in which the
+             overgrowth does not return — which brings the work back to diet and routine.</p>
+        </div>
+      </div>
+
+      <div class="body-col">
+        <div class="note">
+          <p>
+            The use of antibiotics and antifungals is <strong>a matter for clinical judgement</strong>
+            based on investigation and course. It is not treatment to be started or stopped independently.
+            Which agents are used, and how, is not covered here.
+          </p>
+        </div>
+
+        <div class="note" style="border-color:var(--accent)">
+          <p style="margin:0">
+            <strong>Further reading →</strong>
+            The conditions in which bacteria resident in musculoskeletal tissue are established to cause
+            chronic pain, the mechanism by which hydrogen sulfide opens nociceptive channels,
+            which investigations may be informative, and what remains unresolved — set out with references.
+            <a href="/en/bacteria/"><strong>Bacteria and Chronic Pain — In the Gut, and in the Tissue</strong></a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section id="living">
+      <p class="sec-label"><span class="n">06</span> Daily life</p>
+      <h2>What helps alongside treatment</h2>
+
+      <div class="body-col">
+        <p>
+          A sensitised nervous system does not settle on treatment alone.
+          If the conditions that drive that sensitivity remain in daily life, it rises again.
+          These are the things always discussed alongside treatment in pain practice.
+        </p>
+      </div>
+
+      <div class="habits">
+        <div class="habit">
+          <h4>Sleep</h4>
+          <p>Pain is worse the day after poor sleep. Pain preventing sleep, and lost sleep worsening pain,
+             is a common cycle. If one thing is to be addressed first during treatment, it is sleep.</p>
+        </div>
+        <div class="habit">
+          <h4>Moving, a little and often</h4>
+          <p>Better than overdoing it and spending days recovering.
+             Within a range that does not aggravate, small amounts daily.
+             It is a process of the body relearning that this much movement is safe.</p>
+        </div>
+        <div class="habit">
+          <h4>Reducing fear</h4>
+          <p>Avoiding activity in anticipation of pain narrows what can be done, and the narrower it becomes
+             the more it hurts. Knowing precisely what is safe is itself often enough to reduce pain.</p>
+        </div>
+        <div class="habit">
+          <h4>A pain diary</h4>
+          <p>Two weeks of noting when it is worse and when it eases will usually reveal a pattern.
+             It also tells a clinician far more than "it just hurts all the time."</p>
+        </div>
+        <div class="habit">
+          <h4>Stress and tension</h4>
+          <p>This does not mean the pain is psychological. Sustained tension genuinely increases
+             nerve sensitivity. It is worth examining together what was happening on the days it flared.</p>
+        </div>
+        <div class="habit">
+          <h4>Preparing for the consultation</h4>
+          <p>When it began, where it is, what brings it on. What treatment has been given and with what result.
+             Those three alone change the quality of a consultation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section id="lineage">
+      <p class="sec-label"><span class="n">07</span> Lineage</p>
+      <h2>Where this treatment came from</h2>
+
+      <div class="lineage">
+        <div class="lin">
+          <time>1970s–</time>
+          <div><span class="who">Chan Gunn</span>
+            <span class="what">Vancouver, Canada. Established intramuscular stimulation (IMS), placing a needle
+            deep into muscle to restore nerve function. The direct ancestor of M-puncture.</span></div>
+        </div>
+        <div class="lin">
+          <time>1983</time>
+          <div><span class="who">Clifford Woolf</span>
+            <span class="what">Reported the sensitisation of the central nervous system to pain,
+            which became the foundation of the modern understanding of chronic pain.</span></div>
+        </div>
+        <div class="lin">
+          <time>2009</time>
+          <div><span class="who">Dong Whee Jun</span>
+            <span class="what">Authored <em>Jun's M-Puncture and pain model</em>. Originator of the pain model.</span></div>
+        </div>
+        <div class="lin">
+          <time>2013</time>
+          <div><span class="who">Dong Whee Jun · Young Jin Lee</span>
+            <span class="what"><em>Jun &amp; Lee's M-puncture and pain model</em>, second edition.
+            Professor Lee updated the theory and organised it into a system usable in clinical practice.</span></div>
+        </div>
+        <div class="lin">
+          <time>2013–2017</time>
+          <div><span class="who">M-puncture certificate course</span>
+            <span class="what">Practical training for physicians, teaching examination and technique
+            region by region over two days. The last course ran in 2018.</span></div>
+        </div>
+        <div class="lin">
+          <time>Present</time>
+          <div><span class="who">Young Jin Lee</span>
+            <span class="what">Still in active practice. His focus has since moved elsewhere,
+            and the M-puncture teaching has stopped.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section id="practice">
+      <p class="sec-label"><span class="n">08</span> Practice notes</p>
+      <h2>A practical record for physicians learning the technique</h2>
+
+      <div class="body-col">
+        <p>
+          This part is for physicians.
+          The theory survives in the textbook, but <strong>how the hand is actually used</strong>
+          is written down nowhere.
+          What was learned in the course, and what has accumulated in practice, is recorded here
+          region by region against a common template.
+        </p>
+        <div class="note warm">
+          <span class="t">In progress</span>
+          <p>The structure below is set out; the content is still being written.</p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Select region">
+        <button class="tab" role="tab" aria-selected="true"  aria-controls="p-l" id="t-l">Lumbar</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-c" id="t-c">Cervical</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-s" id="t-s">Shoulder</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-k" id="t-k">Knee</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-d" id="t-d">Decontamination</button>
+      </div>
+
+      <div class="panel" id="p-l" role="tabpanel" aria-labelledby="t-l">
+        <div class="slot">
+          <h4>Presentations addressed</h4>
+          <p class="filled">Disc herniation with radiculopathy · spinal stenosis · degenerative spondylolisthesis ·
+             sacroiliac dysfunction · facet syndrome · post-laminectomy pain</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>What to exclude first</h4><p>To be written</p></div>
+          <div class="slot"><h4>What examination establishes</h4><p>To be written</p></div>
+          <div class="slot"><h4>How the site is found</h4><p>To be written</p></div>
+          <div class="slot"><h4>What the needle meets</h4><p>To be written</p></div>
+          <div class="slot"><h4>Common errors</h4><p>To be written</p></div>
+          <div class="slot"><h4>Patterns that respond, and that do not</h4><p>To be written</p></div>
+          <div class="slot"><h4>Number of sessions and interval</h4><p>To be written</p></div>
+          <div class="slot"><h4>Safety and contraindications</h4><p>To be written</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-c" role="tabpanel" aria-labelledby="t-c" hidden>
+        <div class="slot">
+          <h4>Presentations addressed</h4>
+          <p class="filled">Cervical disc and radicular pain · cervicogenic headache · temporomandibular disorder ·
+             thoracic outlet syndrome · medial scapular and upper back pain</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>What to exclude first</h4><p>To be written</p></div>
+          <div class="slot"><h4>What examination establishes</h4><p>To be written</p></div>
+          <div class="slot"><h4>How the site is found</h4><p>To be written</p></div>
+          <div class="slot"><h4>What the needle meets</h4><p>To be written</p></div>
+          <div class="slot"><h4>Common errors</h4><p>To be written</p></div>
+          <div class="slot"><h4>Patterns that respond, and that do not</h4><p>To be written</p></div>
+          <div class="slot"><h4>Number of sessions and interval</h4><p>To be written</p></div>
+          <div class="slot"><h4>Safety and contraindications</h4><p>Dense critical anatomy — to be set out separately</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-s" role="tabpanel" aria-labelledby="t-s" hidden>
+        <div class="slot">
+          <h4>Presentations addressed</h4>
+          <p class="filled">Adhesive capsulitis · rotator cuff tendinopathy · subacromial impingement ·
+             acromioclavicular disorders · shoulder pain of cervical origin</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>What to exclude first</h4><p>To be written</p></div>
+          <div class="slot"><h4>The critical distinction</h4><p class="filled">Whether the problem is in the shoulder itself or referred from the neck — to be set out</p></div>
+          <div class="slot"><h4>How the site is found</h4><p>To be written</p></div>
+          <div class="slot"><h4>What the needle meets</h4><p>To be written</p></div>
+          <div class="slot"><h4>Common errors</h4><p>To be written</p></div>
+          <div class="slot"><h4>Patterns that respond, and that do not</h4><p>To be written</p></div>
+          <div class="slot"><h4>Number of sessions and interval</h4><p>To be written</p></div>
+          <div class="slot"><h4>Safety and contraindications</h4><p>To be written</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-k" role="tabpanel" aria-labelledby="t-k" hidden>
+        <div class="slot">
+          <h4>Presentations addressed</h4>
+          <p class="filled">Degenerative knee osteoarthritis · residual pain after meniscal injury ·
+             patellofemoral pain · collateral ligament syndromes · knee pain of lumbar origin</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>What to exclude first</h4><p>To be written</p></div>
+          <div class="slot"><h4>The critical distinction</h4><p class="filled">Identifying patients in whom the degree of radiographic degeneration does not match the pain — to be set out</p></div>
+          <div class="slot"><h4>How the site is found</h4><p>To be written</p></div>
+          <div class="slot"><h4>What the needle meets</h4><p>To be written</p></div>
+          <div class="slot"><h4>Common errors</h4><p>To be written</p></div>
+          <div class="slot"><h4>Patterns that respond, and that do not</h4><p>To be written</p></div>
+          <div class="slot"><h4>Number of sessions and interval</h4><p>To be written</p></div>
+          <div class="slot"><h4>Safety and contraindications</h4><p>To be written</p></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-d" role="tabpanel" aria-labelledby="t-d" hidden>
+        <div class="slot">
+          <h4>What it targets</h4>
+          <p class="filled">Reducing the gases and inflammatory products of bacterial and fungal overgrowth,
+             and so lowering the systemic input that has been raising nociceptive signalling.
+             Where the needle reverses the circuit, this axis reduces what re-sensitises it.</p>
+        </div>
+        <div class="slot-grid">
+          <div class="slot"><h4>Which pain patients to suspect it in</h4><p class="filled">Widespread pain · fibromyalgia-type presentation · repeated relapse after treatment · concurrent gut symptoms · post-prandial aggravation — to be set out</p></div>
+          <div class="slot"><h4>Investigations used</h4><p>To be written</p></div>
+          <div class="slot"><h4>Sequence and decision points</h4><p>To be written</p></div>
+          <div class="slot"><h4>Sequencing with M-puncture</h4><p>Which first, or concurrently — to be written</p></div>
+          <div class="slot"><h4>Patterns in which pain also improved</h4><p>To be written</p></div>
+          <div class="slot"><h4>Where there was no response</h4><p>To be written</p></div>
+          <div class="slot"><h4>Cautions</h4><p>To be written</p></div>
+          <div class="slot"><h4>Related reading</h4><p class="filled"><a href="/en/bacteria/">Bacteria and Chronic Pain</a></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section id="about">
+      <p class="sec-label"><span class="n">09</span> About this record</p>
+      <h2>What is disappearing is not the theory but the hand</h2>
+
+      <div class="body-col">
+        <p>
+          M-puncture is a system for treating chronic pain that was set out in Korea in the late 2000s.
+          More than a thousand physicians took the training at one point.
+          The official site has since closed, and the last course ran in 2018.
+        </p>
+
+        <h3>Why it is disappearing</h3>
+        <p>
+          Not because the theory was wrong. The theory survives in print, and the view of chronic pain
+          as a problem of the nervous system is now more widely accepted, not less.
+        </p>
+        <p>
+          The reason lies elsewhere, in my view.
+          <strong>The procedure depends heavily on the sense of the person performing it.</strong>
+        </p>
+        <p>
+          Understanding what a patient means by their pain and being able to meet it;
+          identifying, among several painful areas, the one that actually needs the needle;
+          and taking that site far enough to release it properly —
+          these have to come together for the result to follow.
+          If one is off, the same protocol followed exactly will not work.
+        </p>
+        <p>
+          And this part <strong>does not transfer well through a two-day course.</strong>
+          The theory and the sequence can be taken away; the hand cannot.
+          That, I think, is why a treatment more than a thousand physicians were taught has not survived widely.
+          Most of them left with the protocol. The sense did not go with it.
+        </p>
+        <p>
+          This record therefore is not aimed at setting down the sequence.
+          It is <strong>an attempt to put into words the part that resists being put into words</strong> —
+          what the needle meets, where people go wrong, which patients respond and which do not.
+          None of this is written in any book, and it goes when the person doing it stops.
+        </p>
+
+        <h3>One thing to add</h3>
+        <p>
+          What I do will not be exactly what I was taught by Professor Lee.
+          Anything learned through the hand diverges a little between those who learn it,
+          and to it I have added <a href="#bacteria">an approach that reduces bacteria</a>.
+        </p>
+        <p>
+          So what is recorded here is not a definitive account of M-puncture but
+          <strong>a record of the version I learned and use</strong>.
+          That is the honest description, and in any case this is how anything passed hand to hand
+          has always been carried.
+        </p>
+
+        <div class="editor">
+          <p class="name">June-sang Yang</p>
+          <p class="role">Physician · compiler</p>
+          <p>
+            I learned M-puncture directly from Professor Lee Young Jin and continue to use it in practice.
+            Pain is not the larger part of my work, but I have seen in the clinic that there are patients
+            for whom this method clearly helps.
+          </p>
+          <p>
+            This record is not intended to attract patients. It carries no clinic details and no enquiry form.
+            Reaching the patients for whom this view is useful, and the physicians who might carry the
+            technique forward, is enough.
+          </p>
+        </div>
+
+        <h3>What survives of the source material</h3>
+        <ul class="arch">
+          <li><em>Jun &amp; Lee's M-puncture and pain model</em>, second edition<span class="meta">2013</span></li>
+          <li><em>Jun's M-Puncture</em>, first edition<span class="meta">2009</span></li>
+          <li>Theory pages of the original site<span class="meta">recovered</span></li>
+          <li>Index of 90 chronic pain conditions<span class="meta">recovered</span></li>
+          <li>Certificate course curriculum<span class="meta">2014 · 2017</span></li>
+          <li>Press coverage<span class="meta">2009–2013</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div class="disclaim">
+        <p style="margin:0">
+          This site is not an advertisement for any medical institution. It exists to provide general
+          information on chronic pain and to record clinical technique.
+          Diagnosis and treatment of an individual case must be undertaken with a physician.
+          Nothing here is a substitute for consultation.
+        </p>
+      </div>
+      <p class="colophon">
+        Compiled by June-sang Yang · August 2026 · Theory originated by Dong Whee Jun and Young Jin Lee
+      </p>
+    </footer>
+
+  </main>
+</div>
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.tab'));
+    function select(t){
+      tabs.forEach(function(x){
+        var on = x===t;
+        x.setAttribute('aria-selected', on?'true':'false');
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){ select(t); });
+      t.addEventListener('keydown',function(e){
+        var d = e.key==='ArrowRight'?1 : e.key==='ArrowLeft'?-1 : 0;
+        if(!d) return;
+        e.preventDefault();
+        var n=tabs[(i+d+tabs.length)%tabs.length];
+        n.focus(); select(n);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

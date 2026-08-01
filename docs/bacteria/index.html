@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bacteria and Chronic Pain — In the Gut, and in the Tissue</title>
-<meta name="description" content="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal pain — the established entities, the mechanisms, and what remains unresolved.">
+<title>세균과 만성통증 — 장에서, 그리고 조직에서 | 엠펑쳐</title>
+<meta name="description" content="장에서 오는 자극과 조직에 정착한 세균이 만성 근골격 통증을 유지시키는 경로 — 확립된 질환, 기전, 그리고 아직 확인되지 않은 것.">
 <meta name="author" content="June-sang Yang">
 <link rel="canonical" href="https://mpuncture.org/bacteria/">
-<link rel="alternate" hreflang="en" href="https://mpuncture.org/bacteria/">
-<link rel="alternate" hreflang="ko" href="https://mpuncture.org/ko/bacteria/">
+<link rel="alternate" hreflang="ko" href="https://mpuncture.org/bacteria/">
+<link rel="alternate" hreflang="en" href="https://mpuncture.org/en/bacteria/">
 <link rel="alternate" hreflang="x-default" href="https://mpuncture.org/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bacteria and Chronic Pain — In the Gut, and in the Tissue">
-<meta property="og:description" content="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal pain — the established entities, the mechanisms, and what remains unresolved.">
+<meta property="og:title" content="세균과 만성통증 — 장에서, 그리고 조직에서 | 엠펑쳐">
+<meta property="og:description" content="장에서 오는 자극과 조직에 정착한 세균이 만성 근골격 통증을 유지시키는 경로 — 확립된 질환, 기전, 그리고 아직 확인되지 않은 것.">
 <meta property="og:url" content="https://mpuncture.org/bacteria/">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 <style>
@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-<title>Bacteria and Chronic Pain — In the Gut, and in the Tissue</title>
+<title>세균과 만성통증 — 장에서, 그리고 조직에서</title>
 
 <style>
   :root{
@@ -32,8 +32,8 @@
     --line:#DCE2E2; --line-2:#C6CFCF;
     --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
     --warm:#9C5A0C; --warm-soft:#F6EADA;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Charter,Georgia,serif;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:"AppleMyungjo","Nanum Myeongjo","NanumMyeongjo","Batang","바탕","Songti SC",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
     --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
   }
   :root[data-theme="dark"]{
@@ -59,23 +59,23 @@
   }
   body{
     margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--sans); font-size:17px; line-height:1.7;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--sans); font-size:17px; line-height:1.8;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
   }
   a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
   a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
 
-  .shell{ max-width:740px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+  .shell{ max-width:760px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
 
   .topbar{
     position:sticky; top:0; z-index:20; background:var(--paper);
     border-bottom:1px solid var(--line);
     display:flex; align-items:center; justify-content:space-between; gap:1rem;
-    padding:.75rem 0;
+    padding:.75rem 0; margin-bottom:0;
   }
   .navset{ display:flex; align-items:center; gap:1.1rem; }
   .back, .lang{
-    font-family:var(--mono); font-size:.72rem; letter-spacing:.05em;
+    font-family:var(--mono); font-size:.73rem; letter-spacing:.05em;
     text-decoration:none; color:var(--ink-3);
   }
   .back:hover, .lang:hover{ color:var(--ink); }
@@ -89,72 +89,73 @@
 
   header.hero{ padding:clamp(2.8rem,8vw,5rem) 0 clamp(1.6rem,4vw,2.4rem); }
   .eyebrow{
-    font-family:var(--mono); font-size:.71rem; letter-spacing:.16em;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
     text-transform:uppercase; color:var(--accent); margin:0 0 1.4rem;
   }
   h1{
     font-family:var(--serif); font-weight:400;
-    font-size:clamp(2rem,5vw,3.05rem); line-height:1.22; letter-spacing:-.012em;
+    font-size:clamp(1.95rem,5vw,3rem); line-height:1.3; letter-spacing:-.015em;
     text-wrap:balance; margin:0 0 1.4rem;
   }
-  .lede{ font-size:clamp(1.02rem,1.9vw,1.14rem); color:var(--ink-2); margin:0; max-width:60ch; }
+  .lede{ font-size:clamp(1.01rem,1.9vw,1.13rem); color:var(--ink-2); margin:0; }
 
   section{ padding:clamp(2.4rem,5.5vw,3.8rem) 0; border-top:1px solid var(--line); }
   .sec-label{
-    font-family:var(--mono); font-size:.71rem; letter-spacing:.14em; text-transform:uppercase;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
     color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
   }
   .sec-label .n{ color:var(--accent); }
   h2{
-    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3vw,2rem);
-    line-height:1.3; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.45rem,3vw,1.95rem);
+    line-height:1.38; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
   }
-  h3{ font-family:var(--sans); font-weight:640; font-size:1.02rem; line-height:1.45;
-      margin:2.3rem 0 .7rem; letter-spacing:-.003em; }
-  p{ margin:0 0 1.15rem; max-width:68ch; }
-  strong{ font-weight:640; }
-  em.sci{ font-style:italic; }
+  h3{ font-family:var(--sans); font-weight:650; font-size:1.03rem; line-height:1.5;
+      margin:2.3rem 0 .7rem; letter-spacing:-.005em; }
+  p{ margin:0 0 1.15rem; }
+  strong{ font-weight:650; }
 
   .note{
     background:var(--surface); border:1px solid var(--line); border-radius:4px;
-    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2); max-width:68ch;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2);
   }
   .note p:last-child{ margin-bottom:0; }
   .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
   .note .t{
-    font-family:var(--mono); font-size:.69rem; letter-spacing:.12em; text-transform:uppercase;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
     color:var(--warm); display:block; margin-bottom:.5rem;
   }
 
+  /* disease cards */
   .dz{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
        border-radius:4px; overflow:hidden; margin:2rem 0; }
   .dz > div{ background:var(--surface); padding:1.35rem 1.4rem; }
-  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:640; margin:0 0 .15rem; }
-  .dz .org{ font-family:var(--serif); font-style:italic; font-size:.92rem;
-             color:var(--ink-3); margin:0 0 .8rem; }
+  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:650; margin:0 0 .15rem; }
+  .dz .sci{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); margin:0 0 .8rem; letter-spacing:.02em; }
   .dz p{ font-size:.94rem; margin:0 0 .6rem; }
   .dz p:last-child{ margin-bottom:0; }
-  .dz .key{ color:var(--accent-ink); font-weight:640; }
+  .dz .key{ color:var(--accent-ink); font-weight:650; }
 
+  /* regimen table */
   .tblwrap{ overflow-x:auto; margin:1.8rem 0; }
-  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:480px; }
+  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:460px; }
   th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
-  th{ font-family:var(--mono); font-size:.67rem; letter-spacing:.1em; text-transform:uppercase;
+  th{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
       color:var(--ink-3); font-weight:400; }
   tbody tr:last-child td{ border-bottom:0; }
 
-  .sig{ list-style:none; padding:0; margin:1.6rem 0; max-width:68ch;
+  /* signal list */
+  .sig{ list-style:none; padding:0; margin:1.6rem 0;
         display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
   .sig li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
   .sig li::before{
-    content:""; position:absolute; left:1.2rem; top:1.35rem;
+    content:""; position:absolute; left:1.2rem; top:1.42rem;
     width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
   }
 
-  .path{ margin:2rem 0; display:grid; gap:1.1rem; max-width:68ch; }
+  .path{ margin:2rem 0; display:grid; gap:1.1rem; }
   @media (min-width:700px){ .path{ grid-template-columns:1fr 1fr; } }
   .lane{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.4rem; }
-  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:640; margin:0 0 .55rem; }
+  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:650; margin:0 0 .55rem; }
   .lane p{ font-size:.93rem; color:var(--ink-2); margin:0; }
 
   .refs{ font-size:.86rem; color:var(--ink-3); }
@@ -194,362 +195,345 @@
 
   <div class="topbar">
     <div class="navset">
-      <a class="back" href="/">← M-puncture</a>
-      <a class="lang" href="/ko/bacteria/">한국어</a>
+      <a class="back" href="/">← M-puncture 엠펑쳐</a>
+      <a class="lang" href="/en/bacteria/">English</a>
     </div>
-    <button class="theme-btn" id="tt" type="button">Theme</button>
+    <button class="theme-btn" id="tt" type="button">테마 전환</button>
   </div>
 
   <header class="hero">
-    <p class="eyebrow">Extended note · for clinicians and interested readers</p>
-    <h1>Bacteria and Chronic Pain — In the Gut, and in the Tissue</h1>
+    <p class="eyebrow">심화 · 시술자와 관심 있는 독자를 위한 글</p>
+    <h1>세균과 만성통증 — 장에서, 그리고 조직에서</h1>
     <p class="lede">
-      Long-standing musculoskeletal pain has repeatedly resolved in my patients during
-      prolonged antibiotic therapy given for gastrointestinal indications.
-      This note sets out the mechanisms that could account for it, and what is
-      established and what is not.
+      항생제 투여 후 오래된 근골격 통증이 함께 사라지는 경과를 진료에서 반복적으로 관찰해 왔습니다.
+      그 배경으로 가능한 기전과, 현재까지 확립된 것과 확립되지 않은 것을 정리했습니다.
     </p>
   </header>
 
   <!-- 01 -->
   <section>
-    <p class="sec-label"><span class="n">01</span> Starting point</p>
-    <h2>Pain resolved when pain was not the target</h2>
+    <p class="sec-label"><span class="n">01</span> 시작</p>
+    <h2>통증을 목표로 하지 않았는데 통증이 사라졌다</h2>
 
     <p>
-      In treating patients for gastrointestinal microbial overgrowth, I kept encountering the same thing:
-      <strong>after the gut was cleared, long-standing pain that had never been treated settled as well.</strong>
-      Low back, knee, shoulder, often several sites at once — in patients who had not consulted me about pain at all.
+      제가 장 문제로 오신 분들에게 제균 치료를 하면서 반복해서 마주친 일이 있습니다.
+      <strong>배를 정리했더니, 손대지도 않은 오래된 통증이 함께 가라앉는 것</strong>이었습니다.
+      허리, 무릎, 어깨, 여기저기 아프던 분들이 그렇습니다.
+      통증 때문에 오신 것이 아니었는데도요.
     </p>
     <p>
-      I first took this to be incidental. As it recurred, that became difficult to sustain.
-      Several features have been consistent.
+      처음에는 부수적인 변화로 여겼습니다. 그런데 같은 일이 계속 반복되면서
+      이것을 우연으로 보기 어렵다고 생각하게 되었습니다.
+      그리고 몇 가지 특징이 눈에 들어왔습니다.
     </p>
 
     <ul class="sig">
-      <li>Benefit sometimes begins at around two weeks, but full resolution takes considerably longer</li>
-      <li><strong>The required duration varies widely between patients.</strong>
-          Some are finished in two months; others must continue for <strong>a year or more</strong></li>
-      <li>Improvement <strong>continues after the drug is stopped</strong>, in slow cases over a further year</li>
-      <li>The result is durable: <strong>patients do not need to stay on treatment to maintain it</strong></li>
+      <li>2주쯤부터 반응이 나타나기도 하지만, 완전히 좋아지기까지는 훨씬 오래 걸린다</li>
+      <li>투여 기간은 <strong>환자마다 크게 다르다.</strong> 두 달에 끝나는 사람이 있고,
+          <strong>1년 넘게 이어가야 하는 사람</strong>도 있다</li>
+      <li>약을 끊은 뒤에도 <strong>천천히 계속 좋아진다.</strong> 느린 경우 1년에 걸쳐서도 좋아진다</li>
+      <li>결국 <strong>약을 끊어도 그 상태가 유지된다</strong></li>
     </ul>
 
     <p>
-      The variance in duration is striking, and it does not apply to pain alone.
-      <strong>Gastrointestinal symptoms follow the same slow course — patients constipated their whole lives,
-      patients chronically distended, improve gradually over the same period.</strong>
-      One does not resolve first with the other trailing behind; the two move together.
+      기간의 편차가 특히 큽니다. 그리고 이 기간은 통증에만 해당하지 않습니다.
+      <strong>평생 변비였던 사람, 늘 가스가 차 있던 사람의 장 증상 역시 같은 기간에 걸쳐 천천히 좋아집니다.</strong>
+      한쪽이 먼저 정리되고 다른 쪽이 뒤따르는 것이 아니라, 두 가지가 함께 움직입니다.
     </p>
     <p>
-      Yet at some point treatment can be stopped without relapse.
-      This is not a state that a short course resolves, but once resolved it holds.
-      Taken together with the parallel course of gut and pain, this points toward
-      <strong>something common to both that diminishes only slowly.</strong>
+      그러면서도 어느 단계에 이르면 <strong>약을 끊어도 돌아오지 않습니다.</strong>
+      짧은 투여로 정리되는 상태는 아니지만, 한번 정리되면 유지된다는 뜻입니다.
+      여기에 장과 통증이 같은 속도로 함께 움직인다는 점까지 놓고 보면,
+      <strong>양쪽에 공통으로 관여하면서 천천히만 줄어드는 무언가</strong>가 있다는 쪽을 가리킵니다.
     </p>
   </section>
 
   <!-- 02 -->
   <section>
-    <p class="sec-label"><span class="n">02</span> Two paths</p>
-    <h2>If antibiotics reduced the pain, what did they reduce?</h2>
+    <p class="sec-label"><span class="n">02</span> 갈림길</p>
+    <h2>항생제가 통증을 줄였다면, 무엇을 줄인 것인가</h2>
 
-    <p>Two broad routes are possible.</p>
+    <p>가능한 경로가 크게 둘입니다.</p>
 
     <div class="path">
       <div class="lane">
-        <h4>Input arising from the gut</h4>
-        <p>Gas and inflammatory products of overgrown bacteria and fungi circulate systemically and
-           lower the threshold at which nerves signal pain. Reduce the source and the threshold rises again.</p>
+        <h4>장에서 올라오는 자극</h4>
+        <p>장에서 과하게 자란 세균과 진균이 만드는 가스와 염증 물질이 온몸을 돌며
+           신경의 통증 문턱을 낮춘다. 그 원인을 줄이면 문턱이 다시 올라간다.</p>
       </div>
       <div class="lane">
-        <h4>Bacteria resident in tissue</h4>
-        <p>Organisms persist in joints, bone or soft tissue, sustaining low-grade inflammation.
-           Investigations are unremarkable while pain continues. Clear the organism and the pain recedes.</p>
+        <h4>조직에 자리잡은 세균</h4>
+        <p>관절·뼈·연부조직에 세균이 오래 머물며 낮은 수준의 염증을 유지한다.
+           검사에는 잘 안 잡히지만 통증은 계속된다. 균이 정리되면 통증도 물러난다.</p>
       </div>
     </div>
+
   </section>
 
   <!-- 03 -->
   <section>
-    <p class="sec-label"><span class="n">03</span> Established entities</p>
-    <h2>Bacteria resident in musculoskeletal tissue do cause chronic pain</h2>
+    <p class="sec-label"><span class="n">03</span> 확립된 사실</p>
+    <h2>세균이 근골격에 자리잡아 만성통증을 만드는 질환은 실재한다</h2>
 
     <p>
-      This is not a hypothesis. Several such conditions are long established and appear in standard texts.
-      They are uncommon and difficult to diagnose, and are therefore
-      <strong>typically mistaken for something else for years</strong> before being identified.
+      이건 가설이 아닙니다. 오래전부터 확립되어 교과서에 실려 있는 질환들이 있습니다.
+      다만 드물고 진단이 어려워서, 대부분 <strong>수년간 다른 병으로 오해받다가</strong> 뒤늦게 밝혀집니다.
     </p>
 
     <div class="dz">
       <div>
-        <h4>Whipple's disease arthropathy</h4>
-        <p class="org">Tropheryma whipplei</p>
-        <p>The classic example of an infection presenting for years as
-           <strong>seronegative, non-erosive polyarthritis</strong> before diagnosis.
-           In a French–Italian multicentre series the
-           <span class="key">median interval from first symptom to diagnosis was five years</span>,
-           and 24 of 29 patients had received immunosuppressive therapy without benefit in the interim.<sup>1</sup></p>
-        <p>In a French registry, the median duration of treated rheumatic disease before diagnosis was 79 months,
-           and <strong>93% went into remission on antibiotic therapy</strong>, most of them able to stop their
-           existing drugs.<sup>2</sup></p>
+        <h4>휘플씨병 관절염</h4>
+        <p class="sci">Tropheryma whipplei</p>
+        <p>수년간 <strong>혈청음성·비미란성 다발관절염</strong>으로만 나타나다 뒤늦게 진단되는 대표적 질환입니다.
+           프랑스·이탈리아 다기관 연구에서 <span class="key">첫 증상부터 진단까지 중앙값 5년</span>,
+           29명 중 24명이 그 기간 동안 면역억제제를 효과 없이 투여받았습니다.<sup>1</sup></p>
+        <p>프랑스 레지스트리에서는 류마티스 질환으로 치료받은 기간이 중앙값 79개월이었고,
+           <strong>항생제 치료로 93%가 관해</strong>되어 대부분 기존 약을 끊었습니다.<sup>2</sup></p>
       </div>
       <div>
-        <h4>Osteoarticular brucellosis</h4>
-        <p class="org">Brucella species</p>
-        <p>A meta-analysis of 56 studies found osteoarticular involvement in
-           <span class="key">27–36%</span> of patients with brucellosis.<sup>3</sup></p>
-        <p>Of particular relevance here: unlike spondylitis,
-           <strong>sacroiliitis and peripheral arthritis are non-destructive and heal without sequelae.</strong>
-           Imaging can therefore be entirely normal while pain persists.</p>
+        <h4>브루셀라 골관절 감염</h4>
+        <p class="sci">Brucella species</p>
+        <p>56개 연구를 모은 분석에서 브루셀라증 환자의 <span class="key">27~36%</span>가 골관절 침범을 보였습니다.<sup>3</sup></p>
+        <p>여기서 중요한 점은, 척추염과 달리 <strong>천장관절염과 말초 관절염은 뼈를 파괴하지 않고
+           후유증 없이 낫는다</strong>는 것입니다. 즉 <strong>영상은 정상인데 통증만 계속되는 상태</strong>가
+           얼마든지 가능합니다.</p>
       </div>
       <div>
-        <h4>Chronic Q fever, osteoarticular</h4>
-        <p class="org">Coxiella burnetii</p>
-        <p>Rare, but the reason the literature gives for delayed diagnosis is precisely the point at issue:
-           <strong>joint involvement progresses slowly over a long period and inflammatory markers
-           remain low, so the diagnosis is easily missed.</strong></p>
-        <p>Presentation as bilateral extensor tenosynovitis has been reported. Treatment runs 18 months or more.</p>
+        <h4>만성 Q열 골관절 감염</h4>
+        <p class="sci">Coxiella burnetii</p>
+        <p>드문 질환이지만, 문헌이 진단 지연의 이유로 지목하는 것이 정확히 이 대목입니다 —
+           <strong>관절 침범이 장기간에 걸쳐 서서히 진행하고, 염증 지표가 낮게 유지되어 놓치기 쉽다.</strong></p>
+        <p>양측 신전건의 건활막염으로 발현한 증례도 보고되어 있습니다. 치료는 18개월 이상 걸립니다.</p>
       </div>
       <div>
-        <h4>Low-grade periprosthetic joint infection</h4>
-        <p class="org">chiefly low-virulence organisms</p>
-        <p>Among 73 culture-confirmed prosthetic joint infections,
-           <span class="key">32% had a normal CRP</span>, and
-           <span class="key">23% had normal serology, normal examination and normal radiographs,
-           with pain as the sole finding.</span><sup>4</sup></p>
-        <p>The authors noted that had the standard diagnostic criteria been applied,
-           <strong>that 23% would never have been diagnosed at all.</strong></p>
+        <h4>저강도 인공관절 주위 감염</h4>
+        <p class="sci">low-grade periprosthetic joint infection</p>
+        <p>배양으로 확인된 인공관절 감염 73명을 분석했더니 <span class="key">32%가 CRP 정상</span>이었고,
+           <span class="key">23%는 혈액검사·진찰·영상이 모두 정상이고 오직 통증만 호소</span>했습니다.<sup>4</sup></p>
+        <p>저자들은 표준 진단기준을 그대로 따랐다면 이 23%는 <strong>끝내 진단되지 않았을 것</strong>이라고 적었습니다.</p>
       </div>
     </div>
 
     <div class="note">
       <p>
-        What these four have in common is the substantive point.
-        <strong>Bacteria resident in musculoskeletal tissue can produce chronic pain; blood tests and imaging
-        may be normal while they do; and diagnosis is delayed by years.</strong>
-        None of this is contested.
+        이 네 질환이 공통으로 말해주는 것이 있습니다.
+        <strong>세균이 근골격 조직에 자리잡아 만성 통증을 만들 수 있고, 그때 피검사와 영상은 정상일 수 있으며,
+        진단이 수년씩 늦어진다</strong>는 것입니다. 이것은 논쟁 중인 이야기가 아니라 이미 알려진 사실입니다.
       </p>
     </div>
   </section>
 
   <!-- 04 -->
   <section>
-    <p class="sec-label"><span class="n">04</span> Treatment</p>
-    <h2>These infections are treated over months to years</h2>
+    <p class="sec-label"><span class="n">04</span> 치료</p>
+    <h2>이 감염들은 수개월에서 수년에 걸쳐 치료한다</h2>
 
-    <p>The standard regimens are as follows.</p>
+    <p>위 질환들의 표준 치료를 정리하면 다음과 같습니다.</p>
 
     <div class="tblwrap">
       <table>
         <thead>
-          <tr><th>Condition</th><th>Standard therapy</th><th>Duration</th></tr>
+          <tr><th>질환</th><th>표준 치료</th><th>기간</th></tr>
         </thead>
         <tbody>
-          <tr><td>Whipple's disease arthropathy</td><td>Doxycycline + hydroxychloroquine</td><td>Prolonged</td></tr>
-          <tr><td>Osteoarticular brucellosis</td><td>Doxycycline-based combination (including quinolone regimens)</td><td>6 weeks or more</td></tr>
-          <tr><td>Chronic Q fever, osteoarticular</td><td>Doxycycline + hydroxychloroquine</td><td>18 months or more</td></tr>
+          <tr><td>휘플씨병 관절염</td><td>독시사이클린 + 하이드록시클로로퀸</td><td>장기</td></tr>
+          <tr><td>브루셀라 골관절 감염</td><td>독시사이클린 기반 병합 (퀴놀론 조합 포함)</td><td>6주 이상</td></tr>
+          <tr><td>만성 Q열 골관절 감염</td><td>독시사이클린 + 하이드록시클로로퀸</td><td>18개월 이상</td></tr>
         </tbody>
       </table>
     </div>
 
     <p>
-      Two features are shared.
-      <strong>Each regimen is built around a tetracycline, and each runs for months to years</strong>,
-      because organisms residing within cells are cleared only slowly.
+      세 질환의 치료에는 두 가지 공통점이 있습니다.
+      <strong>테트라사이클린 계열을 축으로 하고, 기간이 수개월에서 수년에 이른다</strong>는 것입니다.
+      세포 안에 자리잡은 균은 그만큼 천천히 줄어들기 때문입니다.
     </p>
     <p>
-      And <strong>none of them is managed with a single agent</strong>, since monotherapy invites
-      relapse and resistance. Neither brief nor single-drug treatment is characteristic of these infections.
+      그리고 <strong>어느 것도 단일 약제로 다루지 않습니다.</strong>
+      단일 약제로는 재발이 잦고 내성이 붙기 때문입니다.
+      짧게 끝나지도, 한 가지 약으로 끝나지도 않는 것이 이 감염들의 공통된 경과입니다.
     </p>
   </section>
 
   <!-- 05 -->
   <section>
-    <p class="sec-label"><span class="n">05</span> The other route</p>
-    <h2>Input from the gut also generates pain</h2>
+    <p class="sec-label"><span class="n">05</span> 다른 경로</p>
+    <h2>장에서 올라오는 자극도 통증을 만든다</h2>
 
     <p>
-      Tissue residence accounts for only half the picture.
-      A second route — <strong>products generated in the gut lowering the pain threshold systemically</strong> —
-      is experimentally established.
+      조직 정착만으로는 설명이 절반에 그칩니다.
+      <strong>장에서 생성된 물질이 전신의 통증 문턱을 낮춘다</strong>는 경로도 실험적으로 확인되어 있습니다.
     </p>
 
-    <h3>Hydrogen sulfide opens nociceptive channels directly</h3>
+    <h3>황화수소가 통증 통로를 직접 연다</h3>
     <p>
-      Hydrogen sulfide, among the gases produced by gut bacteria, directly activates two channels that
-      carry pain signalling in sensory neurons: the
-      <strong>T-type calcium channel Ca<sub>v</sub>3.2 and TRPA1</strong>.<sup>5</sup>
+      장내 세균이 만들어내는 가스 중 하나인 황화수소는,
+      감각신경에서 통증 신호를 전달하는 두 개의 통로 —
+      <strong>T형 칼슘 통로(Cav3.2)와 TRPA1</strong> — 를 직접 활성화합니다.<sup>5</sup>
     </p>
     <p>
-      More pertinently, hydrogen sulfide instilled into the colon produces not only visceral pain but
-      <strong>referred hyperalgesia at sites remote from the gut</strong> —
-      that is, input arising in the bowel can raise pain sensitivity systemically.
+      더 흥미로운 것은, 대장에 황화수소를 넣으면 배만 아픈 것이 아니라
+      <strong>배에서 멀리 떨어진 부위의 통증 과민(연관 통각과민)이 함께 나타난다</strong>는 점입니다.
+      장에서 생긴 자극이 전신의 통증 민감도를 끌어올릴 수 있다는 뜻입니다.
     </p>
 
-    <h3>Observation in humans</h3>
+    <h3>사람에서의 관찰</h3>
     <p>
-      In a study of fibromyalgia, all 42 patients had an abnormal breath test against 20% of controls,
-      and <strong>the severity of somatic pain correlated significantly with breath hydrogen</strong>.
-      No such correlation was present in the irritable bowel group.<sup>6</sup>
+      섬유근육통 환자 42명 전원에서 호기 검사가 이상 소견을 보였고,
+      대조군은 20%였습니다. 그리고 <strong>몸의 통증 정도가 호기 수소 수치와 유의하게 상관</strong>했습니다.
+      과민성 대장 환자군에서는 이 상관이 나타나지 않았습니다.<sup>6</sup>
     </p>
     <p>
-      The study is old and small, but as a direct human observation that
-      <strong>gut gas production and systemic pain move together</strong>, it remains among the very few.
+      오래되고 규모가 작은 연구지만,
+      <strong>장의 가스량과 전신 통증이 함께 움직인다</strong>는 것을 사람에서 직접 관찰한 자료로는
+      지금도 손에 꼽습니다.
     </p>
     <p>
-      It should be added that pain is not the only thing this route produces.
-      The same gases and metabolites present as bloating, halitosis, brain fog and skin complaints.
-      That side of it — organised around breath gas measurement and symptom patterns — is set out at
-      <a href="https://neoskepticism.com/">Neo-Skepticism</a>, the same author's work.
+      덧붙이면, 이 경로가 만들어내는 것은 통증만이 아닙니다.
+      같은 가스와 대사산물이 복부팽만·구취·브레인포그·피부 증상으로도 나타납니다.
+      호기 가스 측정과 증상 패턴을 중심으로 그쪽을 정리한 것이
+      <a href="https://neoskepticism.com/">Neo-Skepticism</a>이며, 같은 저자의 작업입니다.
     </p>
 
     <div class="note">
       <p>
-        The two routes are not mutually exclusive and may coexist in the same patient.
-        The agents used here act on both — they are absorbed systemically and reach tissue,
-        while also substantially altering the gut flora.
-        Clinical response alone therefore cannot distinguish which route was operating.
+        두 경로는 배타적이지 않습니다. 같은 환자에게 함께 존재할 수 있습니다.
+        그리고 여기서 쓰이는 약제는 <strong>양쪽에 동시에 작용</strong>합니다 —
+        전신으로 흡수되어 조직에 도달하는 동시에 장내 세균총도 크게 바꿉니다.
+        그래서 임상 반응만으로는 어느 쪽이 작용했는지 가릴 수 없습니다.
       </p>
     </div>
   </section>
 
   <!-- 06 -->
   <section>
-    <p class="sec-label"><span class="n">06</span> What remains unknown</p>
-    <h2>The limits of what can be claimed</h2>
+    <p class="sec-label"><span class="n">06</span> 아직 모르는 것</p>
+    <h2>여기까지가 말할 수 있는 범위다</h2>
 
-    <h3>There is no means of localising the lesion</h3>
+    <h3>병소를 특정할 수단이 없다</h3>
     <p>
-      What is observed clinically is the resolution of pain.
-      Whether it originated in tendon, ligament, joint, or not in tissue at all but in the gut,
-      cannot presently be determined.
-      In particular, <strong>no human study has tested the proposition that bacterial colonisation of
-      tendon or ligament causes pain.</strong>
-      Not even controlled investigation of bacteria in common chronic tendon disorders —
-      Achilles tendinopathy, lateral epicondylalgia — has been reported.
-      An explanation of the form "there were bacteria in the tendon" therefore does not stand.
+      임상에서 확인되는 것은 통증의 호전입니다.
+      그것이 건인지 인대인지 관절인지, 혹은 조직이 아니라 장이었는지를 가릴 방법은 현재로서는 없습니다.
+      특히 <strong>건이나 인대에 세균이 정착해 통증을 유발한다는 명제를 검증한 인체 연구는 존재하지 않습니다.</strong>
+      아킬레스건증이나 상과염 같은 흔한 만성 건 통증에서 세균을 조사한 통제 연구조차 보고된 바 없습니다.
+      따라서 "세균이 힘줄에 있었다"는 형태의 설명은 성립하지 않습니다.
     </p>
 
-    <h3>Trials in the spine have given conflicting results</h3>
+    <h3>척추에서의 시도는 결과가 엇갈렸다</h3>
     <p>
-      Antibiotic therapy has been tested in three randomised trials in patients with lumbar disc
-      pathology and adjacent endplate change. A Danish single-centre trial in 2013 reported a marked effect;
-      subsequent multicentre trials in Norway (2019) and Australia (2026) did not reproduce that effect size.
+      요추 디스크와 인접 종판 변화를 대상으로 항생제를 시험한 무작위 연구가 세 차례 있었습니다.
+      2013년 덴마크 단일기관 연구는 뚜렷한 효과를 보고했으나,
+      이후 노르웨이(2019)와 호주(2026)의 다기관 연구에서는 그 효과 크기가 재현되지 않았습니다.
     </p>
     <p>
-      All three, however, tested <strong>an aminopenicillin, confined to the lumbar spine,
-      in patients selected by a specific imaging finding</strong>.
-      The agent and the target differ from what is described here.
-      It has also long been argued that the intervertebral disc, being avascular, does not achieve
-      adequate oral antibiotic concentrations — and a small trial delivering antibiotic directly
-      into the disc has since reported a positive signal.
-      <strong>That constraint does not apply to vascularised periarticular soft tissue or synovium.</strong>
+      다만 세 연구 모두 <strong>아목시실린 계열을, 요추에 한정해, 특정 영상 소견을 갖춘 환자에게</strong> 시험한 것입니다.
+      약제도 대상 부위도 다릅니다. 그리고 추간판은 혈관이 없는 조직이라
+      경구 항생제의 조직 내 농도가 충분치 않다는 지적이 오래 제기되어 왔습니다.
+      실제로 항생제를 디스크에 직접 주입한 소규모 시험에서는 다시 양성 신호가 보고되었습니다.
+      <strong>관절 주위 연부조직이나 활막처럼 혈관이 분포하는 조직에는 이 제약이 적용되지 않습니다.</strong>
     </p>
 
-    <h3>Detection is not causation</h3>
+    <h3>검출이 곧 원인은 아니다</h3>
     <p>
-      Reports of bacteria detected in tissue from people without pain have accumulated —
-      in normal intervertebral discs, and in the deep shoulder tissue of asymptomatic individuals,
-      at comparable frequency.
-      <strong>The detection of organisms at a site therefore cannot by itself identify them as the cause of pain.</strong>
-      This remains unresolved across the field.
+      통증이 없는 정상 조직에서도 세균이 검출된다는 보고가 축적되어 있습니다.
+      정상 추간판에서도, 무증상자의 어깨 심부 조직에서도 같은 균이 비슷한 빈도로 나옵니다.
+      <strong>따라서 특정 부위에서 균이 검출되었다는 사실만으로는 그것을 통증의 원인으로 지목할 수 없습니다.</strong>
+      이 문제는 해당 분야 전체가 아직 해결하지 못한 상태입니다.
     </p>
   </section>
 
   <!-- 07 -->
   <section>
-    <p class="sec-label"><span class="n">07</span> Investigation and use</p>
-    <h2>Investigations the literature would support</h2>
+    <p class="sec-label"><span class="n">07</span> 확인과 운용</p>
+    <h2>문헌상 의미를 가질 수 있는 검사</h2>
 
     <p>
-      Each of the conditions in section 03 has an identifiable organism.
-      Where chronic musculoskeletal pain persists and has not responded to conventional treatment,
-      the following may be worth considering.
+      3항에서 언급한 질환들은 모두 진단 가능한 병원체를 갖습니다.
+      만성 근골격 통증이 통상적 치료에 반응하지 않고 장기간 지속되는 경우,
+      다음 검사들이 의미를 가질 수 있습니다.
     </p>
 
     <ul class="sig">
-      <li><strong><em class="sci">Tropheryma whipplei</em></strong> — saliva and stool PCR, synovial fluid where available.
-          Seronegative, non-erosive polyarthritis, particularly with poor DMARD response</li>
-      <li><strong><em class="sci">Brucella</em></strong> — serology.
-          Non-destructive sacroiliitis and peripheral arthritis may show normal imaging</li>
-      <li><strong><em class="sci">Coxiella burnetii</em></strong> — phase I / II IgG.
-          Chronic osteoarticular symptoms with persistently low inflammatory markers</li>
-      <li><strong><em class="sci">Chlamydia trachomatis</em></strong> — PCR or serology.
-          Joint symptoms following genitourinary infection</li>
+      <li><strong>Tropheryma whipplei</strong> — 타액·대변 PCR, 필요시 관절액.
+          혈청음성·비미란성 다발관절염, 특히 DMARD 반응 불량 사례</li>
+      <li><strong>Brucella</strong> — 혈청검사.
+          비파괴성 천장관절염·말초 관절염은 영상이 정상일 수 있음</li>
+      <li><strong>Coxiella burnetii</strong> — phase I / II IgG.
+          염증 지표가 낮게 유지되는 만성 골관절 증상</li>
+      <li><strong>Chlamydia trachomatis</strong> — PCR 또는 혈청검사.
+          비뇨생식기 감염 병력이 선행한 관절 증상</li>
     </ul>
 
     <p>
-      Interpretation requires care. <em class="sci">T. whipplei</em> in particular is carried
-      asymptomatically in the gastrointestinal tract by
-      <strong>2–11% of the general population</strong>, so a positive PCR does not establish disease.
-      It must be read against the clinical picture.
+      해석에는 주의가 필요합니다. 특히 <em lang="en">T. whipplei</em>는
+      <strong>무증상 위장관 보균이 일반 인구의 2~11%</strong>로 보고되어 있어,
+      PCR 양성이 곧 질병을 뜻하지 않습니다. 임상상과 함께 판단해야 합니다.
     </p>
 
-    <h3>Observations that may separate the two routes</h3>
+    <h3>두 경로를 구분할 수 있는 관찰</h3>
     <p>
-      Gut-derived input and tissue-resident organisms are difficult to distinguish clinically.
-      A few observations may indicate direction.
+      장에서 오는 자극과 조직에 정착한 균은 임상적으로 구분하기 어렵습니다.
+      다만 다음 몇 가지가 방향을 시사할 수 있습니다.
     </p>
     <p>
-      If the timing of breath-test normalisation and the timing of pain improvement <strong>diverge</strong>,
-      gut gas is less likely to be what was sustaining the pain.
-      Conversely, if pain shifts with dietary or non-antibiotic measures alone, that favours the gut.
-      Whether the same result can be reproduced with a non-absorbed agent bears on the same question.
+      호기검사가 정상화된 시점과 통증이 호전된 시점이 <strong>어긋난다면</strong>,
+      통증을 유지하던 것이 장에서 발생한 가스가 아닐 가능성이 높아집니다.
+      반대로 식이 조정이나 비항생제적 접근만으로 통증이 함께 움직인다면 장 쪽에 무게가 실립니다.
+      전신으로 흡수되지 않는 약제만으로 같은 결과가 재현되는지도 같은 방향의 관찰입니다.
     </p>
 
     <div class="note warm">
-      <span class="t">Note</span>
+      <span class="t">유의</span>
       <p>
-        Over prolonged courses it matters not to rely on a single class.
-        Repeated use of one class allows <strong>organisms outside its spectrum to survive and occupy
-        the space vacated, producing a further overgrowth.</strong>
-        Coverage gaps differ by class — quinolones, for instance, cover anaerobes poorly —
-        so several classes should be combined to give broad and balanced coverage.
+        장기간 투여할 때 한 계열에 치우치지 않는 것이 중요합니다.
+        특정 계열만 반복해서 쓰면 <strong>그 약이 닿지 않는 균이 살아남아 그 자리를 차지하고,
+        결과적으로 또 다른 과증식을 만듭니다.</strong>
+        계열마다 비어 있는 스펙트럼이 다르므로 — 예컨대 퀴놀론은 혐기성균에 대한 커버가 약합니다 —
+        여러 계열을 조합해 넓고 균형 있게 덮어야 합니다.
       </p>
       <p>
-        Fluoroquinolones carry a recognised risk of tendinopathy, tendon rupture and peripheral neuropathy,
-        and the neurological effects are described in the literature as potentially persistent.
+        플루오로퀴놀론은 건병증·건파열과 말초신경병증의 위험이 알려져 있고,
+        문헌상 신경 증상은 지속될 수 있는 것으로 기술됩니다.
       </p>
       <p>
-        The timing of these events, however, is fairly consistent.
-        Tendon-related events occur <strong>largely within the first one to two months</strong>;
-        patients who pass that window frequently continue for long periods without difficulty.
-        <strong>Regular review, with prompt discontinuation or a change of class at the first sign of a problem,
-        is the substance of managing this.</strong>
+        다만 이러한 이상반응은 발현 시점이 대체로 정해져 있습니다.
+        건 관련 사례는 <strong>대부분 투여 초기 한두 달 안에</strong> 나타나며,
+        그 시기를 넘긴 경우에는 이후 장기간 투여에도 문제없이 지나가는 예가 많습니다.
+        <strong>정기적으로 확인하고, 이상이 보이면 지체 없이 중단하거나 다른 계열로 전환하는 것이
+        관리의 핵심입니다.</strong>
       </p>
       <p>
-        Managed in this way, I have not encountered a patient left with lasting sequelae.
-        Where neuropathic symptoms did appear, they resolved in every case with adjustment of therapy
-        and repletion of vitamin B<sub>12</sub> and B<sub>1</sub>.
-        With clinical attention, the adverse effects have been controllable.
-        Whether and for how long to treat remains a judgement made on investigation and clinical course.
+        제 진료에서는 이 방식으로 관리했을 때 후유증이 남은 사례를 경험하지 못했습니다.
+        말초신경 증상이 나타난 경우에도 투약을 조정하고 비타민 B12·B1 등을 보충하면서 모두 회복되었습니다.
+        임상적으로 주의를 기울이면 대체로 통제 가능한 범위에 있다고 보고 있습니다.
+        투여 여부와 기간은 검사 소견과 경과에 따라 개별적으로 판단할 사안입니다.
       </p>
     </div>
   </section>
 
   <section class="refs">
-    <p class="sec-label">References</p>
+    <p class="sec-label">참고 문헌</p>
     <ol>
-      <li>Meunier M, Puéchal X, et al. Rheumatologic manifestations of Whipple disease. <em>J Rheumatol</em> 2013;40(12):2061–6. <code>PMID 24187107</code></li>
-      <li>Caillet Portillo D, et al. <em>J Infect</em> 2024;88(2):132–8. <code>PMID 38141787</code></li>
-      <li>Adetunji SA, et al. A systematic review and meta-analysis of the prevalence of osteoarticular brucellosis. <em>PLoS Negl Trop Dis</em> 2019. <code>PMID 30657765</code></li>
-      <li>Pérez-Prieto D, et al. C-reactive protein may misdiagnose prosthetic joint infections, particularly chronic and low-grade infections. <em>Int Orthop</em> 2017;41(7):1315–9. <code>PMID 28321490</code></li>
-      <li>Matsunami M, et al. Colonic hydrogen sulfide-induced visceral pain and referred hyperalgesia involve activation of both Ca<sub>v</sub>3.2 and TRPA1 channels in mice. <em>J Pharmacol Sci</em> 2012;119(3):293–6. <code>PMID 22785020</code></li>
-      <li>Pimentel M, et al. A link between irritable bowel syndrome and fibromyalgia may be related to findings on lactulose breath testing. <em>Ann Rheum Dis</em> 2004;63(4):450–2. <code>PMID 15020342</code></li>
+      <li>Meunier M, Puéchal X, et al. Rheumatologic manifestations of Whipple disease. <em>J Rheumatol</em> 2013;40(12):2061-6. <code>PMID 24187107</code></li>
+      <li>Caillet Portillo D, et al. <em>J Infect</em> 2024;88(2):132-8. <code>PMID 38141787</code></li>
+      <li>Adetunji SA, et al. Prevalence of osteoarticular brucellosis: systematic review and meta-analysis. <em>PLoS Negl Trop Dis</em> 2019. <code>PMID 30657765</code></li>
+      <li>Pérez-Prieto D, et al. C-reactive protein may misdiagnose prosthetic joint infections. <em>Int Orthop</em> 2017;41(7):1315-9. <code>PMID 28321490</code></li>
+      <li>Matsunami M, et al. Colonic hydrogen sulfide-induced visceral pain and referred hyperalgesia involve activation of both Ca<sub>v</sub>3.2 and TRPA1 channels in mice. <em>J Pharmacol Sci</em> 2012;119(3):293-6. <code>PMID 22785020</code></li>
+      <li>Pimentel M, et al. A link between irritable bowel syndrome and fibromyalgia may be related to findings on lactulose breath testing. <em>Ann Rheum Dis</em> 2004;63(4):450-2. <code>PMID 15020342</code></li>
     </ol>
   </section>
 
   <footer>
     <div class="disclaim">
       <p style="margin:0">
-        This site is not an advertisement for any medical institution. It exists to provide general
-        information on chronic pain and to record clinical technique.
-        The antibiotic therapy described here is a matter for clinical judgement based on investigation
-        and course, and is not something to be started or stopped independently.
-        Diagnosis and treatment of an individual case must be undertaken with a physician.
+        본 사이트는 특정 의료기관의 광고가 아니며, 만성통증에 대한 일반적인 정보 제공과
+        치료 술기의 기록을 목적으로 합니다.
+        여기 실린 항생제 치료는 검사 소견과 경과를 보며 진료를 통해 판단할 일이며,
+        스스로 판단해 복용하거나 중단할 수 있는 종류의 치료가 아닙니다.
+        개별적인 진단과 치료는 반드시 의료기관에서 상담하십시오.
       </p>
     </div>
-    <p class="colophon">Compiled by June-sang Yang · August 2026</p>
+    <p class="colophon">편저 양준상 · 기록 시점 2026년 8월</p>
   </footer>
 
 </div>
