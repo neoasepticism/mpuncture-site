@@ -290,7 +290,51 @@
   @media (max-width:1039px){
     .layout{ grid-template-columns:minmax(0,1fr); }
   }
-  html,body{ overflow-x:hidden; }
+  /* overflow-x:hidden 은 body 에 스크롤 컨테이너를 만들어 position:sticky 를 깨뜨린다.
+     min-width:0 만으로 blowout 이 해결되므로 사용하지 않는다. */
+
+  /* ════ 디자인 개선 ════ */
+
+  /* 1. h3 위계 — 본문과 구분되도록 크기·색·상단 여백 강화 */
+  h3{ font-size:1.09rem; font-weight:680; color:var(--ink);
+      margin-top:2.9rem; letter-spacing:-.01em; }
+  h3::before{
+    content:""; display:block; width:22px; height:2px; background:var(--accent);
+    margin-bottom:.7rem; opacity:.55;
+  }
+
+  /* 2. 섹션 번호를 앵커처럼 — 얇은 괘선으로 시작을 알림 */
+  .sec-label{ padding-top:.2rem; }
+  .sec-label .n{ font-weight:600; }
+
+  /* 3. 목차 스크롤스파이 */
+  .rail a{ position:relative; }
+  .rail a.on{ color:var(--ink); }
+  .rail a.on .num{ color:var(--accent); }
+  @media (min-width:1040px){
+    .rail a.on{ border-left-color:var(--accent); background:transparent; }
+  }
+  @media (max-width:1039px){
+    .rail a.on{ background:var(--accent-soft); }
+  }
+
+  /* 4. 읽기 진행 표시 — 상단 2px */
+  .progress{
+    position:fixed; top:0; left:0; height:2px; width:0;
+    background:var(--accent); z-index:60; transition:width .12s linear;
+  }
+
+  /* 5. 인용 — 여는 따옴표를 배경 장식으로 */
+  .quote{ position:relative; }
+  .quote::before{
+    content:"“"; position:absolute; left:.35rem; top:-.6rem;
+    font-family:var(--serif); font-size:3.4rem; line-height:1;
+    color:var(--accent); opacity:.16; pointer-events:none;
+  }
+
+  /* 6. 히어로 — 죽은 여백 정리 */
+  header.hero{ padding-bottom:clamp(1.4rem,3vw,2.2rem); }
+  .trace{ margin-top:clamp(1.8rem,4vw,2.6rem); height:44px; opacity:.9; }
 </style>
 
 <div class="shell">
@@ -1031,5 +1075,26 @@
         n.focus(); select(n);
       });
     });
+  })();
+</script>
+
+<script>
+  /* 스크롤스파이 + 진행바 */
+  (function(){
+    var bar=document.createElement('div'); bar.className='progress';
+    document.body.appendChild(bar);
+    var links=[].slice.call(document.querySelectorAll('.rail a[href^="#"]'));
+    var secs=links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+    function upd(){
+      var h=document.documentElement;
+      var max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0? (h.scrollTop||document.body.scrollTop)/max*100 : 0)+'%';
+      var y=(h.scrollTop||document.body.scrollTop)+h.clientHeight*0.28, cur=-1;
+      secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+      links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+    }
+    var t=false;
+    addEventListener('scroll',function(){ if(!t){ t=true; requestAnimationFrame(function(){ upd(); t=false; }); } },{passive:true});
+    addEventListener('resize',upd); upd();
   })();
 </script>

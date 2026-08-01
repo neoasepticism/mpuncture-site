@@ -164,6 +164,14 @@
     .trace{ height:38px; }
     .refs ol{ padding-left:1.1rem; }
   }
+
+  /* ════ 디자인 개선 (심화) ════ */
+  h3{ font-size:1.07rem; font-weight:680; color:var(--ink); margin-top:2.8rem; letter-spacing:-.01em; }
+  h3::before{ content:""; display:block; width:22px; height:2px; background:var(--accent);
+              margin-bottom:.7rem; opacity:.55; }
+  .sec-label .n{ font-weight:600; }
+  .progress{ position:fixed; top:0; left:0; height:2px; width:0;
+             background:var(--accent); z-index:60; transition:width .12s linear; }
 </style>
 
 <div class="shell">
@@ -521,5 +529,16 @@
       if(!cur){ cur='light'; }
       root.setAttribute('data-theme', cur==='dark'?'light':'dark');
     });
+  })();
+</script>
+
+<script>
+  (function(){
+    var bar=document.createElement('div'); bar.className='progress'; document.body.appendChild(bar);
+    function upd(){ var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0? (h.scrollTop||document.body.scrollTop)/max*100 : 0)+'%'; }
+    var t=false;
+    addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(function(){upd();t=false;});} },{passive:true});
+    addEventListener('resize',upd); upd();
   })();
 </script>
