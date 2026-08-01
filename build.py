@@ -111,7 +111,7 @@ def build():
         print(f"  {p['src']:28} → docs/{p["out"]:26} ({len(html):,}자)")
 
     # GitHub Pages 커스텀 도메인
-    #(OUT / "CNAME").write_text("mpuncture.org\n", encoding="utf-8")
+    (OUT / "CNAME").write_text("mpuncture.org\n", encoding="utf-8")
 
     (OUT / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n", encoding="utf-8")
