@@ -265,9 +265,13 @@
            text-wrap:balance; }
   @media (max-width:640px){ .hero-q{ font-size:1.3rem; max-width:none; } }
 
-  /* ── 그리드 blowout 방지: nowrap 목차가 레이아웃을 밀어내지 않도록 ── */
-  .layout{ grid-template-columns:minmax(0,1fr); }
+  /* ── 그리드 blowout 방지 ──
+     min-width:0 이 실제 해결책이고 전 구간에 안전.
+     1단 컬럼 재정의는 모바일에만 적용해야 데스크톱 2단이 유지된다. ── */
   .rail, .layout > main, .rail-inner{ min-width:0; }
+  @media (max-width:1039px){
+    .layout{ grid-template-columns:minmax(0,1fr); }
+  }
   html,body{ overflow-x:hidden; }
 </style>
 
