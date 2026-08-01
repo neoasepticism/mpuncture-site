@@ -131,6 +131,24 @@ def build():
         'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + "</urlset>\n",
         encoding="utf-8")
 
+
+    # ── 구 URL 리디렉션 (언어 구조 전환 전 주소) ──
+    REDIRECTS = {"ko/index.html": "/", "ko/bacteria/index.html": "/bacteria/"}
+    for src, dest in REDIRECTS.items():
+        d = OUT / src
+        d.parent.mkdir(parents=True, exist_ok=True)
+        d.write_text(
+            '<!doctype html>\n<html lang="ko">\n<head>\n'
+            '<meta charset="utf-8">\n'
+            f'<meta http-equiv="refresh" content="0; url={DOMAIN}{dest}">\n'
+            f'<link rel="canonical" href="{DOMAIN}{dest}">\n'
+            '<meta name="robots" content="noindex">\n'
+            '<title>이동합니다 — M-puncture 엠펑쳐</title>\n</head>\n<body>\n'
+            f'<p>이 주소는 <a href="{DOMAIN}{dest}">{DOMAIN}{dest}</a> 로 옮겨졌습니다.</p>\n'
+            f'<script>location.replace("{dest}");</script>\n</body>\n</html>\n',
+            encoding="utf-8")
+    print(f"  구 URL 리디렉션 {len(REDIRECTS)}개 생성")
+
     # .nojekyll — Jekyll 처리 우회 (밑줄 시작 파일 등 안전)
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
