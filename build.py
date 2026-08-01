@@ -27,12 +27,12 @@ ARTIFACT_MAP = {
 
 PAGES = [
     dict(src="index.html",              out="index.html",                lang="ko", path="/",
-         title="M-puncture 엠펑처 — 만성통증을 신경회로로 보는 관점",
-         desc="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture(엠펑처, 엠펑쳐) "
+         title="M-puncture 엠펑쳐 — 만성통증을 신경회로로 보는 관점",
+         desc="만성통증을 조직이 아니라 신경회로의 문제로 보는 관점과, 그 위에 세워진 M-puncture(엠펑쳐, 엠펑처) "
               "치료의 기록. 환자와 의사를 위한 공공정보 아카이브.",
          alt="/en/"),
     dict(src="decontamination.html",    out="bacteria/index.html",       lang="ko", path="/bacteria/",
-         title="세균과 만성통증 — 장에서, 그리고 조직에서 | 엠펑처",
+         title="세균과 만성통증 — 장에서, 그리고 조직에서 | 엠펑쳐",
          desc="장에서 오는 자극과 조직에 정착한 세균이 만성 근골격 통증을 유지시키는 경로 — "
               "확립된 질환, 기전, 그리고 아직 확인되지 않은 것.",
          alt="/en/bacteria/"),
