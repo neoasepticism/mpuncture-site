@@ -140,6 +140,29 @@
   footer{ border-top:1px solid var(--line); padding:2.4rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
   .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.6rem; }
   .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+
+  /* ── mobile 타이포·여백 ── */
+  p,li,td,th,h1,h2,h3,h4,blockquote{ overflow-wrap:break-word; }
+  @media (max-width:640px){
+    body{ font-size:16px; line-height:1.7; }
+    h1,h2{ max-width:none; }
+    section{ padding:2.2rem 0; }
+    h3{ margin-top:1.9rem; }
+    header.hero{ padding:2.4rem 0 1.6rem; }
+    .quote{ padding-left:1.1rem; margin:1.6rem 0; }
+    .note,.flags,.habit,.lane,.editor,.slot{ padding:1rem 1.1rem; }
+    .dz > div{ padding:1.1rem 1.15rem; }
+    .myth{ padding:1.15rem 1.1rem; }
+    .check li,.sig li{ padding:.8rem 1rem .8rem 2.4rem; font-size:.92rem; }
+    .check li::before,.sig li::before{ left:.95rem; top:1.2rem; }
+    ol.steps li{ grid-template-columns:1.6rem 1fr; gap:.7rem; }
+    .lin{ grid-template-columns:1fr; gap:.25rem; padding:.9rem 0; }
+    table{ min-width:420px; font-size:.87rem; }
+    th,td{ padding:.6rem .6rem; }
+    .tblwrap{ margin:1.4rem 0; }
+    .trace{ height:38px; }
+    .refs ol{ padding-left:1.1rem; }
+  }
 </style>
 
 <div class="shell">
@@ -347,6 +370,12 @@
     <p>
       The study is old and small, but as a direct human observation that
       <strong>gut gas production and systemic pain move together</strong>, it remains among the very few.
+    </p>
+    <p>
+      It should be added that pain is not the only thing this route produces.
+      The same gases and metabolites present as bloating, halitosis, brain fog and skin complaints.
+      That side of it — organised around breath gas measurement and symptom patterns — is set out at
+      <a href="https://neoskepticism.com/">Neo-Skepticism</a>, the same author's work.
     </p>
 
     <div class="note">
