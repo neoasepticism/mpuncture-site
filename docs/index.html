@@ -358,7 +358,24 @@
 
   /* 6. 히어로 — 죽은 여백 정리 */
   header.hero{ padding-bottom:clamp(1.4rem,3vw,2.2rem); }
-  .trace{ margin-top:clamp(1.8rem,4vw,2.6rem); height:44px; opacity:.9; }
+  /* 히어로 파형 — 신경 신호. 기저선은 흐리게, 달리는 펄스는 또렷하게 */
+  .trace{ margin-top:clamp(1.8rem,4vw,2.6rem); height:64px; overflow:visible; }
+  .trace .base{ stroke:var(--line-2); stroke-width:1; opacity:.75; }
+  .trace .live{
+    stroke:var(--accent); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:150 1450; filter:drop-shadow(0 0 5px var(--accent));
+  }
+  @media (max-width:640px){ .trace{ height:46px; } .trace .live{ stroke-width:1.8; } }
+
+  /* 넓은 화면에서 2열 — 세로로 늘어지는 리듬 개선 */
+  @media (min-width:1040px){
+    .myths, .check{ max-width:none; grid-template-columns:1fr 1fr; }
+    .myths{ grid-auto-rows:1fr; }
+    .myth{ display:flex; flex-direction:column; }
+    .check li{ font-size:.94rem; }
+    /* 항목이 홀수일 때 마지막 칸이 빈 블록으로 남지 않도록 전폭 */
+    .check li:last-child:nth-child(odd){ grid-column:1 / -1; }
+  }
 </style>
 
 <div class="shell">
@@ -394,8 +411,8 @@
       </p>
 
       <svg class="trace" viewBox="0 0 1000 52" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
-        <path class="live" d="M0,26 L300,26 L318,26 L326,10 L334,42 L342,20 L350,26 L700,26 L1000,26"/>
+        <path class="base" d="M0,26 L250,26 L268,22 L280,30 L292,26 L430,26 L444,26 L452,6 L460,46 L468,16 L476,26 L620,26 L636,23 L648,29 L660,26 L1000,26"/>
+        <path class="live" d="M0,26 L250,26 L268,22 L280,30 L292,26 L430,26 L444,26 L452,6 L460,46 L468,16 L476,26 L620,26 L636,23 L648,29 L660,26 L1000,26"/>
       </svg>
     </header>
 
