@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M-puncture의 원리 — 통증 회로를 어떻게 보는가 | 엠펑쳐</title>
+<meta name="description" content="만성통증을 신경 회로의 문제로 보는 M-puncture 이론(전동휘·이영진 모델)의 심화 정리 — C-신경섬유·PML/SML·제3의 통증 NNPS·시술 원리, 그리고 어디까지가 근거인가.">
+<meta name="author" content="June-sang Yang">
+<meta name="msvalidate.01" content="5C3321B5366EE5A7E53AE1374649D57D">
+<link rel="canonical" href="https://mpuncture.org/principle/">
+<link rel="alternate" hreflang="ko" href="https://mpuncture.org/principle/">
+<link rel="alternate" hreflang="en" href="https://mpuncture.org/en/principle/">
+<link rel="alternate" hreflang="x-default" href="https://mpuncture.org/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="M-puncture의 원리 — 통증 회로를 어떻게 보는가 | 엠펑쳐">
+<meta property="og:description" content="만성통증을 신경 회로의 문제로 보는 M-puncture 이론(전동휘·이영진 모델)의 심화 정리 — C-신경섬유·PML/SML·제3의 통증 NNPS·시술 원리, 그리고 어디까지가 근거인가.">
+<meta property="og:url" content="https://mpuncture.org/principle/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<style>
+  html{ -webkit-text-size-adjust:100%; }
+  img,svg{ max-width:100%; }
+</style>
+</head>
+<body>
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+    --serif:"AppleMyungjo","Nanum Myeongjo","NanumMyeongjo","Batang","바탕","Songti SC",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.8;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:760px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+
+  .topbar{
+    position:sticky; top:0; z-index:20; background:var(--paper);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.75rem 0; margin-bottom:0;
+  }
+  .navset{ display:flex; align-items:center; gap:1.1rem; }
+  .back, .lang{
+    font-family:var(--mono); font-size:.73rem; letter-spacing:.05em;
+    text-decoration:none; color:var(--ink-3);
+  }
+  .back:hover, .lang:hover{ color:var(--ink); }
+  .lang{ border-bottom:1px solid var(--line-2); padding-bottom:1px; }
+  .theme-btn{
+    background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em;
+    padding:.35rem .7rem; border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  header.hero{ padding:clamp(2.8rem,8vw,5rem) 0 clamp(1.6rem,4vw,2.4rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(1.95rem,5vw,3rem); line-height:1.3; letter-spacing:-.015em;
+    text-wrap:balance; margin:0 0 1.4rem;
+  }
+  .lede{ font-size:clamp(1.01rem,1.9vw,1.13rem); color:var(--ink-2); margin:0; }
+
+  section{ padding:clamp(2.4rem,5.5vw,3.8rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.45rem,3vw,1.95rem);
+    line-height:1.38; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
+  }
+  h3{ font-family:var(--sans); font-weight:650; font-size:1.03rem; line-height:1.5;
+      margin:2.3rem 0 .7rem; letter-spacing:-.005em; }
+  p{ margin:0 0 1.15rem; }
+  strong{ font-weight:650; }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2);
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  /* disease cards */
+  .dz{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+       border-radius:4px; overflow:hidden; margin:2rem 0; }
+  .dz > div{ background:var(--surface); padding:1.35rem 1.4rem; }
+  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:650; margin:0 0 .15rem; }
+  .dz .sci{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); margin:0 0 .8rem; letter-spacing:.02em; }
+  .dz p{ font-size:.94rem; margin:0 0 .6rem; }
+  .dz p:last-child{ margin-bottom:0; }
+  .dz .key{ color:var(--accent-ink); font-weight:650; }
+
+  /* regimen table */
+  .tblwrap{ overflow-x:auto; margin:1.8rem 0; }
+  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:460px; }
+  th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink-3); font-weight:400; }
+  tbody tr:last-child td{ border-bottom:0; }
+
+  /* signal list */
+  .sig{ list-style:none; padding:0; margin:1.6rem 0;
+        display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .sig li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
+  .sig li::before{
+    content:""; position:absolute; left:1.2rem; top:1.42rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  .path{ margin:2rem 0; display:grid; gap:1.1rem; }
+  @media (min-width:700px){ .path{ grid-template-columns:1fr 1fr; } }
+  .lane{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.4rem; }
+  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:650; margin:0 0 .55rem; }
+  .lane p{ font-size:.93rem; color:var(--ink-2); margin:0; }
+
+  .refs{ font-size:.86rem; color:var(--ink-3); }
+  .refs ol{ padding-left:1.3rem; margin:1rem 0 0; }
+  .refs li{ margin-bottom:.55rem; }
+  .refs code{ font-family:var(--mono); font-size:.9em; }
+
+  footer{ border-top:1px solid var(--line); padding:2.4rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.6rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+
+  /* ── mobile 타이포·여백 ── */
+  p,li,td,th,h1,h2,h3,h4,blockquote{ overflow-wrap:break-word; }
+  @media (max-width:640px){
+    body{ font-size:16px; line-height:1.7; }
+    h1,h2{ max-width:none; }
+    section{ padding:2.2rem 0; }
+    h3{ margin-top:1.9rem; }
+    header.hero{ padding:2.4rem 0 1.6rem; }
+    .quote{ padding-left:1.1rem; margin:1.6rem 0; }
+    .note,.flags,.habit,.lane,.editor,.slot{ padding:1rem 1.1rem; }
+    .dz > div{ padding:1.1rem 1.15rem; }
+    .myth{ padding:1.15rem 1.1rem; }
+    .check li,.sig li{ padding:.8rem 1rem .8rem 2.4rem; font-size:.92rem; }
+    .check li::before,.sig li::before{ left:.95rem; top:1.2rem; }
+    ol.steps li{ grid-template-columns:1.6rem 1fr; gap:.7rem; }
+    .lin{ grid-template-columns:1fr; gap:.25rem; padding:.9rem 0; }
+    table{ min-width:420px; font-size:.87rem; }
+    th,td{ padding:.6rem .6rem; }
+    .tblwrap{ margin:1.4rem 0; }
+    .trace{ height:38px; }
+    .refs ol{ padding-left:1.1rem; }
+  }
+
+  /* ════ 디자인 개선 (심화) ════ */
+  h3{ font-size:1.07rem; font-weight:680; color:var(--ink); margin-top:2.8rem; letter-spacing:-.01em; }
+  h3::before{ content:""; display:block; width:22px; height:2px; background:var(--accent);
+              margin-bottom:.7rem; opacity:.55; }
+  .sec-label .n{ font-weight:600; }
+  .progress{ position:fixed; top:0; left:0; height:2px; width:0;
+             background:var(--accent); z-index:60; transition:width .12s linear; }
+</style>
+
+<div class="shell">
+
+  <div class="topbar">
+    <div class="navset">
+      <a class="back" href="/">← M-puncture 엠펑쳐</a>
+      <a class="lang" href="/en/principle/">English</a>
+    </div>
+    <button class="theme-btn" id="tt" type="button">테마 전환</button>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">심화 · 원리를 더 깊이</p>
+    <h1>M-puncture의 원리 — 통증 회로를 어떻게 보는가</h1>
+    <p class="lede">
+      랜딩의 &lsquo;원리&rsquo;를 한 단계 깊이 풀어 쓴 글입니다. 만성통증을 조직이 아니라 신경 회로의 문제로 보는
+      이 치료의 이론(전동휘&middot;이영진의 M-puncture 모델)을 교과서 본문을 바탕으로 정리했습니다.
+      전문 용어가 함께 나옵니다 &mdash; 배우려는 의사와 더 알고 싶은 독자를 위한 글입니다.
+    </p>
+  </header>
+
+  <!-- 01 -->
+  <section>
+    <p class="sec-label"><span class="n">01</span> 출발점</p>
+    <h2>통증은 가느다란 신경에서 시작된다 &mdash; C-fiber와 첫 병변</h2>
+    <p>
+      우리 몸에는 <strong>C-신경섬유(C-fiber)</strong>라는 아주 가는 통증 신경이 있습니다.
+      다친 조직에서 이 신경이 반복해 자극받으면, 신경 안에 분자 수준의 변화가 쌓입니다.
+      이 이론은 이렇게 처음 생긴 변화를 통증의 출발점으로 보고
+      <strong>일차 병변(PML, primary afferent molecular lesion)</strong>이라 부릅니다.
+    </p>
+    <p>C-fiber를 깨우는 것은 두 가지입니다.</p>
+    <ul class="sig">
+      <li><strong>근수축</strong> &mdash; 근육이 반복해 세게 수축하는 것(ergoreceptor가 감지)</li>
+      <li><strong>대사 변화</strong> &mdash; 산성화, 산소 부족, 젖산, 조직 손상 물질, 비만세포&middot;면역 반응 등 국소 환경 변화(metaboreceptor가 감지)</li>
+    </ul>
+    <p>
+      그래서 PML은 두 수용체가 밀집한 곳 &mdash; 건보다 <strong>근육</strong>, 특히 수축력과 가동범위가 큰 두꺼운 근육 &mdash; 에 잘 생깁니다.
+      근육의 형태(기시부&middot;중앙&middot;정지부 중 어디가 큰가)에 따라 잘 생기는 자리가 달라집니다.
+    </p>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <p class="sec-label"><span class="n">02</span> 번져 가는 회로</p>
+    <h2>첫 병변이 척수와 뇌로 번진다 &mdash; PML에서 SML로</h2>
+    <p>
+      변화는 조직에 머물지 않습니다. 조직에서 시작된 병변이
+      <strong>척수 후각(SML, spinal molecular lesion) &rarr; 뇌간 &rarr; 변연계</strong>로 차례로 번집니다.
+      뇌간에서는 통증을 눌러 주는 <strong>하행 억제(D.I)</strong>와 부추기는 <strong>하행 촉진(D.F)</strong>의 균형이 흐트러지고,
+      변연계(편도&middot;전대상피질&middot;전두엽)에 이르면 통증에 정서&middot;인지 장애가 얹힙니다.
+    </p>
+    <p>
+      저자들은 이 전체 변화 &mdash; 감작, 신경의 표현형 변화, 하행조절 이상, 장기강화(LTP) 같은 것들 &mdash; 를 묶어
+      &lsquo;분자 병변(molecular lesion)&rsquo;이라 부릅니다. 다만 교과서는 이 표현이
+      <strong>학계의 표준 용어가 아니라</strong>, C-fiber 활성으로 생긴 &lsquo;분자 연쇄 사건&rsquo;을 임상에서 다루기 위해
+      붙인 이름임을 분명히 밝혀 둡니다. 단일 뉴런 수준의 &lsquo;감작&rsquo;만으로는 만성통증을 다 설명하기 어렵다는 것이 그 문제의식입니다.
+    </p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <p class="sec-label"><span class="n">03</span> 제3의 통증</p>
+    <h2>침해수용성과 신경병성이 겹친 상태 &mdash; NNPS</h2>
+    <p>
+      통증은 흔히 &lsquo;조직이 아파서 오는 통증(침해수용성)&rsquo;과 &lsquo;신경이 상해서 오는 통증(신경병성)&rsquo; 둘로 나뉩니다.
+      저자들은 오래된 통증에 이 둘이 <strong>동시에</strong> 있는 경우가 많다고 보고, 기존 두 분류로는 잘 담기지 않는
+      <strong>제3의 유형 &mdash; NNPS(Nociceptive Neuropathic Pain Syndrome)</strong>를 제안합니다.
+    </p>
+    <p>
+      예를 들어 무릎 골관절염이 있는 분의 통증이, 알고 보면 관절 자체보다 그로 인해 깨어난 신경 회로에서 오는 경우가 있습니다.
+      그러면 차트에는 두 가지가 함께 적힙니다 &mdash; <strong>① 골관절염</strong>(영상에 보이는 퇴행, 지금 통증과는 별개일 수 있음)과
+      <strong>② 관절염 이후 신경병성 통증</strong>(실제 통증의 원인이자 이 치료가 겨냥하는 곳).
+    </p>
+    <p>
+      NNPS는 기간이 아니라 <strong>임상 징후</strong>로 판단합니다 &mdash; 통각과민&middot;이질통&middot;지속통이 있으면 1단계,
+      거기에 정서&middot;인지 고통이 더해지면 2단계로 봅니다. DITI(체열)&middot;fMRI 같은 검사가 보조가 될 수 있지만,
+      비용과 복잡성 때문에 임상 판단을 앞세웁니다.
+    </p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <p class="sec-label"><span class="n">04</span> 겨냥</p>
+    <h2>그래서 무엇을, 어떻게 겨냥하는가</h2>
+    <p>
+      원인이 회로라면, 표면 조직에 무언가를 더하기보다 회로의 마디들을 직접 겨냥하는 것이 논리적입니다.
+      교과서가 기술하는 M-puncture 술기의 핵심은 다음과 같습니다.
+    </p>
+    <ul class="sig">
+      <li><strong>가는 침</strong>으로 통증 신경(C-fiber)은 되도록 덜 건드리고 다른 감각 신경(Aδ)을 자극한다</li>
+      <li>한 점이 아니라 <strong>&lsquo;구역(zone)&rsquo;</strong>으로 접근한다 &mdash; 점이 아니라 면</li>
+      <li>겨냥하는 곳: 첫 병변(PML), 척수의 병변(SML), 그리고 통증을 조절하는 <strong>하행 통로(D.I 활성&middot;D.F 조절)</strong></li>
+      <li><strong>하행 조절</strong>을 위해 얼굴(삼차신경 V1)&middot;귀 주변(V3&middot;미주신경)&middot;목(C2&middot;C3)의 특정 구역을 함께 자극한다</li>
+      <li><strong>분절 조절</strong> &mdash; 통증 부위(PSC)와 그 원위 경계 구역(DSC)을 이용한다</li>
+    </ul>
+    <p>
+      저자들은 이 방식을 기존 침(의료침&middot;건침)과 구분합니다. 기존 방식이 &lsquo;통증으로 통증을 억제&rsquo;하는 <strong>간접</strong> 경로라면,
+      M-puncture는 병변을 <strong>직접</strong> 겨냥한다고 설명합니다. (1999년 이후의 분자 통증처리 연구를 근거로 인용합니다.)
+    </p>
+    <div class="note">
+      <p style="margin:0">
+        이 글은 이론의 <strong>방향</strong>을 설명하는 것이지, 시술의 처방이나 매뉴얼이 아닙니다.
+        실제로 어디를, 얼마나 다룰지는 사람마다 다르며 진료에서 정합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <p class="sec-label"><span class="n">05</span> 지금의 통증의학과</p>
+    <h2>&lsquo;분자 병변&rsquo;과 &lsquo;통각가소성 통증&rsquo;은 같은 곳을 가리킨다</h2>
+    <p>
+      흥미로운 점이 있습니다. 저자들이 2009~2013년에 &lsquo;분자 수준의 병변&rsquo;이라 부른 것을,
+      통증의학계는 2017년 이후 <strong>통각가소성 통증(nociplastic pain)</strong>&middot;<strong>중추감작(central sensitization)</strong>이라는
+      이름으로 표준 개념 안에 받아들였습니다. 부르는 이름이 달랐을 뿐, 겨냥한 실체는 서로 닮아 있습니다.
+    </p>
+    <p>
+      다시 말해, 오래된 통증을 &lsquo;회로의 병&rsquo;으로 보는 <strong>진단의 틀</strong>은 이제 이 치료만의 주장이 아니라
+      통증의학이 함께 쓰는 관점입니다. 바꿔 말하면 남는 차별점은 진단이 아니라 <strong>치료 방식</strong>에 있고 &mdash;
+      그래서 다음 절이 필요합니다.
+    </p>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <p class="sec-label"><span class="n">06</span> 정직하게</p>
+    <h2>어디까지가 근거이고, 어디부터가 주장인가</h2>
+    <p>같은 무게로 다루지 않기 위해, 지금 시점의 판단을 그대로 적어 둡니다.</p>
+    <ul class="sig">
+      <li><strong>진단의 틀</strong>(만성통증 = 신경 회로의 병): 현재 통증의학 주류와 합치 &mdash; 가장 단단한 부분</li>
+      <li><strong>미세바늘 자극의 통증 완화</strong>: 건침 계열로 저~중등도의 근거가 있으나 연구 간 이질성이 크고 장기 성적은 불분명</li>
+      <li><strong>구체적 치료 성적 수치</strong>: 대조군&middot;눈가림&middot;정의가 갖춰진 자료가 없어 그대로 받아들이기 어렵다 &mdash;
+          이 글에서 성적 수치나 &lsquo;완치&rsquo;&middot;&lsquo;유일한 치료&rsquo; 같은 표현을 쓰지 않는 이유입니다</li>
+      <li>교과서가 정의하는 M-puncture는 <strong>침(needle) 술기</strong>입니다. 실제 진료에서 함께 쓰이는 주사 등 다른 요소는
+          이 이론과는 별개로, 각각의 근거를 따로 따져야 합니다</li>
+    </ul>
+    <p>
+      요약하면 &mdash; 오래된 통증을 회로의 병으로 보는 시각은 튼튼하고 지금의 의학과도 맞물립니다.
+      그 위에서 &lsquo;바늘로 회로를 겨냥한다&rsquo;는 접근의 방향은 일관되지만, 효과의 크기를 단정할 근거는 아직 얇습니다.
+      그래서 이 글은 <strong>보장이 아니라 관점</strong>으로 읽어 주시기를 바랍니다.
+    </p>
+  </section>
+
+  <footer>
+    <div class="disclaim">
+      <p style="margin:0">
+        본 사이트는 특정 의료기관의 광고가 아니며, 만성통증에 대한 일반적인 정보 제공과
+        치료 관점의 기록을 목적으로 합니다. 여기 실린 내용은 특정 효과나 완치를 보장하지 않으며,
+        개별적인 진단과 치료는 반드시 의료기관에서 상담하십시오.
+      </p>
+    </div>
+    <p class="colophon">편저 양준상 · 기록 시점 2026년 8월 · 이론 출처: Jun &amp; Lee&rsquo;s M-puncture and pain model (2013)</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    var bar=document.createElement('div'); bar.className='progress'; document.body.appendChild(bar);
+    function upd(){ var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0? (h.scrollTop||document.body.scrollTop)/max*100 : 0)+'%'; }
+    var t=false;
+    addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(function(){upd();t=false;});} },{passive:true});
+    addEventListener('resize',upd); upd();
+  })();
+</script>
+
+</body>
+</html>

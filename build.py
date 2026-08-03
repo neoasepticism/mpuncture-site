@@ -46,6 +46,16 @@ PAGES = [
          desc="Gut-derived input and tissue-resident organisms as drivers of chronic musculoskeletal "
               "pain — the established entities, the mechanisms, and what remains unresolved.",
          alt="/en/bacteria/".replace("/en/bacteria/","/bacteria/")),
+    dict(src="principle.html",          out="principle/index.html",      lang="ko", path="/principle/",
+         title="M-puncture의 원리 — 통증 회로를 어떻게 보는가 | 엠펑쳐",
+         desc="만성통증을 신경 회로의 문제로 보는 M-puncture 이론(전동휘·이영진 모델)의 심화 정리 — "
+              "C-신경섬유·PML/SML·제3의 통증 NNPS·시술 원리, 그리고 어디까지가 근거인가.",
+         alt="/en/principle/"),
+    dict(src="principle-en.html",       out="en/principle/index.html",   lang="en", path="/en/principle/",
+         title="The Principle of M-puncture — How It Reads the Pain Circuit",
+         desc="An in-depth account of the M-puncture theory (the Jun & Lee model): the C-fiber, PML/SML, "
+              "the third pain type NNPS, the technique, and where the evidence stands.",
+         alt="/principle/"),
 ]
 
 SKELETON = """<!doctype html>

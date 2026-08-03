@@ -1,0 +1,355 @@
+<title>The Principle of M-puncture — How It Reads the Pain Circuit</title>
+
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Charter,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:740px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+
+  .topbar{
+    position:sticky; top:0; z-index:20; background:var(--paper);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.75rem 0;
+  }
+  .navset{ display:flex; align-items:center; gap:1.1rem; }
+  .back, .lang{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.05em;
+    text-decoration:none; color:var(--ink-3);
+  }
+  .back:hover, .lang:hover{ color:var(--ink); }
+  .lang{ border-bottom:1px solid var(--line-2); padding-bottom:1px; }
+  .theme-btn{
+    background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em;
+    padding:.35rem .7rem; border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  header.hero{ padding:clamp(2.8rem,8vw,5rem) 0 clamp(1.6rem,4vw,2.4rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(2rem,5vw,3.05rem); line-height:1.22; letter-spacing:-.012em;
+    text-wrap:balance; margin:0 0 1.4rem;
+  }
+  .lede{ font-size:clamp(1.02rem,1.9vw,1.14rem); color:var(--ink-2); margin:0; max-width:60ch; }
+
+  section{ padding:clamp(2.4rem,5.5vw,3.8rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.71rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3vw,2rem);
+    line-height:1.3; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
+  }
+  h3{ font-family:var(--sans); font-weight:640; font-size:1.02rem; line-height:1.45;
+      margin:2.3rem 0 .7rem; letter-spacing:-.003em; }
+  p{ margin:0 0 1.15rem; max-width:68ch; }
+  strong{ font-weight:640; }
+  em.sci{ font-style:italic; }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2); max-width:68ch;
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.69rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  .dz{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+       border-radius:4px; overflow:hidden; margin:2rem 0; }
+  .dz > div{ background:var(--surface); padding:1.35rem 1.4rem; }
+  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:640; margin:0 0 .15rem; }
+  .dz .org{ font-family:var(--serif); font-style:italic; font-size:.92rem;
+             color:var(--ink-3); margin:0 0 .8rem; }
+  .dz p{ font-size:.94rem; margin:0 0 .6rem; }
+  .dz p:last-child{ margin-bottom:0; }
+  .dz .key{ color:var(--accent-ink); font-weight:640; }
+
+  .tblwrap{ overflow-x:auto; margin:1.8rem 0; }
+  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:480px; }
+  th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-family:var(--mono); font-size:.67rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink-3); font-weight:400; }
+  tbody tr:last-child td{ border-bottom:0; }
+
+  .sig{ list-style:none; padding:0; margin:1.6rem 0; max-width:68ch;
+        display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .sig li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
+  .sig li::before{
+    content:""; position:absolute; left:1.2rem; top:1.35rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  .path{ margin:2rem 0; display:grid; gap:1.1rem; max-width:68ch; }
+  @media (min-width:700px){ .path{ grid-template-columns:1fr 1fr; } }
+  .lane{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.4rem; }
+  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:640; margin:0 0 .55rem; }
+  .lane p{ font-size:.93rem; color:var(--ink-2); margin:0; }
+
+  .refs{ font-size:.86rem; color:var(--ink-3); }
+  .refs ol{ padding-left:1.3rem; margin:1rem 0 0; }
+  .refs li{ margin-bottom:.55rem; }
+  .refs code{ font-family:var(--mono); font-size:.9em; }
+
+  footer{ border-top:1px solid var(--line); padding:2.4rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.6rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+
+  /* ── mobile 타이포·여백 ── */
+  p,li,td,th,h1,h2,h3,h4,blockquote{ overflow-wrap:break-word; }
+  @media (max-width:640px){
+    body{ font-size:16px; line-height:1.7; }
+    h1,h2{ max-width:none; }
+    section{ padding:2.2rem 0; }
+    h3{ margin-top:1.9rem; }
+    header.hero{ padding:2.4rem 0 1.6rem; }
+    .quote{ padding-left:1.1rem; margin:1.6rem 0; }
+    .note,.flags,.habit,.lane,.editor,.slot{ padding:1rem 1.1rem; }
+    .dz > div{ padding:1.1rem 1.15rem; }
+    .myth{ padding:1.15rem 1.1rem; }
+    .check li,.sig li{ padding:.8rem 1rem .8rem 2.4rem; font-size:.92rem; }
+    .check li::before,.sig li::before{ left:.95rem; top:1.2rem; }
+    ol.steps li{ grid-template-columns:1.6rem 1fr; gap:.7rem; }
+    .lin{ grid-template-columns:1fr; gap:.25rem; padding:.9rem 0; }
+    table{ min-width:420px; font-size:.87rem; }
+    th,td{ padding:.6rem .6rem; }
+    .tblwrap{ margin:1.4rem 0; }
+    .trace{ height:38px; }
+    .refs ol{ padding-left:1.1rem; }
+  }
+
+  /* ════ 디자인 개선 (심화) ════ */
+  h3{ font-size:1.07rem; font-weight:680; color:var(--ink); margin-top:2.8rem; letter-spacing:-.01em; }
+  h3::before{ content:""; display:block; width:22px; height:2px; background:var(--accent);
+              margin-bottom:.7rem; opacity:.55; }
+  .sec-label .n{ font-weight:600; }
+  .progress{ position:fixed; top:0; left:0; height:2px; width:0;
+             background:var(--accent); z-index:60; transition:width .12s linear; }
+</style>
+
+<div class="shell">
+
+  <div class="topbar">
+    <div class="navset">
+      <a class="back" href="/en/">← M-puncture</a>
+      <a class="lang" href="/principle/">한국어</a>
+    </div>
+    <button class="theme-btn" id="tt" type="button">Theme</button>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">In depth · the principle, further</p>
+    <h1>The principle of M-puncture — how it reads the pain circuit</h1>
+    <p class="lede">
+      A fuller version of the landing page&rsquo;s &lsquo;Principle.&rsquo; It sets out the theory this treatment rests on &mdash;
+      the M-puncture model of Jun &amp; Lee &mdash; as drawn from the textbook, understanding long-standing pain as a
+      problem of the nerve circuit rather than the tissue. Technical terms appear; this is for physicians who want to
+      learn it and readers who want more.
+    </p>
+  </header>
+
+  <!-- 01 -->
+  <section>
+    <p class="sec-label"><span class="n">01</span> Where it begins</p>
+    <h2>Pain begins in a very thin nerve &mdash; the C-fiber and the first lesion</h2>
+    <p>
+      The body has a very thin pain nerve called the <strong>C-fiber</strong>. When it is stimulated over and over at an
+      injured site, molecular-level changes accumulate inside it. This theory treats that first change as the starting
+      point of pain and calls it the <strong>primary afferent molecular lesion (PML)</strong>.
+    </p>
+    <p>Two things wake the C-fiber:</p>
+    <ul class="sig">
+      <li><strong>Muscle contraction</strong> &mdash; strong, repeated contraction (sensed by ergoreceptors)</li>
+      <li><strong>Metabolic change</strong> &mdash; local shifts such as acidity, low oxygen, lactic acid, tissue-injury products, and mast-cell/immune activity (sensed by metaboreceptors)</li>
+    </ul>
+    <p>
+      So PML tends to form where both receptors are dense &mdash; in <strong>muscle</strong> rather than tendon, especially
+      thick muscles with strong contraction and a wide range of motion. Where exactly depends on the muscle&rsquo;s shape
+      (whether the origin, middle, or insertion is bulkier).
+    </p>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <p class="sec-label"><span class="n">02</span> The spreading circuit</p>
+    <h2>The first lesion spreads to cord and brain &mdash; from PML to SML</h2>
+    <p>
+      The change does not stay in the tissue. It spreads in turn to the
+      <strong>dorsal horn of the spinal cord (SML, spinal molecular lesion) &rarr; brainstem &rarr; limbic system</strong>.
+      In the brainstem the balance between pain-dampening <strong>descending inhibition (D.I)</strong> and pain-promoting
+      <strong>descending facilitation (D.F)</strong> is thrown off; by the limbic system (amygdala, anterior cingulate,
+      frontal cortex), emotional and cognitive distress is layered onto the pain.
+    </p>
+    <p>
+      The authors group this whole set of changes &mdash; sensitization, phenotype shifts in the nerve, disordered
+      descending control, long-term potentiation (LTP) &mdash; under the name &lsquo;molecular lesion.&rsquo; The textbook is
+      explicit that this is <strong>not a standard research term</strong>, but a clinical name for the &lsquo;molecular
+      cascade&rsquo; set off by C-fiber activation. Its point is that single-neuron &lsquo;sensitization&rsquo; alone does not
+      fully account for chronic pain.
+    </p>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <p class="sec-label"><span class="n">03</span> A third type of pain</p>
+    <h2>When tissue pain and nerve pain overlap &mdash; NNPS</h2>
+    <p>
+      Pain is usually split into &lsquo;pain from injured tissue (nociceptive)&rsquo; and &lsquo;pain from a damaged nerve
+      (neuropathic).&rsquo; The authors hold that in long-standing pain the two are often present <strong>at once</strong>, and
+      propose a <strong>third type &mdash; NNPS (Nociceptive Neuropathic Pain Syndrome)</strong> that the existing two categories don&rsquo;t capture well.
+    </p>
+    <p>
+      For example, the pain of knee osteoarthritis may, on closer look, come less from the joint than from the nerve circuit
+      it has awakened. The chart then carries two entries &mdash; <strong>① osteoarthritis</strong> (the degeneration on
+      imaging, which may be separate from today&rsquo;s pain) and <strong>② post-arthritic neuropathic pain</strong> (the actual
+      cause, and what this treatment aims at).
+    </p>
+    <p>
+      NNPS is judged by <strong>clinical signs</strong>, not duration &mdash; hyperalgesia, allodynia, and persistent pain mark
+      grade I; added emotional and cognitive distress marks grade II. Tests such as DITI (thermography) and fMRI can support
+      the picture, but cost and complexity keep clinical judgment first.
+    </p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <p class="sec-label"><span class="n">04</span> Aiming</p>
+    <h2>So what does it target, and how</h2>
+    <p>
+      If the driver is the circuit, it is logical to aim at the nodes of that circuit rather than add to the surface tissue.
+      The core of the M-puncture technique, as the textbook describes it, is:
+    </p>
+    <ul class="sig">
+      <li>A <strong>fine needle</strong> disturbs the pain nerve (C-fiber) as little as possible while stimulating other sensory nerve (Aδ)</li>
+      <li>It works by <strong>&lsquo;zone&rsquo;</strong> rather than a single point &mdash; an area, not a dot</li>
+      <li>What it aims at: the first lesion (PML), the spinal lesion (SML), and the <strong>descending control pathway</strong> (activating D.I, modulating D.F)</li>
+      <li>For <strong>descending control</strong>, it also stimulates specific zones of the face (trigeminal V1), the ear region (V3, vagus), and the neck (C2, C3)</li>
+      <li><strong>Segmental control</strong> &mdash; using the pain site (PSC) and its distal bordering zone (DSC)</li>
+    </ul>
+    <p>
+      The authors distinguish this from conventional acupuncture/dry needling. Where the conventional route dampens
+      &lsquo;pain with pain&rsquo; <strong>indirectly</strong>, M-puncture is described as aiming at the lesion <strong>directly</strong>
+      (citing molecular pain-processing research from 1999 onward).
+    </p>
+    <div class="note">
+      <p style="margin:0">
+        This text explains the <strong>direction</strong> of the theory, not a prescription or a procedure manual.
+        Exactly where and how much to treat differs from person to person and is decided in consultation.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <p class="sec-label"><span class="n">05</span> Meeting today&rsquo;s pain medicine</p>
+    <h2>&lsquo;Molecular lesion&rsquo; and &lsquo;nociplastic pain&rsquo; point to the same thing</h2>
+    <p>
+      Here is the interesting part. What the authors called a &lsquo;molecular-level lesion&rsquo; in 2009–2013, pain medicine
+      has &mdash; since 2017 &mdash; taken into its standard framework under the names <strong>nociplastic pain</strong> and
+      <strong>central sensitization</strong>. Only the name differed; the thing targeted is much the same.
+    </p>
+    <p>
+      In other words, the <strong>diagnostic frame</strong> &mdash; seeing long-standing pain as a disease of the circuit &mdash;
+      is no longer this treatment&rsquo;s claim alone but a shared view. What remains distinctive is therefore not the diagnosis
+      but the <strong>treatment</strong> &mdash; which is why the next section matters.
+    </p>
+  </section>
+
+  <!-- 06 -->
+  <section>
+    <p class="sec-label"><span class="n">06</span> Plainly</p>
+    <h2>Where the evidence ends and the claim begins</h2>
+    <p>So as not to weigh them equally, here is the judgment as it stands.</p>
+    <ul class="sig">
+      <li><strong>The diagnostic frame</strong> (chronic pain as a disease of the nerve circuit): consistent with mainstream pain medicine &mdash; the firmest part</li>
+      <li><strong>Pain relief from fine-needle stimulation</strong>: low-to-moderate evidence in the dry-needling family, but with wide heterogeneity and unclear long-term results</li>
+      <li><strong>Specific outcome figures</strong>: there is no data with controls, blinding, and clear definitions to take them at face value &mdash; which is why this text uses no success percentages and no words like &lsquo;cure&rsquo; or &lsquo;the only treatment&rsquo;</li>
+      <li>The M-puncture the textbook defines is a <strong>needle technique</strong>. Other elements used in actual practice, such as injections, stand apart from this theory and must be weighed on their own evidence</li>
+    </ul>
+    <p>
+      In short &mdash; seeing long-standing pain as a disease of the circuit is solid and meets today&rsquo;s medicine. On that
+      base, the direction of &lsquo;aiming at the circuit with a needle&rsquo; is coherent, but the evidence for the size of the
+      effect is still thin. So please read this as <strong>a viewpoint, not a guarantee</strong>.
+    </p>
+  </section>
+
+  <footer>
+    <div class="disclaim">
+      <p style="margin:0">
+        This site is not the advertising of any particular clinic; it is intended as general information about chronic pain
+        and a record of a treatment viewpoint. Nothing here guarantees a particular result or cure. For individual diagnosis
+        and treatment, please consult a medical institution.
+      </p>
+    </div>
+    <p class="colophon">Editor: June-sang Yang · Recorded August 2026 · Theory source: Jun &amp; Lee&rsquo;s M-puncture and pain model (2013)</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    var bar=document.createElement('div'); bar.className='progress'; document.body.appendChild(bar);
+    function upd(){ var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0? (h.scrollTop||document.body.scrollTop)/max*100 : 0)+'%'; }
+    var t=false;
+    addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(function(){upd();t=false;});} },{passive:true});
+    addEventListener('resize',upd); upd();
+  })();
+</script>
