@@ -77,6 +77,7 @@ SKELETON = """<!doctype html>
 <meta name="description" content="{desc}">
 <meta name="author" content="June-sang Yang">
 <meta name="msvalidate.01" content="5C3321B5366EE5A7E53AE1374649D57D">
+<meta name="naver-site-verification" content="8571edb7b9d2f5d09bb17d2c1b97c8513c25511a">
 <link rel="canonical" href="{domain}{path}">
 <link rel="alternate" hreflang="{lang}" href="{domain}{path}">
 <link rel="alternate" hreflang="{altlang}" href="{domain}{alt}">
