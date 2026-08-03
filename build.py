@@ -10,7 +10,7 @@ mpuncture.org 배포본 빌드
   /en/                 영문 랜딩          ← index-en.html
   /en/bacteria/        영문 심화          ← decontamination-en.html
 """
-import re, shutil
+import re, shutil, json
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -92,12 +92,51 @@ SKELETON = """<!doctype html>
   html{{ -webkit-text-size-adjust:100%; }}
   img,svg{{ max-width:100%; }}
 </style>
+{schema}
 </head>
 <body>
 {body}
 </body>
 </html>
 """
+
+
+AUTHOR_ID = f"{DOMAIN}/#editor"
+ENTITY_ID = f"{DOMAIN}/#mpuncture"
+SITE_ID   = f"{DOMAIN}/#website"
+
+
+def page_schema(p):
+    """페이지별 JSON-LD 구조화 데이터 (WebSite · WebPage · Person · DefinedTerm)."""
+    ko = p["lang"] == "ko"
+    url = DOMAIN + p["path"]
+    graph = [
+        {"@type": "WebSite", "@id": SITE_ID, "url": DOMAIN + "/",
+         "name": "M-puncture 엠펑쳐" if ko else "M-puncture",
+         "inLanguage": p["lang"]},
+        {"@type": "WebPage", "@id": url + "#webpage", "url": url,
+         "name": p["title"], "description": p["desc"], "inLanguage": p["lang"],
+         "isPartOf": {"@id": SITE_ID},
+         "author": {"@id": AUTHOR_ID}, "about": {"@id": ENTITY_ID}},
+        {"@type": "Person", "@id": AUTHOR_ID, "name": "June-sang Yang",
+         "alternateName": "양준상", "url": DOMAIN + "/",
+         "sameAs": ["https://orcid.org/0000-0001-7122-1386"]},
+        {"@type": "DefinedTerm", "@id": ENTITY_ID, "name": "M-puncture",
+         "alternateName": ["엠펑쳐", "엠펑처",
+                           "Molecular Targeting by Needle-puncture",
+                           "Jun & Lee's M-puncture and pain model"],
+         "description": ("전동휘·이영진이 정리한, 만성통증을 신경 회로(통각가소성 통증·중추감작)의 "
+                         "문제로 보고 그 회로를 겨냥하는 치료 관점."
+                         if ko else
+                         "A treatment viewpoint organized by Dong Whee Jun and Young Jin Lee that "
+                         "reads chronic pain as a problem of the nerve circuit (nociplastic pain / "
+                         "central sensitization) and aims at that circuit."),
+         "url": DOMAIN + ("/lineage/" if ko else "/en/lineage/")},
+    ]
+    data = {"@context": "https://schema.org", "@graph": graph}
+    return ('<script type="application/ld+json">\n'
+            + json.dumps(data, ensure_ascii=False, indent=0)
+            + '\n</script>')
 
 
 def build():
@@ -126,6 +165,7 @@ def build():
             title=p["title"].replace('"', "&quot;"),
             desc=p["desc"].replace('"', "&quot;"),
             domain=DOMAIN, path=p["path"], alt=p["alt"],
+            schema=page_schema(p),
             body=body,
         )
 
