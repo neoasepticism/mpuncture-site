@@ -56,6 +56,16 @@ PAGES = [
          desc="An in-depth account of the M-puncture theory (the Jun & Lee model): the C-fiber, PML/SML, "
               "the third pain type NNPS, the technique, and where the evidence stands.",
          alt="/principle/"),
+    dict(src="lineage.html",            out="lineage/index.html",        lang="ko", path="/lineage/",
+         title="M-puncture의 계보와 출처 — 어디에서 왔고, 무엇이 확인되는가 | 엠펑쳐",
+         desc="M-puncture(엠펑쳐)의 계보와 출처를 투명하게 정리 — 전동휘·이영진의 세 판본과 ISBN, "
+              "'acupuncture→needle-puncture' 이름의 변화, 편저자 이영진의 확인되는 이력, 근거상 위치.",
+         alt="/en/lineage/"),
+    dict(src="lineage-en.html",         out="en/lineage/index.html",     lang="en", path="/en/lineage/",
+         title="The Lineage and Sources of M-puncture — Where It Came From, and What Can Be Verified",
+         desc="A transparent account of M-puncture's lineage and sources: the three editions by Jun & Lee, "
+              "the 'acupuncture to needle-puncture' name change, the editor's verifiable record, and where the evidence stands.",
+         alt="/lineage/"),
 ]
 
 SKELETON = """<!doctype html>

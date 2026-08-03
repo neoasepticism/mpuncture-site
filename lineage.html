@@ -1,0 +1,316 @@
+<title>M-puncture의 계보와 출처 — 어디에서 왔고, 무엇이 확인되는가</title>
+
+<style>
+  :root{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+    --serif:"AppleMyungjo","Nanum Myeongjo","NanumMyeongjo","Batang","바탕","Songti SC",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  :root[data-theme="dark"]{
+    --ink:#E7EDED; --ink-2:#A9B5B6; --ink-3:#7A8788;
+    --paper:#0F1416; --surface:#151B1E; --surface-2:#1B2326;
+    --line:#252E31; --line-2:#33403F;
+    --accent:#4FBFB6; --accent-ink:#7FD6CE; --accent-soft:#11302F;
+    --warm:#D6994F; --warm-soft:#2E2415;
+  }
+  :root[data-theme="light"]{
+    --ink:#14191C; --ink-2:#3E484D; --ink-3:#6B767B;
+    --paper:#F5F7F7; --surface:#FFFFFF; --surface-2:#EDF1F1;
+    --line:#DCE2E2; --line-2:#C6CFCF;
+    --accent:#0E7C7B; --accent-ink:#0A5E5D; --accent-soft:#E1EFEE;
+    --warm:#9C5A0C; --warm-soft:#F6EADA;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:2rem; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.8;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  a{ color:var(--accent-ink); text-underline-offset:.22em; text-decoration-thickness:.06em; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  .shell{ max-width:760px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem); }
+
+  .topbar{
+    position:sticky; top:0; z-index:20; background:var(--paper);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:.75rem 0; margin-bottom:0;
+  }
+  .navset{ display:flex; align-items:center; gap:1.1rem; }
+  .back, .lang{
+    font-family:var(--mono); font-size:.73rem; letter-spacing:.05em;
+    text-decoration:none; color:var(--ink-3);
+  }
+  .back:hover, .lang:hover{ color:var(--ink); }
+  .lang{ border-bottom:1px solid var(--line-2); padding-bottom:1px; }
+  .theme-btn{
+    background:none; border:1px solid var(--line); color:var(--ink-3);
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.06em;
+    padding:.35rem .7rem; border-radius:3px; cursor:pointer; white-space:nowrap;
+  }
+  .theme-btn:hover{ color:var(--ink); border-color:var(--line-2); }
+
+  header.hero{ padding:clamp(2.8rem,8vw,5rem) 0 clamp(1.6rem,4vw,2.4rem); }
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(1.95rem,5vw,3rem); line-height:1.3; letter-spacing:-.015em;
+    text-wrap:balance; margin:0 0 1.4rem;
+  }
+  .lede{ font-size:clamp(1.01rem,1.9vw,1.13rem); color:var(--ink-2); margin:0; }
+
+  section{ padding:clamp(2.4rem,5.5vw,3.8rem) 0; border-top:1px solid var(--line); }
+  .sec-label{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 .9rem; display:flex; align-items:baseline; gap:.7em;
+  }
+  .sec-label .n{ color:var(--accent); }
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.45rem,3vw,1.95rem);
+    line-height:1.38; letter-spacing:-.01em; text-wrap:balance; margin:0 0 1.5rem;
+  }
+  h3{ font-family:var(--sans); font-weight:650; font-size:1.03rem; line-height:1.5;
+      margin:2.3rem 0 .7rem; letter-spacing:-.005em; }
+  p{ margin:0 0 1.15rem; }
+  strong{ font-weight:650; }
+
+  .note{
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:1.15rem 1.35rem; margin:1.8rem 0; font-size:.95rem; color:var(--ink-2);
+  }
+  .note p:last-child{ margin-bottom:0; }
+  .note.warm{ background:var(--warm-soft); border-color:transparent; color:var(--ink); }
+  .note .t{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--warm); display:block; margin-bottom:.5rem;
+  }
+
+  /* disease cards */
+  .dz{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+       border-radius:4px; overflow:hidden; margin:2rem 0; }
+  .dz > div{ background:var(--surface); padding:1.35rem 1.4rem; }
+  .dz h4{ font-family:var(--sans); font-size:1.02rem; font-weight:650; margin:0 0 .15rem; }
+  .dz .sci{ font-family:var(--mono); font-size:.72rem; color:var(--ink-3); margin:0 0 .8rem; letter-spacing:.02em; }
+  .dz p{ font-size:.94rem; margin:0 0 .6rem; }
+  .dz p:last-child{ margin-bottom:0; }
+  .dz .key{ color:var(--accent-ink); font-weight:650; }
+
+  /* regimen table */
+  .tblwrap{ overflow-x:auto; margin:1.8rem 0; }
+  table{ border-collapse:collapse; width:100%; font-size:.93rem; min-width:460px; }
+  th,td{ text-align:left; padding:.75rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--ink-3); font-weight:400; }
+  tbody tr:last-child td{ border-bottom:0; }
+
+  /* signal list */
+  .sig{ list-style:none; padding:0; margin:1.6rem 0;
+        display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; }
+  .sig li{ background:var(--surface); padding:.9rem 1.2rem .9rem 2.9rem; position:relative; font-size:.95rem; }
+  .sig li::before{
+    content:""; position:absolute; left:1.2rem; top:1.42rem;
+    width:9px; height:9px; border:1.5px solid var(--accent); border-radius:1px;
+  }
+
+  .path{ margin:2rem 0; display:grid; gap:1.1rem; }
+  @media (min-width:700px){ .path{ grid-template-columns:1fr 1fr; } }
+  .lane{ background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1.4rem; }
+  .lane h4{ font-family:var(--sans); font-size:1rem; font-weight:650; margin:0 0 .55rem; }
+  .lane p{ font-size:.93rem; color:var(--ink-2); margin:0; }
+
+  .refs{ font-size:.86rem; color:var(--ink-3); }
+  .refs ol{ padding-left:1.3rem; margin:1rem 0 0; }
+  .refs li{ margin-bottom:.55rem; }
+  .refs code{ font-family:var(--mono); font-size:.9em; }
+
+  footer{ border-top:1px solid var(--line); padding:2.4rem 0 4rem; color:var(--ink-3); font-size:.86rem; }
+  .disclaim{ background:var(--surface-2); border-radius:4px; padding:1.15rem 1.35rem; margin:0 0 1.6rem; }
+  .colophon{ font-family:var(--mono); font-size:.7rem; letter-spacing:.06em; }
+
+  /* ── mobile 타이포·여백 ── */
+  p,li,td,th,h1,h2,h3,h4,blockquote{ overflow-wrap:break-word; }
+  @media (max-width:640px){
+    body{ font-size:16px; line-height:1.7; }
+    h1,h2{ max-width:none; }
+    section{ padding:2.2rem 0; }
+    h3{ margin-top:1.9rem; }
+    header.hero{ padding:2.4rem 0 1.6rem; }
+    .quote{ padding-left:1.1rem; margin:1.6rem 0; }
+    .note,.flags,.habit,.lane,.editor,.slot{ padding:1rem 1.1rem; }
+    .dz > div{ padding:1.1rem 1.15rem; }
+    .myth{ padding:1.15rem 1.1rem; }
+    .check li,.sig li{ padding:.8rem 1rem .8rem 2.4rem; font-size:.92rem; }
+    .check li::before,.sig li::before{ left:.95rem; top:1.2rem; }
+    ol.steps li{ grid-template-columns:1.6rem 1fr; gap:.7rem; }
+    .lin{ grid-template-columns:1fr; gap:.25rem; padding:.9rem 0; }
+    table{ min-width:420px; font-size:.87rem; }
+    th,td{ padding:.6rem .6rem; }
+    .tblwrap{ margin:1.4rem 0; }
+    .trace{ height:38px; }
+    .refs ol{ padding-left:1.1rem; }
+  }
+
+  /* ════ 디자인 개선 (심화) ════ */
+  h3{ font-size:1.07rem; font-weight:680; color:var(--ink); margin-top:2.8rem; letter-spacing:-.01em; }
+  h3::before{ content:""; display:block; width:22px; height:2px; background:var(--accent);
+              margin-bottom:.7rem; opacity:.55; }
+  .sec-label .n{ font-weight:600; }
+  .progress{ position:fixed; top:0; left:0; height:2px; width:0;
+             background:var(--accent); z-index:60; transition:width .12s linear; }
+</style>
+
+<div class="shell">
+
+  <div class="topbar">
+    <div class="navset">
+      <a class="back" href="/">← M-puncture 엠펑쳐</a>
+      <a class="lang" href="/en/lineage/">English</a>
+    </div>
+    <button class="theme-btn" id="tt" type="button">테마 전환</button>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">심화 · 계보와 출처</p>
+    <h1>M-puncture의 계보와 출처 — 어디에서 왔고, 무엇이 확인되는가</h1>
+    <p class="lede">
+      M-puncture(엠펑쳐)가 어떤 계보에서 나왔고, 그중 무엇이 서지&middot;공개 자료로 확인되는지 투명하게 밝힙니다.
+      효과를 주장하는 페이지가 아니라, 이 이론의 <strong>출처를 정리한 기록</strong>입니다.
+    </p>
+  </header>
+
+  <!-- 01 -->
+  <section>
+    <p class="sec-label"><span class="n">01</span> 뿌리</p>
+    <h2>바늘로 신경을 다루는 계열에서 나왔다</h2>
+    <p>
+      M-puncture의 직접적인 뿌리는 캐나다 밴쿠버의 <strong>찬 건(Chan Gunn)</strong>이 정립한 <strong>IMS</strong>
+      &mdash; 근육 깊이 바늘을 넣어 신경 기능을 회복시키는 기법 &mdash; 입니다. 그리고 그 배경 개념으로는
+      <strong>클리퍼드 울프(Clifford Woolf)</strong>가 1983년에 보고한 <strong>중추감작(central sensitization)</strong>,
+      곧 신경계가 통증에 예민해지는 현상이 있습니다. 이 둘이 오늘날 만성통증 이해의 토대이자, M-puncture가 딛고 선 자리입니다.
+    </p>
+  </section>
+
+  <!-- 02 -->
+  <section>
+    <p class="sec-label"><span class="n">02</span> 저서</p>
+    <h2>세 판본으로 본 계보</h2>
+    <p>M-puncture는 세 권의 책으로 남아 있습니다. 서지 정보는 그대로 확인할 수 있는 1차 자료입니다.</p>
+    <ul class="sig">
+      <li><strong>2009 초판</strong> &mdash; 『Jun&rsquo;s M-Puncture: molecular targeting by <em>acupuncture</em> and pain model』, <strong>전동휘(Dong Whee Jun)</strong> 저, 이퍼블릭. ISBN 9788962245837</li>
+      <li><strong>2010</strong> &mdash; 영문판, 이퍼블릭. ISBN 9788962245431</li>
+      <li><strong>2013 개정2판</strong> &mdash; 『Jun &amp; Lee&rsquo;s M-puncture and pain model』, <strong>전동휘 · 이영진</strong>, 범문에듀케이션, 494쪽. ISBN 9788997140688 &mdash; 현재도 구할 수 있습니다</li>
+    </ul>
+    <p>
+      개정판 표지는 역할을 나눠 적고 있습니다 &mdash; <strong>이론과 모델은 전동휘</strong>,
+      <strong>이론 갱신과 임상 적용은 이영진</strong>. 즉 통증 모델의 원저자는 전동휘이고,
+      이영진 교수는 그것을 임상에서 쓸 수 있는 체계로 정리했습니다.
+    </p>
+    <div class="note">
+      <p style="margin:0">
+        <strong>이름의 변화.</strong> 초판 부제는 &lsquo;by <em>acupuncture</em>(침술)&rsquo;였고, 2013년 개정판에서
+        &lsquo;by <em>needle-puncture</em>(바늘 자입)&rsquo;로 바뀌었습니다. M-puncture의 &lsquo;puncture&rsquo;는 처음엔 침술을 가리켰고,
+        개정판에서 중립적인 의과 용어로 다시 표현된 셈입니다. 이 사이트는 그 계보를 감추지 않고 그대로 밝힙니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section>
+    <p class="sec-label"><span class="n">03</span> 편저자</p>
+    <h2>이영진 &mdash; 확인되는 이력</h2>
+    <p>
+      이영진 교수의 확인 가능한 이력은 무엇보다 <strong>통증의학 번역&middot;저술의 오랜 축적</strong>입니다.
+      M-puncture는 그 축적 위에 얹힌 임상 체계로 읽는 것이 정확합니다.
+    </p>
+    <ul class="sig">
+      <li><strong>Waldman 실전 통증의학 시리즈</strong> 번역&middot;편저(범문에듀케이션, 2023) &mdash; 척추&middot;두통&middot;어깨&middot;무릎&middot;발목 등 부위별 8권</li>
+      <li>『통증원인 진단법』(Waldman 원저 역, 정담, 2006) &mdash; 20여 년에 걸친 통증의학 번역의 중심</li>
+      <li>『노인 의학』(고려의학, 1996) &mdash; 국내 최초의 노인의학 교과서</li>
+      <li>차의과학대학교 통합의학대학원장 임명(2013)</li>
+    </ul>
+    <p>이런 축적이 있었기에, M-puncture는 즉흥적 발상이 아니라 오래된 임상 경험을 하나의 이론으로 정리한 작업으로 이해할 수 있습니다.</p>
+  </section>
+
+  <!-- 04 -->
+  <section>
+    <p class="sec-label"><span class="n">04</span> 지금</p>
+    <h2>지금은 어디에 있나 &mdash; 그리고 이 기록의 성격</h2>
+    <p>
+      M-puncture라는 이름의 활동은 <strong>2018년 무렵 멈췄습니다.</strong> 전문가과정 마지막 공지는 2017년 말이었고,
+      원 사이트(mpun.co.kr)는 사라졌습니다. 현재 M-puncture를 이름으로 내세우는 곳은 사실상 한 곳(GC녹십자아이메드 강남의원)뿐이며,
+      2013년 개정2판 교과서는 아직 구할 수 있습니다.
+    </p>
+    <p>
+      이 사이트는 그렇게 <strong>사라진 원자료를 대신하는 공개 아카이브</strong>입니다.
+      특정 병원의 광고가 아니라, 한 임상 관점의 계보와 자료를 남겨 두려는 기록입니다.
+    </p>
+    <div class="note">
+      <p style="margin:0">
+        <strong>근거상의 위치.</strong> M-puncture의 <em>진단적 관점</em>(오래된 통증을 신경 회로의 문제로 보는 것)은,
+        이후 통증의학이 <strong>통각가소성 통증(nociplastic pain)</strong>&middot;중추감작으로 표준화한 개념과 겹칩니다.
+        다만 &lsquo;M-puncture&rsquo;라는 이름의 치료 자체가 동료심사 학술문헌에 독립적으로 등재된 기록은 확인되지 않습니다.
+        그래서 이 사이트는 특정 효과를 주장하지 않고, 이 이론을 <strong>하나의 관점과 기록</strong>으로 다룹니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section>
+    <p class="sec-label"><span class="n">05</span> 참고 자료</p>
+    <h2>확인해 볼 수 있는 출처</h2>
+    <ul class="sig">
+      <li>교과서 2013 개정2판(ISBN 9788997140688) &mdash; <a href="https://product.kyobobook.co.kr/detail/S000001609575" target="_blank" rel="noopener">교보문고 상품페이지</a></li>
+      <li>통각가소성 통증(nociplastic pain) &mdash; 국제통증학회(IASP) 용어 정의</li>
+      <li>중추감작(central sensitization) &mdash; Woolf CJ, <em>Nature</em> 1983</li>
+      <li>IMS / Gunn 기법 &mdash; <a href="https://sportmedicine.med.ubc.ca/services/gunn-ims/" target="_blank" rel="noopener">브리티시컬럼비아대(UBC) 공개 자료</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="disclaim">
+      <p style="margin:0">
+        본 사이트는 특정 의료기관의 광고가 아니며, 만성통증에 대한 일반적인 정보 제공과 치료 관점&middot;계보의 기록을
+        목적으로 합니다. 여기 실린 내용은 특정 효과나 완치를 보장하지 않으며, 개별적인 진단과 치료는 반드시 의료기관에서 상담하십시오.
+      </p>
+    </div>
+    <p class="colophon">편저 양준상 · 기록 시점 2026년 8월 · 이론 출처: Jun &amp; Lee&rsquo;s M-puncture and pain model (2013)</p>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('tt');
+    btn.addEventListener('click',function(){
+      var cur=root.getAttribute('data-theme');
+      if(!cur){ cur='light'; }
+      root.setAttribute('data-theme', cur==='dark'?'light':'dark');
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    var bar=document.createElement('div'); bar.className='progress'; document.body.appendChild(bar);
+    function upd(){ var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0? (h.scrollTop||document.body.scrollTop)/max*100 : 0)+'%'; }
+    var t=false;
+    addEventListener('scroll',function(){ if(!t){t=true;requestAnimationFrame(function(){upd();t=false;});} },{passive:true});
+    addEventListener('resize',upd); upd();
+  })();
+</script>
